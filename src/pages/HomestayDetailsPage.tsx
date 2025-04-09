@@ -536,7 +536,14 @@ const HomestayDetailsPage = () => {
       <Button 
         variant="default" // Changed from 'outline' to 'default'
         className="bg-blue-500 text-white hover:bg-blue-700"
-        onClick={() => setShowAllImages(false)}
+        onClick={() => {
+          setShowAllImages(false);
+          // Scroll to top smoothly
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // or 'auto' for instant scroll
+          });
+        }}
       >
         Close Gallery
       </Button>

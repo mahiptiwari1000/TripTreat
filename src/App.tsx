@@ -17,6 +17,7 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import { useEffect } from "react";
 import { ThemeProvider } from "@/components/theme-provider";
+import FloatingChatbot from './components/FloatingChatbot';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -54,6 +55,7 @@ const App = () => (
             <Route path="/contact" element={<ContactPage />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
+          <FloatingChatbot />
         </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>
