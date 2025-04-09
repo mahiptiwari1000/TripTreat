@@ -49,21 +49,21 @@ const Navbar = () => {
               <Home size={16} className="transition-transform group-hover:rotate-12" />
               Homestays
             </Link>
-            <Link to="/tours" className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200">
-              <CalendarRange size={16} />
-              Tours
-            </Link>
-            <Link to="/experiences" className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200">
-              <Award size={16} />
-              Experiences
+            <Link to="/hotspots" className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200">
+              <MapPin size={16} />
+              Hotspots
             </Link>
             <Link to="/eateries" className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200">
               <Utensils size={16} />
               Eateries
             </Link>
-            <Link to="/hotspots" className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200">
-              <MapPin size={16} />
-              Hotspots
+            <Link to="/experiences" className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200">
+              <Award size={16} />
+              Experiences
+            </Link>
+            <Link to="/tours" className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200">
+              <CalendarRange size={16} />
+              Tours
             </Link>
             <Link to="/itinerary" className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200">
               <Map size={16} />

@@ -30,6 +30,7 @@ interface Hotspot {
     lng: number;
   };
   tips?: string[];
+  additionalImages: string[];
 }
 
 interface HotspotDetailsDialogProps {
@@ -40,15 +41,15 @@ interface HotspotDetailsDialogProps {
 }
 
 // Sample additional images for the hotspot (in a real app, this would come from the backend)
-const getAdditionalImages = (mainImage: string) => {
-  // In a real app, you'd have actual additional images
-  // Here we're just reusing the main image to simulate multiple photos
-  return [
-    mainImage,
-    '/lovable-uploads/04bb80f1-f5bf-401e-8e65-e67086760165.png',
-    '/lovable-uploads/c5b36d98-5b95-4333-9508-2b9ba95125d1.png'
-  ];
-};
+// const getAdditionalImages = (mainImage: string) => {
+//   // In a real app, you'd have actual additional images
+//   // Here we're just reusing the main image to simulate multiple photos
+//   return [
+//     mainImage,
+//     '/lovable-uploads/04bb80f1-f5bf-401e-8e65-e67086760165.png',
+//     '/lovable-uploads/c5b36d98-5b95-4333-9508-2b9ba95125d1.png'
+//   ];
+// };
 
 const HotspotDetailsDialog = ({ 
   hotspot, 
@@ -58,7 +59,7 @@ const HotspotDetailsDialog = ({
 }: HotspotDetailsDialogProps) => {
   if (!hotspot) return null;
   
-  const additionalImages = getAdditionalImages(hotspot.image);
+  //const additionalImages = getAdditionalImages(hotspot.image);
 
   const handleAddToItinerary = () => {
     onAddToItinerary(hotspot);
@@ -85,7 +86,7 @@ const HotspotDetailsDialog = ({
               />
             </div>
             <div className="grid grid-cols-2 gap-3 h-60">
-              {additionalImages.slice(1, 3).map((img, i) => (
+              {hotspot.additionalImages.slice(0, 2).map((img, i) => (
                 <div key={i} className="rounded-md overflow-hidden h-full">
                   <img 
                     src={img} 

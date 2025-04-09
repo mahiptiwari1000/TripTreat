@@ -165,7 +165,7 @@ const ItineraryPage = () => {
       {/* Hero Section */}
       <div className="relative h-[250px] mb-8">
         <img 
-          src="/lovable-uploads/c5b36d98-5b95-4333-9508-2b9ba95125d1.png" 
+          src="/lovable-uploads/itecar.jpg" 
           alt="My Manipur Itinerary" 
           className="absolute inset-0 w-full h-full object-cover"
         />

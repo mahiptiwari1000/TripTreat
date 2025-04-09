@@ -30,20 +30,49 @@ type Hotspot = {
     lng: number;
   };
   tips?: string[];
+  additionalImages: string[];
 };
 
 // Sample images that we have
 const availableImages = [
-  '/lovable-uploads/d4e3086a-1ee6-4e6f-bbe8-ae7112cfc6f5.png',
-  '/lovable-uploads/f13215f5-2e9e-4597-b99e-722351fb1544.png',
-  '/lovable-uploads/ca94ce45-398a-48a5-a429-f6ac7b5e80f7.png',
-  '/lovable-uploads/0164db78-e122-4072-8dfa-2c6d65efae7b.png',
-  '/lovable-uploads/2a0be913-e122-4396-b744-24bc7dea5037.png',
-  '/lovable-uploads/e91aeeb5-3d41-4239-9c94-d2f36f9ee75e.png',
-  '/lovable-uploads/834fac93-b92b-4423-b982-9a67262496ef.png',
-  '/lovable-uploads/6d26ee7a-393a-49f5-9000-cac21a51cd05.png',
-  '/lovable-uploads/04bb80f1-f5bf-401e-8e65-e67086760165.png',
-  '/lovable-uploads/c5b36d98-5b95-4333-9508-2b9ba95125d1.png'
+  '/lovable-uploads/sah3.jpg',
+  '/lovable-uploads/kha3.jpg',
+  '/lovable-uploads/zoo2.jpg',
+  '/lovable-uploads/or1.jpg',
+  '/lovable-uploads/sa1.jpg',
+  '/lovable-uploads/wa4.jpg',
+  '/lovable-uploads/71.jpg',
+  '/lovable-uploads/th6.jpg',
+  '/lovable-uploads/an2.jpg',
+  '/lovable-uploads/si1.jpg',
+  '/lovable-uploads/11.jpg',
+  '/lovable-uploads/12.jpg',
+  '/lovable-uploads/13.jpg',
+  '/lovable-uploads/14.jpg',
+  '/lovable-uploads/15.jpg',
+  '/lovable-uploads/16.jpg',
+  '/lovable-uploads/17.jpg',
+  '/lovable-uploads/18.jpg',
+  '/lovable-uploads/19.jpg',
+  '/lovable-uploads/20.jpg',
+  '/lovable-uploads/21.jpg',
+  '/lovable-uploads/22.jpg',
+  '/lovable-uploads/23.jpg',
+  '/lovable-uploads/24.jpg',
+  '/lovable-uploads/25.jpg',
+  '/lovable-uploads/26.jpg',
+  '/lovable-uploads/27.jpg',
+  '/lovable-uploads/28.jpg',
+  '/lovable-uploads/29.jpg',
+  '/lovable-uploads/30.jpg',
+  '/lovable-uploads/31.jpg',
+  '/lovable-uploads/32.jpg',
+  '/lovable-uploads/33.jpg',
+  '/lovable-uploads/34.jpg',
+  '/lovable-uploads/35.jpg',
+  '/lovable-uploads/36.jpg',
+  
+
 ];
 
 // Hotspots data from the provided information
@@ -55,6 +84,10 @@ const hotspots: Hotspot[] = [
     district: 'Imphal Valley',
     details: 'A memorial honoring Manipuri martyrs of the 1891 Anglo-Manipuri War. This historic monument stands as a symbol of resistance and serves as a reminder of Manipur\'s fight for independence.',
     image: availableImages[0],
+    additionalImages: [
+      "/lovable-uploads/sah2.jpg",
+      "/lovable-uploads/sah5.jpg"
+    ],
     category: 'Historical',
     visitDuration: '1-2 hours',
     bestTime: 'October to March',
@@ -68,6 +101,10 @@ const hotspots: Hotspot[] = [
     district: 'Imphal Valley',
     details: "Asia's largest all-women-run market with traditional handicrafts, spices, and textiles. This unique market has been operating for over 500 years and showcases the economic empowerment of women in Manipuri society.",
     image: availableImages[1],
+    additionalImages: [
+      "/lovable-uploads/kha1.jpg",
+      "/lovable-uploads/kha2.jpg"
+    ],
     category: 'Cultural',
     visitDuration: '2-3 hours',
     bestTime: 'Any time of year',
@@ -81,6 +118,10 @@ const hotspots: Hotspot[] = [
     district: 'Imphal Valley',
     details: 'Home to the endangered Sangai deer and other wildlife. The zoo is involved in conservation efforts for several endangered species native to the northeast region of India.',
     image: availableImages[2],
+    additionalImages: [
+      "/lovable-uploads/zoo1.jpg",
+      "/lovable-uploads/zoo4.jpg"
+    ],
     category: 'Wildlife',
     visitDuration: '3-4 hours',
     bestTime: 'November to February',
@@ -94,6 +135,10 @@ const hotspots: Hotspot[] = [
     district: 'Imphal Valley',
     details: 'Houses over 110 rare orchid species, including endemic varieties. This botanical garden is a paradise for nature lovers and showcases the rich biodiversity of the region.',
     image: availableImages[3],
+    additionalImages: [
+      "/lovable-uploads/or2.jpg",
+      "/lovable-uploads/or3.jpg"
+    ],
     category: 'Nature',
     visitDuration: '2-3 hours',
     bestTime: 'March to May (flowering season)',
@@ -107,6 +152,10 @@ const hotspots: Hotspot[] = [
     district: 'Imphal Valley',
     details: 'A three-tiered waterfall surrounded by lush foothills. The cascading water creates a serene atmosphere perfect for nature enthusiasts and photographers.',
     image: availableImages[4],
+    additionalImages: [
+      "/lovable-uploads/sa3.jpg",
+      "/lovable-uploads/sa2.jpg"
+    ],
     category: 'Nature',
     visitDuration: 'Half day',
     bestTime: 'June to September (monsoon)',
@@ -119,7 +168,11 @@ const hotspots: Hotspot[] = [
     location: '16 km from Imphal',
     district: 'Thoubal District',
     details: 'A serene lake ideal for birdwatching and picnics. The surrounding hills and vegetation create a picturesque setting perfect for relaxation.',
-    image: availableImages[6],
+    image: availableImages[5],
+    additionalImages: [
+      "/lovable-uploads/wa2.jpg",
+      "/lovable-uploads/wa3.jpg"
+    ],
     category: 'Nature',
     visitDuration: '2-3 hours',
     bestTime: 'November to February',
@@ -132,7 +185,11 @@ const hotspots: Hotspot[] = [
     location: '20 km from Ukhrul town',
     district: 'Ukhrul District',
     details: 'Ancient limestone caves with WWII bunker remnants. These natural caves have historical significance and feature interesting limestone formations.',
-    image: availableImages[7],
+    image: availableImages[6],
+    additionalImages: [
+      "/lovable-uploads/72.jpg",
+      "/lovable-uploads/73.jpg"
+    ],
     category: 'Adventure',
     visitDuration: '2-3 hours',
     bestTime: 'October to April',
@@ -145,7 +202,11 @@ const hotspots: Hotspot[] = [
     location: '30 km from Tamenglong',
     district: 'Tamenglong District',
     details: 'A 650-meter-long cave system with carvings linked to Vietnamese Hovnanian culture. This archaeological site offers insights into ancient civilizations.',
-    image: availableImages[0],
+    image: availableImages[7],
+    additionalImages: [
+      "/lovable-uploads/th5.jpg",
+      "/lovable-uploads/th3.jpg"
+    ],
     category: 'Adventure',
     visitDuration: 'Half day',
     bestTime: 'November to February',
@@ -158,7 +219,11 @@ const hotspots: Hotspot[] = [
     location: '25 km from Imphal',
     district: 'Offbeat Gems',
     details: 'Famous for traditional pottery and a cultural complex with tribal house replicas. This village offers an authentic glimpse into the traditional lifestyles of Manipuri communities.',
-    image: availableImages[2],
+    image: availableImages[8],
+    additionalImages: [
+      "/lovable-uploads/an3.jpg",
+      "/lovable-uploads/an1.jpg"
+    ],
     category: 'Cultural',
     visitDuration: 'Half day',
     bestTime: 'October to March',
@@ -171,13 +236,459 @@ const hotspots: Hotspot[] = [
     location: '26 km from Imphal',
     district: 'Offbeat Gems',
     details: "The world's highest mud dam, surrounded by terraced paddy fields. This engineering marvel offers breathtaking views of the surrounding landscape.",
-    image: availableImages[3],
+    image: availableImages[9],
+    additionalImages: [
+      "/lovable-uploads/si2.jpg",
+      "/lovable-uploads/si3.jpg"
+    ],
     category: 'Engineering',
     visitDuration: '2-3 hours',
     bestTime: 'November to February',
     entryFee: 'Free',
     tips: ['Sunset views are spectacular', 'Photography permitted', 'Limited facilities so bring supplies']
   },
+  {
+    id: 11,
+    name: 'Kangla Fort',
+    location: 'Imphal City',
+    district: 'Imphal Valley',
+    details: 'An ancient fort with historical significance, featuring temples and gardens. Once the seat of Manipur\'s power, this site offers a glimpse into the royal history of the region.',
+    image: availableImages[10],
+    additionalImages: [
+      "/lovable-uploads/112.jpg",
+      "/lovable-uploads/113.jpg"
+    ],
+    category: 'Historical',
+    visitDuration: '2-3 hours',
+    bestTime: 'October to March',
+    entryFee: '₹30 for Indians, ₹100 for foreigners',
+    tips: ['Hire a local guide for historical insights', 'Visit early morning for best photography', 'Don\'t miss the Coronation Hall']
+  },
+  {
+    id: 12,
+    name: 'Shree Govindajee Temple',
+    location: 'Imphal City',
+    district: 'Imphal Valley',
+    details: 'A renowned Vaishnavite temple known for its impressive architecture and religious importance. This twin-domed temple is an important spiritual center for the people of Manipur.',
+    image: availableImages[11],
+    additionalImages: [
+      "/lovable-uploads/122.jpg",
+      "/lovable-uploads/123.jpg"
+    ],
+    category: 'Religious',
+    visitDuration: '1-2 hours',
+    bestTime: 'Any time of year',
+    entryFee: 'Free',
+    tips: ['Dress modestly when visiting', 'Morning aarti is a special experience', 'Remove footwear before entering']
+  },
+  {
+    id: 13,
+    name: 'Imphal War Cemetery',
+    location: 'Imphal City',
+    district: 'Imphal Valley',
+    details: 'A solemn memorial commemorating soldiers who died during World War II. This well-maintained cemetery pays tribute to the Allied forces who fought in the Battle of Imphal.',
+    image: availableImages[12],
+    additionalImages: [
+      "/lovable-uploads/132.jpg",
+      "/lovable-uploads/133.jpg"
+    ],
+    category: 'Historical',
+    visitDuration: '1 hour',
+    bestTime: 'October to March',
+    entryFee: 'Free',
+    tips: ['Maintain respectful silence', 'Photography permitted', 'Historical information available at the entrance']
+  },
+  {
+    id: 14,
+    name: 'Manipur State Museum',
+    location: 'Imphal City',
+    district: 'Imphal Valley',
+    details: 'Displaying a rich collection of cultural artifacts and historical items that highlight Manipur\'s heritage. The museum offers insights into tribal cultures, royal history, and traditional arts.',
+    image: availableImages[13],
+    additionalImages: [
+      "/lovable-uploads/142.jpg",
+      "/lovable-uploads/143.jpg"
+    ],
+    category: 'Cultural',
+    visitDuration: '2-3 hours',
+    bestTime: 'Any time of year',
+    entryFee: '₹20',
+    tips: ['Closed on Mondays', 'Photography with permission only', 'Audio guides available']
+  },
+  {
+    id: 15,
+    name: 'Loktak Lake',
+    location: 'Moirang, Bishnupur District',
+    district: 'Bishnupur District',
+    details: 'The largest freshwater lake in Northeast India, known for its unique floating islands called phumdis. This ecological wonder supports diverse wildlife and offers spectacular views.',
+    image: availableImages[14],
+    additionalImages: [
+      "/lovable-uploads/152.jpg",
+      "/lovable-uploads/153.jpg"
+    ],
+    category: 'Nature',
+    visitDuration: 'Half day',
+    bestTime: 'November to February',
+    entryFee: '₹50 for boat rides',
+    tips: ['Take a boat tour to fully experience the lake', 'Visit Sendra Island for panoramic views', 'Best enjoyed at sunrise or sunset']
+  },
+  {
+    id: 16,
+    name: 'Keibul Lamjao National Park',
+    location: 'Bishnupur District',
+    district: 'Bishnupur District',
+    details: 'The world\'s only floating national park, home to the endangered Sangai deer. This unique ecosystem is built on phumdis and provides a critical habitat for rare wildlife.',
+    image: availableImages[15],
+    additionalImages: [
+      "/lovable-uploads/162.jpg",
+      "/lovable-uploads/163.jpg"
+    ],
+    category: 'Wildlife',
+    visitDuration: '3-4 hours',
+    bestTime: 'November to February',
+    entryFee: '₹50 for Indians, ₹200 for foreigners',
+    tips: ['Bring binoculars for wildlife spotting', 'Morning visits offer better chances to see the Sangai deer', 'Photography permitted']
+  },
+  {
+    id: 17,
+    name: 'Vishnu Temple at Bishnupur',
+    location: 'Bishnupur District',
+    district: 'Bishnupur District',
+    details: 'A temple of historical and cultural significance as a major religious site in the region. The architecture blends local styles with traditional Hindu temple features.',
+    image: availableImages[16],
+    additionalImages: [
+      "/lovable-uploads/172.jpg",
+      "/lovable-uploads/173.jpg"
+    ],
+    category: 'Religious',
+    visitDuration: '1-2 hours',
+    bestTime: 'October to March',
+    entryFee: 'Free',
+    tips: ['Dress modestly', 'Remove footwear before entering', 'Local guides can explain the historical significance']
+  },
+  {
+    id: 18,
+    name: 'Khongjom War Memorial Complex',
+    location: 'Thoubal District',
+    district: 'Thoubal District',
+    details: 'Commemorating the bravery and sacrifice during the Anglo-Manipuri War of 1891. This memorial honors the heroes who fought against British colonial forces.',
+    image: availableImages[17],
+    additionalImages: [
+      "/lovable-uploads/182.jpg",
+      "/lovable-uploads/183.jpg"
+    ],
+    category: 'Historical',
+    visitDuration: '2 hours',
+    bestTime: 'October to March',
+    entryFee: 'Free',
+    tips: ['Visit the museum inside for historical context', 'Special events held on April 23rd (Khongjom Day)', 'Good for history enthusiasts']
+  },
+  {
+    id: 19,
+    name: 'Kakching Garden',
+    location: 'Thoubal District',
+    district: 'Thoubal District',
+    details: 'A scenic garden popular for picnics and leisurely outings. This well-maintained park features beautiful landscaping, walking paths, and recreational areas.',
+    image: availableImages[18],
+    additionalImages: [
+      "/lovable-uploads/192.jpg",
+      "/lovable-uploads/193.jpg"
+    ],
+    category: 'Nature',
+    visitDuration: '2-3 hours',
+    bestTime: 'November to February',
+    entryFee: '₹10',
+    tips: ['Perfect for family outings', 'Best visited in the morning', 'Bring your own picnic supplies']
+  },
+  {
+    id: 20,
+    name: 'Kaina Hill',
+    location: 'Thoubal District',
+    district: 'Thoubal District',
+    details: 'Offering panoramic views and rewarding trekking opportunities. The hill also has religious significance with a temple dedicated to Lord Krishna at the top.',
+    image: availableImages[19],
+    additionalImages: [
+      "/lovable-uploads/202.jpg",
+      "/lovable-uploads/203.jpg"
+    ],
+    category: 'Nature',
+    visitDuration: 'Half day',
+    bestTime: 'October to March',
+    entryFee: 'Free',
+    tips: ['Moderate trekking difficulty', 'Wear comfortable shoes', 'Carry water and snacks']
+  },
+  {
+    id: 21,
+    name: 'Khuga Dam',
+    location: 'Churachandpur District',
+    district: 'Churachandpur District',
+    details: 'A dam with scenic surroundings and recreational activities. This multipurpose dam provides irrigation and drinking water while also serving as a tourist attraction.',
+    image: availableImages[20],
+    additionalImages: [
+      "/lovable-uploads/212.jpg",
+      "/lovable-uploads/213.jpg"
+    ],
+    category: 'Engineering',
+    visitDuration: '2-3 hours',
+    bestTime: 'November to February',
+    entryFee: 'Free',
+    tips: ['Good for photography', 'Picnic spots available', 'Best visited in the evening for sunset views']
+  },
+  {
+    id: 22,
+    name: 'Tipaimukh Dam',
+    location: 'Churachandpur District',
+    district: 'Churachandpur District',
+    details: 'Offering stunning views and serving as a favored spot among nature lovers. The surrounding forests and hills make this a picturesque location.',
+    image: availableImages[21],
+    additionalImages: [
+      "/lovable-uploads/222.jpg",
+      "/lovable-uploads/223.jpg"
+    ],
+    category: 'Engineering',
+    visitDuration: 'Half day',
+    bestTime: 'November to February',
+    entryFee: 'Free',
+    tips: ['Permission may be required to visit', 'Accessible by road but prepare for rough terrain', 'Limited facilities so carry essentials']
+  },
+  {
+    id: 23,
+    name: 'Tisar Lake',
+    location: 'Churachandpur District',
+    district: 'Churachandpur District',
+    details: 'A serene lake ideal for relaxation and enjoying peaceful natural surroundings. The pristine waters reflect the surrounding hills creating a tranquil atmosphere.',
+    image: availableImages[22],
+    additionalImages: [
+      "/lovable-uploads/232.jpg",
+      "/lovable-uploads/233.jpg"
+    ],
+    category: 'Nature',
+    visitDuration: '2-3 hours',
+    bestTime: 'November to February',
+    entryFee: 'Free',
+    tips: ['Off the beaten path', 'Good for bird watching', 'Bring your own refreshments']
+  },
+  {
+    id: 24,
+    name: 'Mao Gate',
+    location: 'Senapati District',
+    district: 'Senapati District',
+    details: 'Marking the entry point to Manipur from Nagaland, this border area is known for its scenic beauty and cultural significance. Local markets sell fresh produce and handicrafts.',
+    image: availableImages[23],
+    additionalImages: [
+      "/lovable-uploads/242.jpg",
+      "/lovable-uploads/243.jpg"
+    ],
+    category: 'Cultural',
+    visitDuration: '1-2 hours',
+    bestTime: 'October to March',
+    entryFee: 'Free',
+    tips: ['Local markets worth exploring', 'Try regional cuisine', 'Beautiful scenery for photography']
+  },
+  {
+    id: 25,
+    name: 'Makhel Cave Temple',
+    location: 'Senapati District',
+    district: 'Senapati District',
+    details: 'A sacred cave temple steeped in historical significance and local legends. The site is revered by different tribes and has mythological connections.',
+    image: availableImages[24],
+    additionalImages: [
+      "/lovable-uploads/252.jpg",
+      "/lovable-uploads/253.jpg"
+    ],
+    category: 'Religious',
+    visitDuration: '2-3 hours',
+    bestTime: 'October to March',
+    entryFee: 'Free',
+    tips: ['Local guide recommended for historical context', 'Modest dress required', 'Bring a flashlight']
+  },
+  {
+    id: 26,
+    name: 'Mount Koubru',
+    location: 'Senapati District',
+    district: 'Senapati District',
+    details: 'A revered mountain and popular trekking destination with spiritual significance for local communities. The summit offers spectacular views of the surrounding landscapes.',
+    image: availableImages[25],
+    additionalImages: [
+      "/lovable-uploads/262.jpg",
+      "/lovable-uploads/263.jpg"
+    ],
+    category: 'Adventure',
+    visitDuration: 'Full day',
+    bestTime: 'October to April',
+    entryFee: 'Free',
+    tips: ['Moderate to difficult trek', 'Start early in the morning', 'Proper hiking gear recommended']
+  },
+  {
+    id: 27,
+    name: 'Shirui Kashong Peak',
+    location: 'Ukhrul District',
+    district: 'Ukhrul District',
+    details: 'Known for its breathtaking panoramic views and trekking adventures, this peak is also home to the rare Shirui lily that blooms in May-June. The flower is endemic to this region.',
+    image: availableImages[26],
+    additionalImages: [
+      "/lovable-uploads/272.jpg",
+      "/lovable-uploads/273.jpg"
+    ],
+    category: 'Adventure',
+    visitDuration: 'Full day',
+    bestTime: 'May to June for lily blooms, October to April for trekking',
+    entryFee: '₹50',
+    tips: ['Guided treks available', 'Visit during lily season if possible', 'Moderate difficulty trek']
+  },
+  {
+    id: 28,
+    name: 'Khayang Peak',
+    location: 'Ukhrul District',
+    district: 'Ukhrul District',
+    details: 'Offering scenic views and a favored destination for trekking enthusiasts. The peak provides outstanding vistas of the surrounding valleys and hills.',
+    image: availableImages[27],
+    additionalImages: [
+      "/lovable-uploads/282.jpg",
+      "/lovable-uploads/282.jpg"
+    ],
+    category: 'Adventure',
+    visitDuration: 'Full day',
+    bestTime: 'October to April',
+    entryFee: 'Free',
+    tips: ['Less crowded than other trekking destinations', 'Local guide recommended', 'Carry sufficient water and snacks']
+  },
+  {
+    id: 29,
+    name: 'Barak Waterfall',
+    location: 'Tamenglong District',
+    district: 'Tamenglong District',
+    details: 'A stunning waterfall nestled amidst verdant landscapes, offering a refreshing experience. The cascading waters create a mesmerizing sight and soothing sounds.',
+    image: availableImages[28],
+    additionalImages: [
+      "/lovable-uploads/292.jpg",
+      "/lovable-uploads/293.jpg"
+    ],
+    category: 'Nature',
+    visitDuration: 'Half day',
+    bestTime: 'June to September (monsoon)',
+    entryFee: 'Free',
+    tips: ['Slippery paths during monsoon', 'Swimming possible but exercise caution', 'Picnic facilities available']
+  },
+  {
+    id: 30,
+    name: 'Zeilad Lake',
+    location: 'Tamenglong District',
+    district: 'Tamenglong District',
+    details: 'A serene lake that offers peaceful natural surroundings and is steeped in local folklore. The crystal-clear waters reflect the surrounding hills and forests.',
+    image: availableImages[29],
+    additionalImages: [
+      "/lovable-uploads/30.jpg",
+      "/lovable-uploads/30.jpg"
+    ],
+    category: 'Nature',
+    visitDuration: '2-3 hours',
+    bestTime: 'October to March',
+    entryFee: 'Free',
+    tips: ['Off the beaten path', 'Local guides can share folklore', 'Bring your own refreshments']
+  },
+  {
+    id: 31,
+    name: 'Buning Meadows',
+    location: 'Tamenglong District',
+    district: 'Tamenglong District',
+    details: 'Known for its natural beauty and unique array of flora, this meadow offers a peaceful retreat into nature. The open grasslands are surrounded by forested hills.',
+    image: availableImages[30],
+    additionalImages: [
+      "/lovable-uploads/312.jpg",
+      "/lovable-uploads/313.jpg"
+    ],
+    category: 'Nature',
+    visitDuration: 'Half day',
+    bestTime: 'October to April',
+    entryFee: 'Free',
+    tips: ['Great for nature photography', 'Wildflowers bloom in spring', 'Bring picnic supplies']
+  },
+  {
+    id: 32,
+    name: 'Dzukou Valley',
+    location: 'On the border of Manipur and Nagaland',
+    district: 'Other Attractions',
+    details: 'Known for its spectacular scenic landscapes and excellent trekking opportunities. The valley is famous for its seasonal wildflowers and rolling hills.',
+    image: availableImages[31],
+    additionalImages: [
+      "/lovable-uploads/322.jpg",
+      "/lovable-uploads/323.jpg"
+    ],
+    category: 'Adventure',
+    visitDuration: '1-2 days',
+    bestTime: 'June to September for flowers, October to May for trekking',
+    entryFee: '₹100',
+    tips: ['Camping facilities available', 'Guide mandatory for first-time visitors', 'Challenging trek but worth the effort']
+  },
+  {
+    id: 33,
+    name: 'Thangjing Hill',
+    location: 'Near Loktak Lake',
+    district: 'Other Attractions',
+    details: 'Providing panoramic views of Loktak Lake and its surroundings. The hill has religious significance with a temple at the summit.',
+    image: availableImages[32],
+    additionalImages: [
+      "/lovable-uploads/332.jpg",
+      "/lovable-uploads/333.jpg"
+    ],
+    category: 'Nature',
+    visitDuration: 'Half day',
+    bestTime: 'October to March',
+    entryFee: 'Free',
+    tips: ['Moderate trek', 'Religious ceremonies during festivals', 'Best views in the morning']
+  },
+  {
+    id: 34,
+    name: 'Mutua Bahadur Museum',
+    location: 'Imphal City',
+    district: 'Imphal Valley',
+    details: 'Exhibiting the life and achievements of Mutua Bahadur through cultural displays and artifacts. The museum highlights the contributions of this important historical figure.',
+    image: availableImages[33],
+    additionalImages: [
+      "/lovable-uploads/342.jpg",
+      "/lovable-uploads/343.jpg"
+    ],
+    category: 'Cultural',
+    visitDuration: '1-2 hours',
+    bestTime: 'Any time of year',
+    entryFee: '₹30',
+    tips: ['Closed on Mondays', 'Photography with permission', 'Guided tours available']
+  },
+  {
+    id: 35,
+    name: 'Pumlenpat Lake',
+    location: 'Near Loktak Lake',
+    district: 'Other Attractions',
+    details: 'A tranquil lake ideal for bird watching and relaxation. Less visited than Loktak, this lake offers a peaceful alternative with similar floating vegetation.',
+    image: availableImages[34],
+    additionalImages: [
+      "/lovable-uploads/352.jpg",
+      "/lovable-uploads/353.jpg"
+    ],
+    category: 'Nature',
+    visitDuration: '2-3 hours',
+    bestTime: 'November to February',
+    entryFee: 'Free',
+    tips: ['Bring binoculars for bird watching', 'Less crowded than Loktak', 'Limited facilities so carry essentials']
+  },
+  {
+    id: 36,
+    name: 'Ikop Pat Lake',
+    location: 'Near Loktak Lake',
+    district: 'Other Attractions',
+    details: 'Known for its natural beauty and peaceful environment, this smaller lake offers tranquility and opportunities to observe local fishing traditions.',
+    image: availableImages[35],
+    additionalImages: [
+      "/lovable-uploads/362.jpg",
+      "/lovable-uploads/363.jpg"
+    ],
+    category: 'Nature',
+    visitDuration: '2 hours',
+    bestTime: 'November to February',
+    entryFee: 'Free',
+    tips: ['Off the tourist trail', 'Good for photography', 'Visit early morning to see fishermen']
+  }
 ];
 
 // Category filters
@@ -272,7 +783,7 @@ const HotspotsPage = () => {
       {/* Hero Section */}
       <div className="relative h-[300px] mb-8">
         <img 
-          src="/lovable-uploads/6d26ee7a-393a-49f5-9000-cac21a51cd05.png" 
+          src="/lovable-uploads/marjing.png" 
           alt="Manipur Hotspots" 
           className="absolute inset-0 w-full h-full object-cover"
         />

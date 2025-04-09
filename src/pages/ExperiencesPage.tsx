@@ -165,7 +165,7 @@ const ExperiencesPage = () => {
       {/* Hero Section */}
       <div className="relative h-[300px] mb-8">
         <img 
-          src="/lovable-uploads/2a0be913-e122-4396-b744-24bc7dea5037.png" 
+          src="/lovable-uploads/expcar.jpg" 
           alt="Manipur Experiences" 
           className="absolute inset-0 w-full h-full object-cover"
         />

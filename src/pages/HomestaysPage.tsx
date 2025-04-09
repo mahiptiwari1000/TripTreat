@@ -125,7 +125,7 @@ const HomestaysPage = () => {
       {/* Hero Section */}
       <div className="relative h-[300px] mb-8">
         <img 
-          src="/lovable-uploads/0164db78-e122-4072-8dfa-2c6d65efae7b.png" 
+          src="/lovable-uploads/homecar.jpg" 
           alt="Manipur Homestays" 
           className="absolute inset-0 w-full h-full object-cover"
         />

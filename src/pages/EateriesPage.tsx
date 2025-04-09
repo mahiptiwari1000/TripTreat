@@ -172,7 +172,7 @@ const EateriesPage = () => {
       {/* Hero Section */}
       <div className="relative h-[300px] mb-8">
         <img
-          src="/lovable-uploads/d4e3086a-1ee6-4e6f-bbe8-ae7112cfc6f5.png"
+          src="/lovable-uploads/foodcarou.jpg"
           alt="Manipuri Cuisine"
           className="absolute inset-0 w-full h-full object-cover"
         />
