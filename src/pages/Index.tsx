@@ -11,17 +11,6 @@ import Footer from '@/components/Footer';
 import { toast } from 'sonner';
 
 const Index = () => {
-  useEffect(() => {
-    // Welcome toast that appears when the page loads
-    toast.info("Welcome to Trip & Treat!", {
-      description: "Explore authentic Manipuri homestays and experiences.",
-      duration: 5000,
-    });
-    
-    // Scroll to top when component mounts
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="min-h-screen">
       <Navbar />
