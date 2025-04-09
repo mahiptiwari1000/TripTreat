@@ -87,9 +87,18 @@ const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 h-full flex flex-col justify-center items-center text-white">
         <div className="animate-fade-in text-center max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-shadow">
-            Delight in Every Destination
-          </h1>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
+  Delight in Every 
+  <span className="animate-gradient-flow 
+    bg-[length:300%_300%]
+    bg-clip-text text-transparent 
+    bg-gradient-to-r from-amber-400 via-purple-400 to-emerald-400
+    inline-block
+    transition-all duration-1000
+    hover:scale-105 hover:rotate-1 hover:drop-shadow-[0_4px_24px_rgba(251,191,36,0.3)]">
+    Destination
+  </span>
+</h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-8 text-white/90">
             Experience Manipur's rich culture, stunning landscapes, and warm hospitality
           </p>

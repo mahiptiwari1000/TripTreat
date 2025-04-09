@@ -40,3 +40,14 @@
 .read-the-docs {
   color: #888;
 }
+
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-flow {
+  animation: gradient-flow 8s ease infinite;
+  background-size: 300% 300%;
+}
