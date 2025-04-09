@@ -13,19 +13,19 @@ const team = [
   {
     name: 'Rajkumar Singh',
     role: 'Founder & CEO',
-    image: 'https://i.pravatar.cc/150?img=68',
+    image: '/lovable-uploads/raj.jpg',
     bio: 'Born and raised in Imphal, Raj founded Trip & Treat to showcase the authentic beauty of his homeland to travelers from around the world.'
   },
   {
     name: 'Bina Devi',
     role: 'Community Manager',
-    image: 'https://i.pravatar.cc/150?img=32',
+    image: '/lovable-uploads/bina.jpg',
     bio: 'With deep connections to local communities, Bina ensures that our homestays and experiences maintain cultural authenticity while delivering quality service.'
   },
   {
     name: 'Tomba Singh',
     role: 'Head of Experiences',
-    image: 'https://i.pravatar.cc/150?img=59',
+    image: '/lovable-uploads/tomba.jpg',
     bio: 'A former tour guide with 15+ years of experience, Tomba carefully curates and vets all tours and experiences on the platform.'
   }
 ];
@@ -71,7 +71,7 @@ const AboutPage = () => {
       {/* Hero Section */}
       <div className="relative h-[400px] mb-12">
         <img 
-          src="/lovable-uploads/0164db78-e122-4072-8dfa-2c6d65efae7b.png" 
+          src="/lovable-uploads/stocar.jpg" 
           alt="About Trip & Treat" 
           className="absolute inset-0 w-full h-full object-cover"
         />
