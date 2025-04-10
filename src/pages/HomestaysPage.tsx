@@ -8,85 +8,12 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Slider } from '@/components/ui/slider';
 import { MapPin, Star, Users, Wifi, Coffee, UtensilsCrossed } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { allHomestays } from './homestays-data';
 
-const homestays = [
-  {
-    id: 1,
-    name: 'Loktak Lake View Homestay',
-    location: 'Moirang, Manipur',
-    description: 'Enjoy panoramic views of the floating phumdis on Loktak Lake in this traditional Manipuri home.',
-    image: '/lovable-uploads/loktakView.webp',
-    price: 1200,
-    rating: 4.9,
-    reviews: 28,
-    guests: 4,
-    amenities: ['Wifi', 'Traditional Meals', 'Lake View', 'Guided Tours']
-  },
-  {
-    id: 2,
-    name: 'Heritage Villa Imphal',
-    location: 'Imphal East, Manipur',
-    description: 'Experience royal Manipuri hospitality in this heritage home with traditional architecture.',
-    image: '/lovable-uploads/h6.avif',
-    price: 1500,
-    rating: 4.7,
-    reviews: 42,
-    guests: 6,
-    amenities: ['Wifi', 'Garden', 'Traditional Meals', 'Cultural Activities']
-  },
-  {
-    id: 3,
-    name: 'Mountain Retreat Ukhrul',
-    location: 'Ukhrul, Manipur',
-    description: 'Nestled in the hills of Ukhrul, this cozy retreat offers stunning mountain views and tranquility.',
-    image: '/lovable-uploads/uhk.jpg',
-    price: 950,
-    rating: 4.8,
-    reviews: 19,
-    guests: 3,
-    amenities: ['Mountain View', 'Trekking Tours', 'Organic Meals', 'Local Crafts']
-  },
-  {
-    id: 4,
-    name: 'Eco Farm Cottage',
-    location: 'Bishnupur, Manipur',
-    description: 'A sustainable eco-friendly cottage surrounded by organic farms and traditional crafts workshops.',
-    image: '/lovable-uploads/h4.avif',
-    price: 1100,
-    rating: 4.6,
-    reviews: 31,
-    guests: 2,
-    amenities: ['Organic Farm', 'Cooking Classes', 'Wifi', 'Bicycle Rental']
-  },
-  {
-    id: 5,
-    name: 'Riverside Haven',
-    location: 'Tamenglong, Manipur',
-    description: 'Peaceful riverside homestay offering fishing, bamboo rafting, and bird watching experiences.',
-    image: '/lovable-uploads/h7.avif',
-    price: 1350,
-    rating: 4.5,
-    reviews: 16,
-    guests: 5,
-    amenities: ['River View', 'Fishing Equipment', 'Traditional Meals', 'Guided Tours']
-  },
-  {
-    id: 6,
-    name: 'Sangai Valley Lodge',
-    location: 'Sendra, Manipur',
-    description: 'Traditional lodge near Keibul Lamjao National Park with opportunities to spot the rare Sangai deer.',
-    image: '/lovable-uploads/h9.avif',
-    price: 1600,
-    rating: 4.9,
-    reviews: 24,
-    guests: 4,
-    amenities: ['National Park Access', 'Wildlife Tours', 'Traditional Meals', 'Cultural Performances']
-  }
-];
 
 const HomestaysPage = () => {
   const [priceRange, setPriceRange] = useState([500, 2000]);
-  const [filteredHomestays, setFilteredHomestays] = useState(homestays);
+  const [filteredHomestays, setFilteredHomestays] = useState(allHomestays);
   const [searchTerm, setSearchTerm] = useState('');
   const [filters, setFilters] = useState({
     wifi: false,
@@ -94,11 +21,13 @@ const HomestaysPage = () => {
     guidedTours: false,
     culturalActivities: false
   });
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     
-    const filtered = homestays.filter(homestay => {
+    const filtered = allHomestays.filter(homestay => {
       // Filter by price range
       const withinPriceRange = homestay.price >= priceRange[0] && homestay.price <= priceRange[1];
       
@@ -116,20 +45,22 @@ const HomestaysPage = () => {
     });
     
     setFilteredHomestays(filtered);
+    setCurrentPage(1);
   };
+
+  const displayedHomestays = filteredHomestays.slice(0, currentPage * itemsPerPage);
 
   return (
     <div className="min-h-screen">
       <Navbar />
       
-      {/* Hero Section */}
       <div className="relative h-[300px] mb-8">
         <img 
           src="/lovable-uploads/homecar.jpg" 
           alt="Manipur Homestays" 
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30" />
         <div className="container mx-auto px-4 relative z-10 h-full flex flex-col justify-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">Homestays in Manipur</h1>
           <p className="text-xl text-white/90">Experience authentic Manipuri hospitality and traditions</p>
@@ -138,13 +69,10 @@ const HomestaysPage = () => {
       
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Filters Sidebar */}
           <div className="lg:col-span-1">
             <div className="bg-white p-6 rounded-lg shadow-md sticky top-24">
               <h2 className="text-xl font-semibold mb-4">Filters</h2>
-              
               <form onSubmit={handleSearch}>
-                {/* Search */}
                 <div className="mb-6">
                   <label className="block text-sm font-medium mb-2">Search</label>
                   <Input 
@@ -155,13 +83,12 @@ const HomestaysPage = () => {
                   />
                 </div>
                 
-                {/* Price Range */}
                 <div className="mb-6">
                   <label className="block text-sm font-medium mb-2">Price Range (₹{priceRange[0]} - ₹{priceRange[1]})</label>
                   <Slider 
-                    value={priceRange as [number, number]} 
-                    min={500} 
-                    max={2000} 
+                    value={priceRange}
+                    min={500}
+                    max={2000}
                     step={100}
                     onValueChange={(value) => setPriceRange(value as [number, number])}
                     className="mb-2"
@@ -172,45 +99,23 @@ const HomestaysPage = () => {
                   </div>
                 </div>
                 
-                {/* Amenities */}
                 <div className="space-y-4 mb-6">
                   <label className="block text-sm font-medium mb-2">Amenities</label>
-                  
-                  <div className="flex items-center space-x-2">
-                    <Checkbox 
-                      id="wifi" 
-                      checked={filters.wifi}
-                      onCheckedChange={(checked) => setFilters({...filters, wifi: checked as boolean})}
-                    />
-                    <label htmlFor="wifi" className="text-sm">Wifi</label>
-                  </div>
-                  
-                  <div className="flex items-center space-x-2">
-                    <Checkbox 
-                      id="traditionalMeals" 
-                      checked={filters.traditionalMeals}
-                      onCheckedChange={(checked) => setFilters({...filters, traditionalMeals: checked as boolean})}
-                    />
-                    <label htmlFor="traditionalMeals" className="text-sm">Traditional Meals</label>
-                  </div>
-                  
-                  <div className="flex items-center space-x-2">
-                    <Checkbox 
-                      id="guidedTours" 
-                      checked={filters.guidedTours}
-                      onCheckedChange={(checked) => setFilters({...filters, guidedTours: checked as boolean})}
-                    />
-                    <label htmlFor="guidedTours" className="text-sm">Guided Tours</label>
-                  </div>
-                  
-                  <div className="flex items-center space-x-2">
-                    <Checkbox 
-                      id="culturalActivities" 
-                      checked={filters.culturalActivities}
-                      onCheckedChange={(checked) => setFilters({...filters, culturalActivities: checked as boolean})}
-                    />
-                    <label htmlFor="culturalActivities" className="text-sm">Cultural Activities</label>
-                  </div>
+                  {['wifi', 'traditionalMeals', 'guidedTours', 'culturalActivities'].map((filterKey) => (
+                    <div key={filterKey} className="flex items-center space-x-2">
+                      <Checkbox
+                        id={filterKey}
+                        checked={filters[filterKey as keyof typeof filters]}
+                        onCheckedChange={(checked) => setFilters(prev => ({
+                          ...prev,
+                          [filterKey]: checked
+                        }))}
+                      />
+                      <label htmlFor={filterKey} className="text-sm capitalize">
+                        {filterKey.replace(/([A-Z])/g, ' $1')}
+                      </label>
+                    </div>
+                  ))}
                 </div>
                 
                 <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
@@ -220,7 +125,6 @@ const HomestaysPage = () => {
             </div>
           </div>
           
-          {/* Homestay Listings */}
           <div className="lg:col-span-3">
             <div className="mb-6">
               <h2 className="text-2xl font-semibold">{filteredHomestays.length} homestays found</h2>
@@ -228,12 +132,11 @@ const HomestaysPage = () => {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-              {filteredHomestays.map((homestay) => (
+              {displayedHomestays.map((homestay) => (
                 <div key={homestay.id} className="listing-card animate-scale-in">
-                  {/* Image */}
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img 
-                      src={homestay.image} 
+                      src={homestay.images[0]} 
                       alt={homestay.name} 
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
@@ -243,7 +146,6 @@ const HomestaysPage = () => {
                     </div>
                   </div>
                   
-                  {/* Content */}
                   <div className="p-4">
                     <div className="flex justify-between items-start">
                       <h3 className="text-lg font-semibold">{homestay.name}</h3>
@@ -259,7 +161,6 @@ const HomestaysPage = () => {
                       {homestay.description}
                     </p>
                     
-                    {/* Amenities */}
                     <div className="flex flex-wrap gap-2 mb-4">
                       <span className="text-xs bg-muted px-2 py-1 rounded-full flex items-center">
                         <Users size={12} className="mr-1" /> {homestay.guests} guests
@@ -285,6 +186,17 @@ const HomestaysPage = () => {
                 </div>
               ))}
             </div>
+            
+            {currentPage * itemsPerPage < filteredHomestays.length && (
+              <div className="mt-8 flex justify-center">
+                <Button 
+                  onClick={() => setCurrentPage(prev => prev + 1)}
+                  className="px-8 py-4 text-lg"
+                >
+                  View More
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </div>
