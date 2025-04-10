@@ -35,7 +35,7 @@ const Footer = () => {
               Trip<span className="text-secondary">&</span>Treat
             </h4>
             <p className="text-white/80 mb-4">
-              Connecting travelers with authentic Manipuri experiences, homestays, and local guides since 2023.
+              Connecting travelers with authentic Manipuri experiences, homestays, and local guides since 2019.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-white/80 hover:text-white transition-colors">
@@ -136,21 +136,26 @@ const Footer = () => {
         
         {/* Bottom */}
         <div className="border-t border-white/20 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-white/60 mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} Trip & Treat. All rights reserved.
-          </p>
-          <div className="flex space-x-6">
-            <Link to="/privacy-policy" className="text-white/60 hover:text-white transition-colors text-sm">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="text-white/60 hover:text-white transition-colors text-sm">
-              Terms & Conditions
-            </Link>
-            <Link to="/faq" className="text-white/60 hover:text-white transition-colors text-sm">
-              FAQs
-            </Link>
-          </div>
-        </div>
+  <p className="text-white/60 mb-4 md:mb-0 order-1">
+    &copy; {new Date().getFullYear()} Trip & Treat. All rights reserved.
+  </p>
+  
+  <div className="order-3 md:order-2 text-center text-white/60 text-sm mt-4 md:mt-0 md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
+    An Original by Lanthoiba
+  </div>
+
+  <div className="flex space-x-6 order-2 md:order-3">
+    <Link to="/privacy-policy" className="text-white/60 hover:text-white transition-colors text-sm">
+      Privacy Policy
+    </Link>
+    <Link to="/terms" className="text-white/60 hover:text-white transition-colors text-sm">
+      Terms & Conditions
+    </Link>
+    <Link to="/faq" className="text-white/60 hover:text-white transition-colors text-sm">
+      FAQs
+    </Link>
+  </div>
+</div>
       </div>
     </footer>
   );
