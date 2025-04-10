@@ -109,10 +109,10 @@ export const allHomestays: Homestay[] = [
         description: 'Experience royal Manipuri hospitality in this heritage home with traditional architecture. Located in a serene part of Imphal East, this villa offers traditional architecture with modern amenities. The property boasts beautiful gardens and showcases authentic Manipuri design elements.',
         images: [
           '/lovable-uploads/h6.avif',
-          '/lovable-uploads/h7.avif',
+          '/lovable-uploads/h115.avif',
           '/lovable-uploads/h4.avif',
           '/lovable-uploads/h9.avif',
-          '/lovable-uploads/h1.jpg',
+          '/lovable-uploads/g144.avif',
         ],
         price: 1500,
         rating: 4.7,
@@ -173,286 +173,15 @@ export const allHomestays: Homestay[] = [
       },
       {
         id: 3,
-        name: 'Mountain Retreat Ukhrul',
-        location: 'Ukhrul, Manipur',
-        description: 'Nestled in the hills of Ukhrul, this cozy retreat offers stunning mountain views and tranquility. Perfect for nature lovers and those seeking peace away from the city, this mountain homestay provides panoramic views of the surrounding hills and valleys. The architecture incorporates elements of traditional Tangkhul design.',
-        images: [
-          '/lovable-uploads/uhk.jpg',
-          '/lovable-uploads/h4.avif',
-          '/lovable-uploads/h7.avif',
-          '/lovable-uploads/h1.jpg',
-          '/lovable-uploads/h9.avif',
-        ],
-        price: 950,
-        rating: 4.8,
-        reviews: 19,
-        guests: 3,
-        bedrooms: 1,
-        beds: 2,
-        bathrooms: 1,
-        rooms: [
-          { id: 1, name: 'Mountain View Room', capacity: 2, price: 950 },
-          { id: 2, name: 'Valley View Room', capacity: 1, price: 850 }
-        ],
-        amenities: [
-          'Mountain View', 
-          'Trekking Tours', 
-          'Organic Meals', 
-          'Local Crafts',
-          'Fireplace',
-          'Hot Water',
-          'Nature Walks',
-          'Stargazing Deck'
-        ],
-        host: {
-          name: 'Somi Shimray',
-          image: 'https://i.pravatar.cc/150?img=33',
-          joinedDate: 'July 2021',
-          languages: ['English', 'Tangkhul', 'Hindi', 'Manipuri'],
-          responseRate: 100
-        },
-        location_description: 'Located in the hills of Ukhrul district, about 85 km from Imphal. The homestay sits at an elevation offering breathtaking views of the valleys below and mountains beyond.',
-        reviews_list: [
-          {
-            id: 1,
-            name: 'Rebecca Thomas',
-            avatar: 'https://i.pravatar.cc/150?img=45',
-            date: '3 weeks ago',
-            rating: 5,
-            comment: "The perfect getaway from city life. The mountain views are spectacular, especially at sunrise. The host arranged a wonderful trekking tour that showed us the natural beauty of the area."
-          },
-          {
-            id: 2,
-            name: 'Vijay Sharma',
-            avatar: 'https://i.pravatar.cc/150?img=56',
-            date: '1 month ago',
-            rating: 5,
-            comment: "Absolutely stunning location. The organic meals prepared with local ingredients were delicious. The host's knowledge of local flora and fauna made our nature walks very informative."
-          },
-          {
-            id: 3,
-            name: 'Linda Kim',
-            avatar: 'https://i.pravatar.cc/150?img=17',
-            date: '2 months ago',
-            rating: 4,
-            comment: "Beautiful retreat in the mountains. The stargazing deck was magical on clear nights. The rooms were cozy and comfortable, though a bit small. The hospitality was outstanding."
-          }
-        ]
-      },
-      {
-        id: 4,
-        name: 'Eco Farm Cottage',
-        location: 'Bishnupur, Manipur',
-        description: 'A sustainable eco-friendly cottage surrounded by organic farms and traditional crafts workshops. This environmentally conscious homestay is set on an organic farm where guests can participate in farming activities and learn about sustainable practices. The cottage is built using locally sourced materials and traditional techniques.',
-        images: [
-          '/lovable-uploads/h4.avif',
-          '/lovable-uploads/h9.avif',
-          '/lovable-uploads/h7.avif',
-          '/lovable-uploads/h6.avif',
-          '/lovable-uploads/loktakComplete.png',
-        ],
-        price: 1100,
-        rating: 4.6,
-        reviews: 31,
-        guests: 2,
-        bedrooms: 1,
-        beds: 1,
-        bathrooms: 1,
-        rooms: [
-          { id: 1, name: 'Farm View Cottage', capacity: 2, price: 1100 }
-        ],
-        amenities: [
-          'Organic Farm', 
-          'Cooking Classes', 
-          'Wifi', 
-          'Bicycle Rental',
-          'Craft Workshops',
-          'Rainwater Harvesting',
-          'Solar Power',
-          'Farm-to-Table Meals'
-        ],
-        host: {
-          name: 'Laishram Biren',
-          image: 'https://i.pravatar.cc/150?img=42',
-          joinedDate: 'April 2020',
-          languages: ['English', 'Manipuri', 'Hindi'],
-          responseRate: 95
-        },
-        location_description: 'Located in the Bishnupur district, about 35 km from Imphal. The cottage is situated on an organic farm with easy access to Loktak Lake and other natural attractions in the area.',
-        reviews_list: [
-          {
-            id: 1,
-            name: 'Emma Johnson',
-            avatar: 'https://i.pravatar.cc/150?img=25',
-            date: '1 month ago',
-            rating: 5,
-            comment: "A wonderful experience for eco-conscious travelers. We loved the cooking classes using fresh ingredients from the farm. The cottage is simple but comfortable and very well designed."
-          },
-          {
-            id: 2,
-            name: 'Raj Patel',
-            avatar: 'https://i.pravatar.cc/150?img=37',
-            date: '2 months ago',
-            rating: 4,
-            comment: "Great place to learn about sustainable living. The bicycle tour of the surrounding villages was a highlight. The host is very knowledgeable about organic farming techniques."
-          },
-          {
-            id: 3,
-            name: 'Sophie Chen',
-            avatar: 'https://i.pravatar.cc/150?img=29',
-            date: '3 months ago',
-            rating: 5,
-            comment: "The perfect place to disconnect and learn about sustainable living. The craft workshop was so interesting, and we got to make our own pottery. The farm-to-table meals were exceptional."
-          }
-        ]
-      },
-      {
-        id: 5,
-        name: 'Riverside Haven',
-        location: 'Tamenglong, Manipur',
-        description: 'Peaceful riverside homestay offering fishing, bamboo rafting, and bird watching experiences. Set alongside a pristine river in Tamenglong district, this tranquil homestay is perfect for nature lovers and those seeking adventure activities. The property features beautiful gardens and river-facing rooms.',
-        images: [
-          '/lovable-uploads/h7.avif',
-          '/lovable-uploads/h9.avif',
-          '/lovable-uploads/h6.avif',
-          '/lovable-uploads/h4.avif',
-          '/lovable-uploads/uhk.jpg',
-        ],
-        price: 1350,
-        rating: 4.5,
-        reviews: 16,
-        guests: 5,
-        bedrooms: 2,
-        beds: 3,
-        bathrooms: 2,
-        rooms: [
-          { id: 1, name: 'Riverside Suite', capacity: 3, price: 1350 },
-          { id: 2, name: 'Garden Room', capacity: 2, price: 1200 }
-        ],
-        amenities: [
-          'River View', 
-          'Fishing Equipment', 
-          'Traditional Meals', 
-          'Guided Tours',
-          'Bird Watching',
-          'Bamboo Rafting',
-          'Bonfire',
-          'Nature Trails'
-        ],
-        host: {
-          name: 'Kamei Robert',
-          image: 'https://i.pravatar.cc/150?img=54',
-          joinedDate: 'September 2020',
-          languages: ['English', 'Rongmei', 'Manipuri', 'Hindi'],
-          responseRate: 92
-        },
-        location_description: 'Located in Tamenglong district, about 100 km from Imphal. The homestay sits on the banks of a river surrounded by lush forests and hills.',
-        reviews_list: [
-          {
-            id: 1,
-            name: 'David Miller',
-            avatar: 'https://i.pravatar.cc/150?img=15',
-            date: '1 month ago',
-            rating: 4,
-            comment: "A wonderful place for nature enthusiasts. The bamboo rafting experience was unforgettable, and we saw so many bird species during our stay. The rooms are comfortable with beautiful river views."
-          },
-          {
-            id: 2,
-            name: 'Sunita Rai',
-            avatar: 'https://i.pravatar.cc/150?img=39',
-            date: '2 months ago',
-            rating: 5,
-            comment: "Perfect getaway in nature. The sound of the river is so relaxing, and the fishing experience was great fun. The host prepared delicious meals with our catch of the day!"
-          },
-          {
-            id: 3,
-            name: 'Michael Wong',
-            avatar: 'https://i.pravatar.cc/150?img=61',
-            date: '3 months ago',
-            rating: 4,
-            comment: "Beautiful location by the river. The bonfire evenings with local stories were memorable. The rooms are spacious and clean. The nature trails around the property are worth exploring."
-          }
-        ]
-      },
-      {
-        id: 6,
-        name: 'Sangai Valley Lodge',
-        location: 'Sendra, Manipur',
-        description: 'Traditional lodge near Keibul Lamjao National Park with opportunities to spot the rare Sangai deer. This lodge is ideally situated for wildlife enthusiasts, offering easy access to India\'s only floating national park. The design incorporates traditional Manipuri architecture with modern comforts.',
-        images: [
-          '/lovable-uploads/h9.avif',
-          '/lovable-uploads/loktakView.webp',
-          '/lovable-uploads/h7.avif',
-          '/lovable-uploads/h6.avif',
-          '/lovable-uploads/h4.avif',
-        ],
-        price: 1600,
-        rating: 4.9,
-        reviews: 24,
-        guests: 4,
-        bedrooms: 2,
-        beds: 2,
-        bathrooms: 2,
-        rooms: [
-          { id: 1, name: 'Park View Room', capacity: 2, price: 1600 },
-          { id: 2, name: 'Lake View Room', capacity: 2, price: 1700 }
-        ],
-        amenities: [
-          'National Park Access', 
-          'Wildlife Tours', 
-          'Traditional Meals', 
-          'Cultural Performances',
-          'Boat Rides',
-          'Binoculars',
-          'Guided Nature Walks',
-          'Evening Campfire'
-        ],
-        host: {
-          name: 'Manihar Singh',
-          image: 'https://i.pravatar.cc/150?img=59',
-          joinedDate: 'February 2019',
-          languages: ['English', 'Manipuri', 'Hindi'],
-          responseRate: 99
-        },
-        location_description: 'Located in Sendra, on the edge of Keibul Lamjao National Park, about 50 km from Imphal. The lodge offers stunning views of Loktak Lake and the floating phumdis.',
-        reviews_list: [
-          {
-            id: 1,
-            name: 'James Wilson',
-            avatar: 'https://i.pravatar.cc/150?img=18',
-            date: '2 weeks ago',
-            rating: 5,
-            comment: "An amazing place for wildlife enthusiasts. We were lucky enough to spot the rare Sangai deer during our wildlife tour. The cultural performances in the evening were exceptional."
-          },
-          {
-            id: 2,
-            name: 'Anjali Desai',
-            avatar: 'https://i.pravatar.cc/150?img=28',
-            date: '1 month ago',
-            rating: 5,
-            comment: "Perfect location for exploring Keibul Lamjao National Park. The boat ride on Loktak Lake was unforgettable. The rooms are spacious and comfortable with great views."
-          },
-          {
-            id: 3,
-            name: 'Robert Chen',
-            avatar: 'https://i.pravatar.cc/150?img=58',
-            date: '2 months ago',
-            rating: 5,
-            comment: "The lodge exceeded our expectations. The wildlife tours were well organized, and the guides were very knowledgeable. The traditional Manipuri meals were delicious and authentic."
-          }
-        ]
-      },
-      {
-        id: 7,
         name: 'Sunrise Peak Homestay',
         location: 'Churachandpur, Manipur',
         description: 'Wake up to breathtaking sunrises over the hills with cozy rooms and local breakfast delights. Features a sunrise viewing deck and guided morning nature walks.',
         images: [
-          '/lovable-uploads/h10.webp',
-          '/lovable-uploads/h4.avif',
-          '/lovable-uploads/h7.avif',
-          '/lovable-uploads/h1.jpg',
-          '/lovable-uploads/h9.avif'
+          '/lovable-uploads/s71.avif',
+          '/lovable-uploads/s72.avif',
+          '/lovable-uploads/s73.avif',
+          '/lovable-uploads/s74.avif',
+          '/lovable-uploads/s75.avif'
         ],
         price: 1050,
         rating: 4.7,
@@ -511,18 +240,18 @@ export const allHomestays: Homestay[] = [
         ]
       },
     
-      // Entry 8
+      
       {
-        id: 8,
+        id: 4,
         name: 'Meghalay Cottage',
         location: 'Moreh, Manipur',
         description: 'A charming cottage blending modern comfort with traditional Manipuri aesthetics. Features handwoven textiles and daily cultural demonstrations.',
         images: [
-          '/lovable-uploads/h11.avif',
-          '/lovable-uploads/h4.avif',
-          '/lovable-uploads/h7.avif',
-          '/lovable-uploads/h9.avif',
-          '/lovable-uploads/h1.jpg'
+          '/lovable-uploads/m81.avif',
+          '/lovable-uploads/m82.avif',
+          '/lovable-uploads/m83.avif',
+          '/lovable-uploads/m84.avif',
+          '/lovable-uploads/m85.avif'
         ],
         price: 1150,
         rating: 4.8,
@@ -579,18 +308,18 @@ export const allHomestays: Homestay[] = [
           }
         ]
       },
-      // Entries 9-14
+      
 {
-    id: 9,
+    id: 5,
     name: 'Whispering Pines Homestay',
     location: 'Khurai, Manipur',
     description: 'Set amongst verdant pine forests, enjoy nature walks and a peaceful ambiance. Features a central bonfire area and guided forest therapy sessions.',
     images: [
-      '/lovable-uploads/h12.jpg',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/lovable-uploads/w91.avif',
+      '/lovable-uploads/w92.avif',
+      '/lovable-uploads/w93.avif',
+      '/lovable-uploads/w94.avif',
+      '/lovable-uploads/w95.avif'
     ],
     price: 980,
     rating: 4.6,
@@ -649,16 +378,16 @@ export const allHomestays: Homestay[] = [
     ]
   },
   {
-    id: 10,
+    id: 6,
     name: 'Tranquil Meadows Inn',
     location: 'Tamei, Manipur',
     description: 'Experience tranquility in open meadows with organic meals and scenic outdoor spaces. Features morning yoga sessions and herbal gardens.',
     images: [
-      '/lovable-uploads/h13.webp',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/lovable-uploads/t101.avif',
+      '/lovable-uploads/t102.avif',
+      '/lovable-uploads/t103.avif',
+      '/lovable-uploads/t104.avif',
+      '/lovable-uploads/t105.avif'
     ],
     price: 1300,
     rating: 4.8,
@@ -717,16 +446,16 @@ export const allHomestays: Homestay[] = [
     ]
   },
   {
-    id: 11,
+    id: 7,
     name: 'Heritage Cottage',
     location: 'Kangpokpi, Manipur',
     description: 'A blend of heritage charm and modern comforts in a quiet village setting. Features traditional weapon displays and cultural demonstrations.',
     images: [
-      '/lovable-uploads/h14.avif',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/lovable-uploads/h111.avif',
+      '/lovable-uploads/h112.avif',
+      '/lovable-uploads/h113.avif',
+      '/lovable-uploads/h114.avif',
+      '/lovable-uploads/h115.avif'
     ],
     price: 1250,
     rating: 4.5,
@@ -785,16 +514,16 @@ export const allHomestays: Homestay[] = [
     ]
   },
   {
-    id: 12,
+    id: 8,
     name: 'Serenity Hilltop Retreat',
     location: 'Wangkhei, Manipur',
     description: 'Relax in this hilltop retreat offering stunning views and a serene environment. Features infinity pool and spa services.',
     images: [
-      '/lovable-uploads/h15.jpg',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/lovable-uploads/s121.avif',
+      '/lovable-uploads/s122.avif',
+      '/lovable-uploads/s123.avif',
+      '/lovable-uploads/s124.avif',
+      '/lovable-uploads/s125.avif'
     ],
     price: 1450,
     rating: 4.9,
@@ -853,16 +582,16 @@ export const allHomestays: Homestay[] = [
     ]
   },
   {
-    id: 13,
+    id: 9,
     name: 'Rustic Charm Homestay',
     location: 'Thoubal, Manipur',
     description: 'Enjoy a rustic escape with wood-fired fireplaces, local arts, and crafts. Features pottery workshops and traditional music nights.',
     images: [
-      '/lovable-uploads/h16.webp',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/lovable-uploads/r131.avif',
+      '/lovable-uploads/r132.avif',
+      '/lovable-uploads/r133.avif',
+      '/lovable-uploads/r134.avif',
+      '/lovable-uploads/r135.avif'
     ],
     price: 990,
     rating: 4.4,
@@ -921,16 +650,16 @@ export const allHomestays: Homestay[] = [
     ]
   },
   {
-    id: 14,
+    id: 10,
     name: 'Garden Oasis Homestay',
     location: 'Senapati, Manipur',
     description: 'A quaint homestay with expansive gardens and an emphasis on organic living. Features floral arrangement workshops and garden-to-table dining.',
     images: [
-      '/lovable-uploads/h17.avif',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/lovable-uploads/g141.avif',
+      '/lovable-uploads/g142.avif',
+      '/lovable-uploads/g143.avif',
+      '/lovable-uploads/g144.avif',
+      '/lovable-uploads/g145.avif'
     ],
     price: 1120,
     rating: 4.6,
@@ -988,18 +717,18 @@ export const allHomestays: Homestay[] = [
       }
     ]
   },
-    // Entries 15-20
+    
 {
-    id: 15,
+    id: 11,
     name: 'Cultural Haven Inn',
     location: 'Kokrajhar, Manipur',
     description: 'Immerse yourself in local traditions through daily craft workshops and cultural performances. Features a traditional dance stage and artisan market.',
     images: [
-      '/lovable-uploads/h18.jpg',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/lovable-uploads/c151.jpg',
+      '/lovable-uploads/c152.avif',
+      '/lovable-uploads/c153.avif',
+      '/lovable-uploads/c154.avif',
+      '/lovable-uploads/c155.avif'
     ],
     price: 1380,
     rating: 4.7,
@@ -1058,12 +787,283 @@ export const allHomestays: Homestay[] = [
     ]
   },
   {
+    id: 12,
+    name: 'Mountain Retreat Ukhrul',
+    location: 'Ukhrul, Manipur',
+    description: 'Nestled in the hills of Ukhrul, this cozy retreat offers stunning mountain views and tranquility. Perfect for nature lovers and those seeking peace away from the city, this mountain homestay provides panoramic views of the surrounding hills and valleys. The architecture incorporates elements of traditional Tangkhul design.',
+    images: [
+      '/lovable-uploads/uhk.jpg',
+      '/lovable-uploads/h4.avif',
+      '/lovable-uploads/h7.avif',
+      '/lovable-uploads/h1.jpg',
+      '/lovable-uploads/h9.avif',
+    ],
+    price: 950,
+    rating: 4.8,
+    reviews: 19,
+    guests: 3,
+    bedrooms: 1,
+    beds: 2,
+    bathrooms: 1,
+    rooms: [
+      { id: 1, name: 'Mountain View Room', capacity: 2, price: 950 },
+      { id: 2, name: 'Valley View Room', capacity: 1, price: 850 }
+    ],
+    amenities: [
+      'Mountain View', 
+      'Trekking Tours', 
+      'Organic Meals', 
+      'Local Crafts',
+      'Fireplace',
+      'Hot Water',
+      'Nature Walks',
+      'Stargazing Deck'
+    ],
+    host: {
+      name: 'Somi Shimray',
+      image: 'https://i.pravatar.cc/150?img=33',
+      joinedDate: 'July 2021',
+      languages: ['English', 'Tangkhul', 'Hindi', 'Manipuri'],
+      responseRate: 100
+    },
+    location_description: 'Located in the hills of Ukhrul district, about 85 km from Imphal. The homestay sits at an elevation offering breathtaking views of the valleys below and mountains beyond.',
+    reviews_list: [
+      {
+        id: 1,
+        name: 'Rebecca Thomas',
+        avatar: 'https://i.pravatar.cc/150?img=45',
+        date: '3 weeks ago',
+        rating: 5,
+        comment: "The perfect getaway from city life. The mountain views are spectacular, especially at sunrise. The host arranged a wonderful trekking tour that showed us the natural beauty of the area."
+      },
+      {
+        id: 2,
+        name: 'Vijay Sharma',
+        avatar: 'https://i.pravatar.cc/150?img=56',
+        date: '1 month ago',
+        rating: 5,
+        comment: "Absolutely stunning location. The organic meals prepared with local ingredients were delicious. The host's knowledge of local flora and fauna made our nature walks very informative."
+      },
+      {
+        id: 3,
+        name: 'Linda Kim',
+        avatar: 'https://i.pravatar.cc/150?img=17',
+        date: '2 months ago',
+        rating: 4,
+        comment: "Beautiful retreat in the mountains. The stargazing deck was magical on clear nights. The rooms were cozy and comfortable, though a bit small. The hospitality was outstanding."
+      }
+    ]
+  },
+  {
+    id: 13,
+    name: 'Eco Farm Cottage',
+    location: 'Bishnupur, Manipur',
+    description: 'A sustainable eco-friendly cottage surrounded by organic farms and traditional crafts workshops. This environmentally conscious homestay is set on an organic farm where guests can participate in farming activities and learn about sustainable practices. The cottage is built using locally sourced materials and traditional techniques.',
+    images: [
+      '/lovable-uploads/h4.avif',
+      '/lovable-uploads/h9.avif',
+      '/lovable-uploads/h7.avif',
+      '/lovable-uploads/h6.avif',
+      '/lovable-uploads/loktakComplete.png',
+    ],
+    price: 1100,
+    rating: 4.6,
+    reviews: 31,
+    guests: 2,
+    bedrooms: 1,
+    beds: 1,
+    bathrooms: 1,
+    rooms: [
+      { id: 1, name: 'Farm View Cottage', capacity: 2, price: 1100 }
+    ],
+    amenities: [
+      'Organic Farm', 
+      'Cooking Classes', 
+      'Wifi', 
+      'Bicycle Rental',
+      'Craft Workshops',
+      'Rainwater Harvesting',
+      'Solar Power',
+      'Farm-to-Table Meals'
+    ],
+    host: {
+      name: 'Laishram Biren',
+      image: 'https://i.pravatar.cc/150?img=42',
+      joinedDate: 'April 2020',
+      languages: ['English', 'Manipuri', 'Hindi'],
+      responseRate: 95
+    },
+    location_description: 'Located in the Bishnupur district, about 35 km from Imphal. The cottage is situated on an organic farm with easy access to Loktak Lake and other natural attractions in the area.',
+    reviews_list: [
+      {
+        id: 1,
+        name: 'Emma Johnson',
+        avatar: 'https://i.pravatar.cc/150?img=25',
+        date: '1 month ago',
+        rating: 5,
+        comment: "A wonderful experience for eco-conscious travelers. We loved the cooking classes using fresh ingredients from the farm. The cottage is simple but comfortable and very well designed."
+      },
+      {
+        id: 2,
+        name: 'Raj Patel',
+        avatar: 'https://i.pravatar.cc/150?img=37',
+        date: '2 months ago',
+        rating: 4,
+        comment: "Great place to learn about sustainable living. The bicycle tour of the surrounding villages was a highlight. The host is very knowledgeable about organic farming techniques."
+      },
+      {
+        id: 3,
+        name: 'Sophie Chen',
+        avatar: 'https://i.pravatar.cc/150?img=29',
+        date: '3 months ago',
+        rating: 5,
+        comment: "The perfect place to disconnect and learn about sustainable living. The craft workshop was so interesting, and we got to make our own pottery. The farm-to-table meals were exceptional."
+      }
+    ]
+  },
+  {
+    id: 14,
+    name: 'Riverside Haven',
+    location: 'Tamenglong, Manipur',
+    description: 'Peaceful riverside homestay offering fishing, bamboo rafting, and bird watching experiences. Set alongside a pristine river in Tamenglong district, this tranquil homestay is perfect for nature lovers and those seeking adventure activities. The property features beautiful gardens and river-facing rooms.',
+    images: [
+      '/lovable-uploads/h7.avif',
+      '/lovable-uploads/h9.avif',
+      '/lovable-uploads/h6.avif',
+      '/lovable-uploads/h4.avif',
+      '/lovable-uploads/uhk.jpg',
+    ],
+    price: 1350,
+    rating: 4.5,
+    reviews: 16,
+    guests: 5,
+    bedrooms: 2,
+    beds: 3,
+    bathrooms: 2,
+    rooms: [
+      { id: 1, name: 'Riverside Suite', capacity: 3, price: 1350 },
+      { id: 2, name: 'Garden Room', capacity: 2, price: 1200 }
+    ],
+    amenities: [
+      'River View', 
+      'Fishing Equipment', 
+      'Traditional Meals', 
+      'Guided Tours',
+      'Bird Watching',
+      'Bamboo Rafting',
+      'Bonfire',
+      'Nature Trails'
+    ],
+    host: {
+      name: 'Kamei Robert',
+      image: 'https://i.pravatar.cc/150?img=54',
+      joinedDate: 'September 2020',
+      languages: ['English', 'Rongmei', 'Manipuri', 'Hindi'],
+      responseRate: 92
+    },
+    location_description: 'Located in Tamenglong district, about 100 km from Imphal. The homestay sits on the banks of a river surrounded by lush forests and hills.',
+    reviews_list: [
+      {
+        id: 1,
+        name: 'David Miller',
+        avatar: 'https://i.pravatar.cc/150?img=15',
+        date: '1 month ago',
+        rating: 4,
+        comment: "A wonderful place for nature enthusiasts. The bamboo rafting experience was unforgettable, and we saw so many bird species during our stay. The rooms are comfortable with beautiful river views."
+      },
+      {
+        id: 2,
+        name: 'Sunita Rai',
+        avatar: 'https://i.pravatar.cc/150?img=39',
+        date: '2 months ago',
+        rating: 5,
+        comment: "Perfect getaway in nature. The sound of the river is so relaxing, and the fishing experience was great fun. The host prepared delicious meals with our catch of the day!"
+      },
+      {
+        id: 3,
+        name: 'Michael Wong',
+        avatar: 'https://i.pravatar.cc/150?img=61',
+        date: '3 months ago',
+        rating: 4,
+        comment: "Beautiful location by the river. The bonfire evenings with local stories were memorable. The rooms are spacious and clean. The nature trails around the property are worth exploring."
+      }
+    ]
+  },
+  {
+    id: 15,
+    name: 'Sangai Valley Lodge',
+    location: 'Sendra, Manipur',
+    description: 'Traditional lodge near Keibul Lamjao National Park with opportunities to spot the rare Sangai deer. This lodge is ideally situated for wildlife enthusiasts, offering easy access to India\'s only floating national park. The design incorporates traditional Manipuri architecture with modern comforts.',
+    images: [
+      '/lovable-uploads/h9.avif',
+      '/lovable-uploads/loktakView.webp',
+      '/lovable-uploads/h7.avif',
+      '/lovable-uploads/h6.avif',
+      '/lovable-uploads/h4.avif',
+    ],
+    price: 1600,
+    rating: 4.9,
+    reviews: 24,
+    guests: 4,
+    bedrooms: 2,
+    beds: 2,
+    bathrooms: 2,
+    rooms: [
+      { id: 1, name: 'Park View Room', capacity: 2, price: 1600 },
+      { id: 2, name: 'Lake View Room', capacity: 2, price: 1700 }
+    ],
+    amenities: [
+      'National Park Access', 
+      'Wildlife Tours', 
+      'Traditional Meals', 
+      'Cultural Performances',
+      'Boat Rides',
+      'Binoculars',
+      'Guided Nature Walks',
+      'Evening Campfire'
+    ],
+    host: {
+      name: 'Manihar Singh',
+      image: 'https://i.pravatar.cc/150?img=59',
+      joinedDate: 'February 2019',
+      languages: ['English', 'Manipuri', 'Hindi'],
+      responseRate: 99
+    },
+    location_description: 'Located in Sendra, on the edge of Keibul Lamjao National Park, about 50 km from Imphal. The lodge offers stunning views of Loktak Lake and the floating phumdis.',
+    reviews_list: [
+      {
+        id: 1,
+        name: 'James Wilson',
+        avatar: 'https://i.pravatar.cc/150?img=18',
+        date: '2 weeks ago',
+        rating: 5,
+        comment: "An amazing place for wildlife enthusiasts. We were lucky enough to spot the rare Sangai deer during our wildlife tour. The cultural performances in the evening were exceptional."
+      },
+      {
+        id: 2,
+        name: 'Anjali Desai',
+        avatar: 'https://i.pravatar.cc/150?img=28',
+        date: '1 month ago',
+        rating: 5,
+        comment: "Perfect location for exploring Keibul Lamjao National Park. The boat ride on Loktak Lake was unforgettable. The rooms are spacious and comfortable with great views."
+      },
+      {
+        id: 3,
+        name: 'Robert Chen',
+        avatar: 'https://i.pravatar.cc/150?img=58',
+        date: '2 months ago',
+        rating: 5,
+        comment: "The lodge exceeded our expectations. The wildlife tours were well organized, and the guides were very knowledgeable. The traditional Manipuri meals were delicious and authentic."
+      }
+    ]
+  },
+  {
     id: 16,
     name: 'Mystic Valley Lodge',
     location: 'Karong, Manipur',
     description: 'Secluded valley retreat offering mystical sunrise views and guided meditation sessions. Features ancient stone pathways and natural springs.',
     images: [
-      '/lovable-uploads/h19.webp',
+      '/lovable-uploads/m161.avif',
       '/lovable-uploads/h4.avif',
       '/lovable-uploads/h7.avif',
       '/lovable-uploads/h9.avif',
@@ -1131,7 +1131,7 @@ export const allHomestays: Homestay[] = [
     location: 'Sadar Hills, Manipur',
     description: 'Authentic riverside experience with fishing excursions and riverside barbecues. Features traditional bamboo cottages and canoeing.',
     images: [
-      '/lovable-uploads/h20.avif',
+      '/lovable-uploads/r171.avif',
       '/lovable-uploads/h4.avif',
       '/lovable-uploads/h7.avif',
       '/lovable-uploads/h9.avif',
@@ -1199,7 +1199,7 @@ export const allHomestays: Homestay[] = [
     location: 'Andro, Manipur',
     description: 'Ideal for astronomy enthusiasts with telescope facilities and night photography workshops. Features light pollution-free skies.',
     images: [
-      '/lovable-uploads/h21.jpg',
+      '/lovable-uploads/s181.avif',
       '/lovable-uploads/h4.avif',
       '/lovable-uploads/h7.avif',
       '/lovable-uploads/h9.avif',
@@ -1267,7 +1267,7 @@ export const allHomestays: Homestay[] = [
     location: 'Singjamei, Manipur',
     description: 'Dense forest surroundings with guided night walks and medicinal plant tours. Features treehouse accommodations and canopy walks.',
     images: [
-      '/lovable-uploads/h22.webp',
+      '/lovable-uploads/m191.avif',
       '/lovable-uploads/h4.avif',
       '/lovable-uploads/h7.avif',
       '/lovable-uploads/h9.avif',
@@ -1335,7 +1335,7 @@ export const allHomestays: Homestay[] = [
     location: 'Khongjom, Manipur',
     description: 'Peaceful retreat featuring meditation gardens and traditional healing therapies. Offers yoga sessions with mountain views.',
     images: [
-      '/lovable-uploads/h23.avif',
+      '/lovable-uploads/t201.webp',
       '/lovable-uploads/h4.avif',
       '/lovable-uploads/h7.avif',
       '/lovable-uploads/h9.avif',
@@ -1404,7 +1404,7 @@ export const allHomestays: Homestay[] = [
     location: 'Lilong, Manipur',
     description: 'Perched on a hill with terraced gardens, featuring traditional décor and flower cultivation workshops. Offers sunset viewing platforms.',
     images: [
-      '/lovable-uploads/h24.jpg',
+      '/lovable-uploads/m82.avif',
       '/lovable-uploads/h4.avif',
       '/lovable-uploads/h7.avif',
       '/lovable-uploads/h9.avif',
@@ -1472,7 +1472,7 @@ export const allHomestays: Homestay[] = [
     location: 'Noney, Manipur',
     description: 'Modern-traditional fusion stay with curated art exhibits and bamboo craft workshops. Features a riverside meditation deck.',
     images: [
-      '/lovable-uploads/h25.webp',
+      '/lovable-uploads/s73.avif',
       '/lovable-uploads/h4.avif',
       '/lovable-uploads/h7.avif',
       '/lovable-uploads/h9.avif',
@@ -1540,7 +1540,7 @@ export const allHomestays: Homestay[] = [
     location: 'Sugnu, Manipur',
     description: 'Family-friendly cottages with indoor fireplaces and traditional board games. Offers guided village walks and fishing trips.',
     images: [
-      '/lovable-uploads/h26.avif',
+      '/lovable-uploads/t102.webp',
       '/lovable-uploads/h4.avif',
       '/lovable-uploads/h7.avif',
       '/lovable-uploads/h9.avif',
@@ -1608,7 +1608,7 @@ export const allHomestays: Homestay[] = [
     location: 'Mayang Imphal, Manipur',
     description: '16th-century heritage property restored with original materials. Features historical reenactments and antique artifact displays.',
     images: [
-      '/lovable-uploads/h27.jpg',
+      '/lovable-uploads/w93.avif',
       '/lovable-uploads/h4.avif',
       '/lovable-uploads/h7.avif',
       '/lovable-uploads/h9.avif',
@@ -1676,7 +1676,7 @@ export const allHomestays: Homestay[] = [
     location: 'Moreh, Manipur',
     description: 'Panoramic valley views with guided border culture tours. Features a rooftop observatory and traditional dance classes.',
     images: [
-      '/lovable-uploads/h28.webp',
+      '/lovable-uploads/t102.webp',
       '/lovable-uploads/h4.avif',
       '/lovable-uploads/h7.avif',
       '/lovable-uploads/h9.avif',
@@ -1744,7 +1744,7 @@ export const allHomestays: Homestay[] = [
     location: 'Khabaibam, Manipur',
     description: 'Secluded farmstay with organic cooking classes and bullock cart rides. Features mud cottages and traditional farming experiences.',
     images: [
-      '/lovable-uploads/h29.avif',
+      '/lovable-uploads/r134.avif',
       '/lovable-uploads/h4.avif',
       '/lovable-uploads/h7.avif',
       '/lovable-uploads/h9.avif',
@@ -1812,7 +1812,7 @@ export const allHomestays: Homestay[] = [
     location: 'Heingang, Manipur',
     description: 'Minimalist retreat with daily meditation sessions and Japanese-inspired gardens. Features tea ceremonies and rock gardens.',
     images: [
-      '/lovable-uploads/h30.jpg',
+      '/lovable-uploads/s75.avif',
       '/lovable-uploads/h4.avif',
       '/lovable-uploads/h7.avif',
       '/lovable-uploads/h9.avif',
@@ -1880,7 +1880,7 @@ export const allHomestays: Homestay[] = [
     location: 'Sugnu, Manipur',
     description: 'Contemporary lakeside cabins with private docks and kayaking. Features floating breakfasts and sunset cruises on Loktak Lake.',
     images: [
-      '/lovable-uploads/h31.webp',
+      '/lovable-uploads/s123.avif',
       '/lovable-uploads/h4.avif',
       '/lovable-uploads/h7.avif',
       '/lovable-uploads/h9.avif',
@@ -1949,7 +1949,7 @@ export const allHomestays: Homestay[] = [
     location: 'Imphal West, Manipur',
     description: 'Urban heritage property preserving 19th-century architecture. Features vintage photo exhibitions and traditional puppet shows.',
     images: [
-      '/lovable-uploads/h32.avif',
+      '/lovable-uploads/h113.avif',
       '/lovable-uploads/h4.avif',
       '/lovable-uploads/h7.avif',
       '/lovable-uploads/h9.avif',
@@ -2019,7 +2019,7 @@ export const allHomestays: Homestay[] = [
         location: 'Moebung, Manipur',
         description: 'A perfect forest retreat featuring eco-friendly architecture and organic farming experiences. Night walks with naturalists available.',
         images: [
-          '/lovable-uploads/h33.jpg',
+          '/lovable-uploads/g143.avif',
           '/lovable-uploads/h4.avif',
           '/lovable-uploads/h7.avif',
           '/lovable-uploads/h9.avif',

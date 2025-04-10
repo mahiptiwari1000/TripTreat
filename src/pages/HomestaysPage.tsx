@@ -19,7 +19,19 @@ const HomestaysPage = () => {
     wifi: false,
     traditionalMeals: false,
     guidedTours: false,
-    culturalActivities: false
+    culturalActivities: false,
+    bicycleRental: false,
+    organicFarm: false,
+    yogaPavilion: false,
+    starGazing: false,
+    mountainView: false,
+    spaServices: false,
+    petFriendly: false,
+    airCond: false,
+    hotWater: false,
+    lakeView: false,
+    freeParking: false
+
   });
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
@@ -40,8 +52,21 @@ const HomestaysPage = () => {
       const hasMeals = !filters.traditionalMeals || homestay.amenities.includes('Traditional Meals');
       const hasTours = !filters.guidedTours || homestay.amenities.includes('Guided Tours');
       const hasCultural = !filters.culturalActivities || homestay.amenities.includes('Cultural Activities');
+      const haslakeView = !filters.lakeView || homestay.amenities.includes('Lake View');
+      const hasfreeParking = !filters.freeParking || homestay.amenities.includes('Free Parking');
+      const hashotWater = !filters.hotWater || homestay.amenities.includes('Hot Water');
+      const hasairCond = !filters.airCond || homestay.amenities.includes('Air Conditioning');
+      const haspetFriendly = !filters.petFriendly || homestay.amenities.includes('Pet Friendly');
+      const hasspaServices = !filters.spaServices || homestay.amenities.includes('Spa Services');
+      const hasmountainView = !filters.mountainView || homestay.amenities.includes('Mountain View');
+      const hasstarGazing = !filters.starGazing || homestay.amenities.includes('Stargazing');
+      const hasyogaPavilion = !filters.yogaPavilion || homestay.amenities.includes('Yoga Pavilion');
+      const hasorganicFarm = !filters.organicFarm || homestay.amenities.includes('Organic Farm');
+      const hasbicycleRental = !filters.bicycleRental || homestay.amenities.includes('Bicycle Rental');
       
-      return withinPriceRange && matchesSearch && hasWifi && hasMeals && hasTours && hasCultural;
+      return withinPriceRange && matchesSearch && hasWifi && hasMeals && hasTours && hasCultural && haslakeView && hasfreeParking && 
+      hashotWater && hasairCond && haspetFriendly && hasspaServices && hasmountainView && hasstarGazing && hasyogaPavilion && hasorganicFarm
+      && hasbicycleRental;
     });
     
     setFilteredHomestays(filtered);
@@ -101,7 +126,7 @@ const HomestaysPage = () => {
                 
                 <div className="space-y-4 mb-6">
                   <label className="block text-sm font-medium mb-2">Amenities</label>
-                  {['wifi', 'traditionalMeals', 'guidedTours', 'culturalActivities'].map((filterKey) => (
+                  {[ 'traditionalMeals', 'guidedTours', 'culturalActivities', 'organicFarm', 'yogaPavilion', 'starGazing', 'mountainView', 'spaServices'].map((filterKey) => (
                     <div key={filterKey} className="flex items-center space-x-2">
                       <Checkbox
                         id={filterKey}
