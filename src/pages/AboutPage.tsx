@@ -258,12 +258,8 @@ const AboutPage = () => {
                 Turn your skills, knowledge, or passion into unique experiences for visitors.
               </p>
               <Button 
-                className="mt-auto bg-primary hover:bg-primary/90"
-                onClick={() => toast.success("Thank you for your interest!", {
-                  description: "We'll contact you about becoming an experience host."
-                })}
-              >
-                Apply as Guide
+                className="mt-auto bg-primary hover:bg-primary/90" asChild>
+                  <Link to="/become-host">Apply as Guide</Link>
               </Button>
             </Card>
             
@@ -274,12 +270,8 @@ const AboutPage = () => {
                 Businesses, NGOs, and organizations can collaborate with us on sustainable tourism initiatives.
               </p>
               <Button 
-                className="mt-auto bg-primary hover:bg-primary/90"
-                onClick={() => toast.success("Partnership inquiry received!", {
-                  description: "Our team will reach out to discuss collaboration opportunities."
-                })}
-              >
-                Contact Us
+                className="mt-auto bg-primary hover:bg-primary/90" asChild>
+                <Link to="/contact">Contact Us</Link>
               </Button>
             </Card>
           </div>

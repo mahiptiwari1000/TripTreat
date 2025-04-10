@@ -121,14 +121,15 @@ const Hero = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button
+  className="cta-button bg-manipur-green hover:bg-manipur-green/90 transition-transform duration-300 ease-in-out transform hover:scale-105 active:scale-95"
+  asChild
+>
+  <Link to="/homestays">Explore Homestays</Link>
+</Button>
+
             <Button 
-              className="cta-button bg-manipur-green hover:bg-manipur-green/90" 
-              asChild
-            >
-              <Link to="/homestays">Explore Homestays</Link>
-            </Button>
-            <Button 
-              className="cta-button bg-manipur-pink hover:bg-manipur-pink/90" 
+              className="cta-button bg-manipur-pink hover:bg-manipur-pink/90 transition-transform duration-300 ease-in-out transform hover:scale-105 active:scale-95" 
               asChild
             >
               <Link to="/become-host">Become a Host</Link>
