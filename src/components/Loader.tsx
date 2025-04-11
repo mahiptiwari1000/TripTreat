@@ -1,7 +1,14 @@
 
 import React from 'react';
  
- const Loader = () => {
+  interface LoaderProps {
+    progress?: number;
+  }
+  
+  const Loader: React.FC<LoaderProps> = ({ progress = 0 }) => {
+    // Calculate the percentage to display (0-100)
+    const displayProgress = Math.min(100, Math.max(0, Math.round(progress)));
+
    return (
      <div className="fixed inset-0 flex flex-col items-center justify-center bg-white z-50">
        <div className="mb-8 text-5xl md:text-6xl font-bold flex items-end">
@@ -18,8 +25,8 @@ import React from 'react';
        </div>
        
        {/* Loading indicator */}
-       <div className="w-64 h-2 bg-gray-200 rounded-full overflow-hidden">
-         <div className="h-full bg-gradient-to-r from-[#147B58] via-[#E07A5F] to-[#147B58] animate-[loader_17s_linear]"></div>
+       <div className="w-64 h-2 bg-gray-200 rounded-full overflow-hidden mb-2">
+         <div className="h-full bg-gradient-to-r from-[#147B58] via-[#E07A5F] to-[#147B58] animate-[loader_10s_linear]"></div>
        </div>
        <p className="text-gray-500 mt-4 animate-pulse">Discovering From Homestays to Hidden Trails...</p>
      </div>

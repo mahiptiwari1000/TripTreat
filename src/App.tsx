@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 import { ThemeProvider } from "@/components/theme-provider";
 import FloatingChatbot from './components/FloatingChatbot';
 import Loader from "./components/Loader";
+import { preloadImages, staticImages } from './lib/imagePreloader';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -34,11 +35,16 @@ const queryClient = new QueryClient();
 
 const App = () => {
   const [loading, setLoading] = useState(true);
+  const [preloadProgress, setPreloadProgress] = useState(0);
 
   useEffect(() => {
+    preloadImages(staticImages, (progress) => {
+      setPreloadProgress(progress);
+    });
+
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 17000);
+    }, 10000);
 
     return () => {
       clearTimeout(timer);
@@ -47,6 +53,7 @@ const App = () => {
 
   if (loading) {
     return <Loader />;
+    return <Loader progress={preloadProgress} />;
   }
 
   return (
