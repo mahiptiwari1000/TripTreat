@@ -226,6 +226,14 @@
     opacity: 0;
   }
 }
+@keyframes loader {
+   0% {
+     width: 0%;
+   }
+   100% {
+     width: 100%;
+   }
+ }
 
 .animate-fade-in {
   animation: fade-in 0.8s ease-out forwards;
