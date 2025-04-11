@@ -19,7 +19,7 @@ import React from 'react';
        
        {/* Loading indicator */}
        <div className="w-64 h-2 bg-gray-200 rounded-full overflow-hidden">
-         <div className="h-full bg-gradient-to-r from-[#147B58] via-[#E07A5F] to-[#147B58] animate-[loader_10s_linear]"></div>
+         <div className="h-full bg-gradient-to-r from-[#147B58] via-[#E07A5F] to-[#147B58] animate-[loader_17s_linear]"></div>
        </div>
        <p className="text-gray-500 mt-4 animate-pulse">Discovering From Homestays to Hidden Trails...</p>
      </div>
