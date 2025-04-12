@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
 import { ThemeProvider } from "@/components/theme-provider";
 import FloatingChatbot from './components/FloatingChatbot';
 import Loader from "./components/Loader";
-import { preloadImages, staticImages } from './lib/imagePreloader';
+import { preloadImages, staticImages } from './utils/imagePreloader';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
