@@ -384,7 +384,7 @@ export const allHomestays: Homestay[] = [
     description: 'Experience tranquility in open meadows with organic meals and scenic outdoor spaces. Features morning yoga sessions and herbal gardens.',
     images: [
       '/lovable-uploads/t101.avif',
-      '/lovable-uploads/t102.avif',
+      '/lovable-uploads/s74.avif',
       '/lovable-uploads/t103.avif',
       '/lovable-uploads/t104.avif',
       '/lovable-uploads/t105.avif'

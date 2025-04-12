@@ -94,6 +94,16 @@
     '/lovable-uploads/uhk.jpg',
     '/lovable-uploads/walk1.jpg',
     '/lovable-uploads/walktrek.png',
+    '/lovable-uploads/herkit.jpg',
+    '/lovable-uploads/lokres.jpg',
+    '/lovable-uploads/imafoo.jpg',
+    '/lovable-uploads/bamfoo.jpg',
+    '/lovable-uploads/royalfoo.jpg',
+    '/lovable-uploads/orgfoo.jpg',
+    '/lovable-uploads/dance.jpg',
+    '/lovable-uploads/hand.jpg',
+    '/lovable-uploads/pot.jpg',
+    '/lovable-uploads/foodcarou.jpg',
     
     // Add more image paths as needed to match all your static images
     // For demonstration, I've included all the images mentioned in your allowed-files section
