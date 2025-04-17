@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { 
   Menu, X, User, Map, Home, Coffee, Landmark, 
   Utensils, Info, PhoneCall, ChevronDown, MapPin,
-  CalendarRange, Award
+  CalendarRange, Award, ShoppingBag , Train
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -69,13 +69,13 @@ const Navbar = () => {
               <Map size={16} />
               Itinerary
             </Link>
-            <Link to="/about" className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200">
-              <Info size={16} />
-              Our Story
+            <Link to="/store" className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200">
+              <ShoppingBag  size={16} />
+              Store
             </Link>
-            <Link to="/contact" className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200">
-              <PhoneCall size={16} />
-              Contact
+            <Link to="/transport" className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200">
+              <Train size={16} />
+              Transport
             </Link>
           </div>
 
@@ -127,26 +127,26 @@ const Navbar = () => {
                     </Link>
                   </div>
                   <div className="py-1 border-t border-border">
-                    <Link 
-                      to="/favorites" 
-                      className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground"
-                      onClick={() => setIsUserMenuOpen(false)}
-                    >
-                      Saved places
-                    </Link>
-                    <Link 
-                      to="/bookings" 
-                      className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground"
-                      onClick={() => setIsUserMenuOpen(false)}
-                    >
-                      My bookings
-                    </Link>
-                    <Link 
+                  <Link 
                       to="/itinerary" 
                       className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground"
                       onClick={() => setIsUserMenuOpen(false)}
                     >
                       My itinerary
+                    </Link>
+                    <Link 
+                      to="/about" 
+                      className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground"
+                      onClick={() => setIsUserMenuOpen(false)}
+                    >
+                      Our Story
+                    </Link>
+                    <Link 
+                      to="/contact" 
+                      className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground"
+                      onClick={() => setIsUserMenuOpen(false)}
+                    >
+                      Contact
                     </Link>
                   </div>
                 </div>
@@ -221,6 +221,22 @@ const Navbar = () => {
             >
               <Map size={16} />
               Itinerary
+            </Link>
+            <Link 
+              to="/store" 
+              className="py-2 text-foreground hover:text-primary flex items-center gap-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <ShoppingBag size={16} />
+              Store
+            </Link>
+            <Link 
+              to="/transport" 
+              className="py-2 text-foreground hover:text-primary flex items-center gap-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Train size={16} />
+              Transport
             </Link>
             <Link 
               to="/about" 
