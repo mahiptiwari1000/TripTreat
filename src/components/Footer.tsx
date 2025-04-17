@@ -95,13 +95,13 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/host-resources" className="text-white/80 hover:text-white transition-colors">
-                  Resources
+                <Link to="/about" className="text-white/80 hover:text-white transition-colors">
+                  Our Story
                 </Link>
               </li>
               <li>
-                <Link to="/host-community" className="text-white/80 hover:text-white transition-colors">
-                  Community
+                <Link to="/contact" className="text-white/80 hover:text-white transition-colors">
+                  Contact
                 </Link>
               </li>
               <li>

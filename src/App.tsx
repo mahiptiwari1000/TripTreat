@@ -19,6 +19,9 @@ import { ThemeProvider } from "@/components/theme-provider";
 import FloatingChatbot from './components/FloatingChatbot';
 import Loader from "./components/Loader";
 import { preloadImages, staticImages } from './utils/imagePreloader';
+import StorePage from "./pages/StorePage";
+import TransportPage from "./pages/TransportPage";
+
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -74,6 +77,8 @@ const App = () => {
               <Route path="/eateries" element={<EateriesPage />} />
               <Route path="/hotspots" element={<HotspotsPage />} />
               <Route path="/itinerary" element={<ItineraryPage />} />
+              <Route path="/store" element={<StorePage />} />
+              <Route path="/transport" element={<TransportPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="*" element={<Navigate to="/" />} />
