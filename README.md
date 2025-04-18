@@ -6,20 +6,3 @@ Currently focused on Northeast India, especially Manipur, this platform is your 
 
 With a humble aim to promote local experiences and connect travelers with authentic destinations, Trip and Treat is here to help you explore more, taste more, and experience more — one trip at a time.
 
-**Setup Locally**
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server.
-npm run dev
-```
