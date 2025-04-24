@@ -17,7 +17,7 @@ const experiences = [
     name: 'Traditional Manipuri Cooking Class',
     location: 'Imphal, Manipur',
     description: 'Learn to cook authentic Manipuri dishes with a local chef, including Eromba, Chamthong, and traditional black rice desserts.',
-    image: '/lovable-uploads/foodcar1.png',
+    image: '/file-uploads/foodcar1.png',
     price: 1200,
     duration: '3 hours',
     maxParticipants: 8,
@@ -33,7 +33,7 @@ const experiences = [
     name: 'Phumdis Boat Tour on Loktak Lake',
     location: 'Moirang, Manipur',
     description: 'Experience the unique floating islands of Loktak Lake on a traditional boat. Learn about the ecosystem and visit local fishing communities.',
-    image: '/lovable-uploads/loktakView.webp',
+    image: '/file-uploads/loktakView.webp',
     price: 800,
     duration: '2 hours',
     maxParticipants: 6,
@@ -49,7 +49,7 @@ const experiences = [
     name: 'Manipuri Classical Dance Workshop',
     location: 'Imphal, Manipur',
     description: 'Learn the basics of Manipuri classical dance, one of the eight major classical dance forms of India, with a renowned dancer.',
-    image: '/lovable-uploads/dance.jpg',
+    image: '/file-uploads/dance.jpg',
     price: 1500,
     duration: '4 hours',
     maxParticipants: 10,
@@ -65,7 +65,7 @@ const experiences = [
     name: 'Handloom Weaving Experience',
     location: 'Wangkhei, Imphal',
     description: 'Try your hand at traditional Manipuri handloom weaving. Create your own piece of fabric under the guidance of skilled artisans.',
-    image: '/lovable-uploads/hand.jpg',
+    image: '/file-uploads/hand.jpg',
     price: 1000,
     duration: '3 hours',
     maxParticipants: 4,
@@ -81,7 +81,7 @@ const experiences = [
     name: 'Sunrise Photography at Shirui Hills',
     location: 'Ukhrul, Manipur',
     description: 'Capture the breathtaking sunrise from Shirui Hills. Perfect for photography enthusiasts of all levels.',
-    image: '/lovable-uploads/sun.jpg',
+    image: '/file-uploads/sun.jpg',
     price: 1800,
     duration: '5 hours',
     maxParticipants: 6,
@@ -97,7 +97,7 @@ const experiences = [
     name: 'Traditional Pottery Workshop',
     location: 'Andro Village, Manipur',
     description: 'Learn the ancient pottery techniques of Andro village, known for its unique black pottery tradition passed down through generations.',
-    image: '/lovable-uploads/pot.jpg',
+    image: '/file-uploads/pot.jpg',
     price: 950,
     duration: '4 hours',
     maxParticipants: 8,
@@ -165,7 +165,7 @@ const ExperiencesPage = () => {
       {/* Hero Section */}
       <div className="relative h-[300px] mb-8">
         <img 
-          src="/lovable-uploads/expcar.jpg" 
+          src="/file-uploads/expcar.jpg" 
           alt="Manipur Experiences" 
           className="absolute inset-0 w-full h-full object-cover"
         />

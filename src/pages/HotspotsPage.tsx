@@ -35,42 +35,42 @@ type Hotspot = {
 
 // Sample images that we have
 const availableImages = [
-  '/lovable-uploads/sah3.jpg',
-  '/lovable-uploads/kha3.jpg',
-  '/lovable-uploads/zoo2.jpg',
-  '/lovable-uploads/or1.jpg',
-  '/lovable-uploads/sa1.jpg',
-  '/lovable-uploads/wa4.jpg',
-  '/lovable-uploads/71.jpg',
-  '/lovable-uploads/th6.jpg',
-  '/lovable-uploads/an2.jpg',
-  '/lovable-uploads/si1.jpg',
-  '/lovable-uploads/11.jpg',
-  '/lovable-uploads/12.jpg',
-  '/lovable-uploads/13.jpg',
-  '/lovable-uploads/14.jpg',
-  '/lovable-uploads/15.jpg',
-  '/lovable-uploads/16.jpg',
-  '/lovable-uploads/17.jpg',
-  '/lovable-uploads/18.jpg',
-  '/lovable-uploads/19.jpg',
-  '/lovable-uploads/20.jpg',
-  '/lovable-uploads/21.jpg',
-  '/lovable-uploads/22.jpg',
-  '/lovable-uploads/23.jpg',
-  '/lovable-uploads/24.jpg',
-  '/lovable-uploads/25.jpg',
-  '/lovable-uploads/26.jpg',
-  '/lovable-uploads/27.jpg',
-  '/lovable-uploads/28.jpg',
-  '/lovable-uploads/29.jpg',
-  '/lovable-uploads/30.jpg',
-  '/lovable-uploads/31.jpg',
-  '/lovable-uploads/32.jpg',
-  '/lovable-uploads/33.jpg',
-  '/lovable-uploads/34.jpg',
-  '/lovable-uploads/35.jpg',
-  '/lovable-uploads/36.jpg',
+  '/file-uploads/sah3.jpg',
+  '/file-uploads/kha3.jpg',
+  '/file-uploads/zoo2.jpg',
+  '/file-uploads/or1.jpg',
+  '/file-uploads/sa1.jpg',
+  '/file-uploads/wa4.jpg',
+  '/file-uploads/71.jpg',
+  '/file-uploads/th6.jpg',
+  '/file-uploads/an2.jpg',
+  '/file-uploads/si1.jpg',
+  '/file-uploads/11.jpg',
+  '/file-uploads/12.jpg',
+  '/file-uploads/13.jpg',
+  '/file-uploads/14.jpg',
+  '/file-uploads/15.jpg',
+  '/file-uploads/16.jpg',
+  '/file-uploads/17.jpg',
+  '/file-uploads/18.jpg',
+  '/file-uploads/19.jpg',
+  '/file-uploads/20.jpg',
+  '/file-uploads/21.jpg',
+  '/file-uploads/22.jpg',
+  '/file-uploads/23.jpg',
+  '/file-uploads/24.jpg',
+  '/file-uploads/25.jpg',
+  '/file-uploads/26.jpg',
+  '/file-uploads/27.jpg',
+  '/file-uploads/28.jpg',
+  '/file-uploads/29.jpg',
+  '/file-uploads/30.jpg',
+  '/file-uploads/31.jpg',
+  '/file-uploads/32.jpg',
+  '/file-uploads/33.jpg',
+  '/file-uploads/34.jpg',
+  '/file-uploads/35.jpg',
+  '/file-uploads/36.jpg',
   
 
 ];
@@ -85,8 +85,8 @@ const hotspots: Hotspot[] = [
     details: 'A memorial honoring Manipuri martyrs of the 1891 Anglo-Manipuri War. This historic monument stands as a symbol of resistance and serves as a reminder of Manipur\'s fight for independence.',
     image: availableImages[0],
     additionalImages: [
-      "/lovable-uploads/sah2.jpg",
-      "/lovable-uploads/sah5.jpg"
+      "/file-uploads/sah2.jpg",
+      "/file-uploads/sah5.jpg"
     ],
     category: 'Historical',
     visitDuration: '1-2 hours',
@@ -102,8 +102,8 @@ const hotspots: Hotspot[] = [
     details: "Asia's largest all-women-run market with traditional handicrafts, spices, and textiles. This unique market has been operating for over 500 years and showcases the economic empowerment of women in Manipuri society.",
     image: availableImages[1],
     additionalImages: [
-      "/lovable-uploads/kha1.jpg",
-      "/lovable-uploads/kha2.jpg"
+      "/file-uploads/kha1.jpg",
+      "/file-uploads/kha2.jpg"
     ],
     category: 'Cultural',
     visitDuration: '2-3 hours',
@@ -119,8 +119,8 @@ const hotspots: Hotspot[] = [
     details: 'Home to the endangered Sangai deer and other wildlife. The zoo is involved in conservation efforts for several endangered species native to the northeast region of India.',
     image: availableImages[2],
     additionalImages: [
-      "/lovable-uploads/zoo1.jpg",
-      "/lovable-uploads/zoo4.jpg"
+      "/file-uploads/zoo1.jpg",
+      "/file-uploads/zoo4.jpg"
     ],
     category: 'Wildlife',
     visitDuration: '3-4 hours',
@@ -136,8 +136,8 @@ const hotspots: Hotspot[] = [
     details: 'Houses over 110 rare orchid species, including endemic varieties. This botanical garden is a paradise for nature lovers and showcases the rich biodiversity of the region.',
     image: availableImages[3],
     additionalImages: [
-      "/lovable-uploads/or2.jpg",
-      "/lovable-uploads/or3.jpg"
+      "/file-uploads/or2.jpg",
+      "/file-uploads/or3.jpg"
     ],
     category: 'Nature',
     visitDuration: '2-3 hours',
@@ -153,8 +153,8 @@ const hotspots: Hotspot[] = [
     details: 'A three-tiered waterfall surrounded by lush foothills. The cascading water creates a serene atmosphere perfect for nature enthusiasts and photographers.',
     image: availableImages[4],
     additionalImages: [
-      "/lovable-uploads/sa3.jpg",
-      "/lovable-uploads/sa2.jpg"
+      "/file-uploads/sa3.jpg",
+      "/file-uploads/sa2.jpg"
     ],
     category: 'Nature',
     visitDuration: 'Half day',
@@ -170,8 +170,8 @@ const hotspots: Hotspot[] = [
     details: 'A serene lake ideal for birdwatching and picnics. The surrounding hills and vegetation create a picturesque setting perfect for relaxation.',
     image: availableImages[5],
     additionalImages: [
-      "/lovable-uploads/wa2.jpg",
-      "/lovable-uploads/wa3.jpg"
+      "/file-uploads/wa2.jpg",
+      "/file-uploads/wa3.jpg"
     ],
     category: 'Nature',
     visitDuration: '2-3 hours',
@@ -187,8 +187,8 @@ const hotspots: Hotspot[] = [
     details: 'Ancient limestone caves with WWII bunker remnants. These natural caves have historical significance and feature interesting limestone formations.',
     image: availableImages[6],
     additionalImages: [
-      "/lovable-uploads/72.jpg",
-      "/lovable-uploads/73.jpg"
+      "/file-uploads/72.jpg",
+      "/file-uploads/73.jpg"
     ],
     category: 'Adventure',
     visitDuration: '2-3 hours',
@@ -204,8 +204,8 @@ const hotspots: Hotspot[] = [
     details: 'A 650-meter-long cave system with carvings linked to Vietnamese Hovnanian culture. This archaeological site offers insights into ancient civilizations.',
     image: availableImages[7],
     additionalImages: [
-      "/lovable-uploads/th5.jpg",
-      "/lovable-uploads/th3.jpg"
+      "/file-uploads/th5.jpg",
+      "/file-uploads/th3.jpg"
     ],
     category: 'Adventure',
     visitDuration: 'Half day',
@@ -221,8 +221,8 @@ const hotspots: Hotspot[] = [
     details: 'Famous for traditional pottery and a cultural complex with tribal house replicas. This village offers an authentic glimpse into the traditional lifestyles of Manipuri communities.',
     image: availableImages[8],
     additionalImages: [
-      "/lovable-uploads/an3.jpg",
-      "/lovable-uploads/an1.jpg"
+      "/file-uploads/an3.jpg",
+      "/file-uploads/an1.jpg"
     ],
     category: 'Cultural',
     visitDuration: 'Half day',
@@ -238,8 +238,8 @@ const hotspots: Hotspot[] = [
     details: "The world's highest mud dam, surrounded by terraced paddy fields. This engineering marvel offers breathtaking views of the surrounding landscape.",
     image: availableImages[9],
     additionalImages: [
-      "/lovable-uploads/si2.jpg",
-      "/lovable-uploads/si3.jpg"
+      "/file-uploads/si2.jpg",
+      "/file-uploads/si3.jpg"
     ],
     category: 'Engineering',
     visitDuration: '2-3 hours',
@@ -255,8 +255,8 @@ const hotspots: Hotspot[] = [
     details: 'An ancient fort with historical significance, featuring temples and gardens. Once the seat of Manipur\'s power, this site offers a glimpse into the royal history of the region.',
     image: availableImages[10],
     additionalImages: [
-      "/lovable-uploads/112.jpg",
-      "/lovable-uploads/113.jpg"
+      "/file-uploads/112.jpg",
+      "/file-uploads/113.jpg"
     ],
     category: 'Historical',
     visitDuration: '2-3 hours',
@@ -272,8 +272,8 @@ const hotspots: Hotspot[] = [
     details: 'A renowned Vaishnavite temple known for its impressive architecture and religious importance. This twin-domed temple is an important spiritual center for the people of Manipur.',
     image: availableImages[11],
     additionalImages: [
-      "/lovable-uploads/122.jpg",
-      "/lovable-uploads/123.jpg"
+      "/file-uploads/122.jpg",
+      "/file-uploads/123.jpg"
     ],
     category: 'Religious',
     visitDuration: '1-2 hours',
@@ -289,8 +289,8 @@ const hotspots: Hotspot[] = [
     details: 'A solemn memorial commemorating soldiers who died during World War II. This well-maintained cemetery pays tribute to the Allied forces who fought in the Battle of Imphal.',
     image: availableImages[12],
     additionalImages: [
-      "/lovable-uploads/132.jpg",
-      "/lovable-uploads/133.jpg"
+      "/file-uploads/132.jpg",
+      "/file-uploads/133.jpg"
     ],
     category: 'Historical',
     visitDuration: '1 hour',
@@ -306,8 +306,8 @@ const hotspots: Hotspot[] = [
     details: 'Displaying a rich collection of cultural artifacts and historical items that highlight Manipur\'s heritage. The museum offers insights into tribal cultures, royal history, and traditional arts.',
     image: availableImages[13],
     additionalImages: [
-      "/lovable-uploads/142.jpg",
-      "/lovable-uploads/143.jpg"
+      "/file-uploads/142.jpg",
+      "/file-uploads/143.jpg"
     ],
     category: 'Cultural',
     visitDuration: '2-3 hours',
@@ -323,8 +323,8 @@ const hotspots: Hotspot[] = [
     details: 'The largest freshwater lake in Northeast India, known for its unique floating islands called phumdis. This ecological wonder supports diverse wildlife and offers spectacular views.',
     image: availableImages[14],
     additionalImages: [
-      "/lovable-uploads/152.jpg",
-      "/lovable-uploads/153.jpg"
+      "/file-uploads/152.jpg",
+      "/file-uploads/153.jpg"
     ],
     category: 'Nature',
     visitDuration: 'Half day',
@@ -340,8 +340,8 @@ const hotspots: Hotspot[] = [
     details: 'The world\'s only floating national park, home to the endangered Sangai deer. This unique ecosystem is built on phumdis and provides a critical habitat for rare wildlife.',
     image: availableImages[15],
     additionalImages: [
-      "/lovable-uploads/162.jpg",
-      "/lovable-uploads/163.jpg"
+      "/file-uploads/162.jpg",
+      "/file-uploads/163.jpg"
     ],
     category: 'Wildlife',
     visitDuration: '3-4 hours',
@@ -357,8 +357,8 @@ const hotspots: Hotspot[] = [
     details: 'A temple of historical and cultural significance as a major religious site in the region. The architecture blends local styles with traditional Hindu temple features.',
     image: availableImages[16],
     additionalImages: [
-      "/lovable-uploads/172.jpg",
-      "/lovable-uploads/173.jpg"
+      "/file-uploads/172.jpg",
+      "/file-uploads/173.jpg"
     ],
     category: 'Religious',
     visitDuration: '1-2 hours',
@@ -374,8 +374,8 @@ const hotspots: Hotspot[] = [
     details: 'Commemorating the bravery and sacrifice during the Anglo-Manipuri War of 1891. This memorial honors the heroes who fought against British colonial forces.',
     image: availableImages[17],
     additionalImages: [
-      "/lovable-uploads/182.jpg",
-      "/lovable-uploads/183.jpg"
+      "/file-uploads/182.jpg",
+      "/file-uploads/183.jpg"
     ],
     category: 'Historical',
     visitDuration: '2 hours',
@@ -391,8 +391,8 @@ const hotspots: Hotspot[] = [
     details: 'A scenic garden popular for picnics and leisurely outings. This well-maintained park features beautiful landscaping, walking paths, and recreational areas.',
     image: availableImages[18],
     additionalImages: [
-      "/lovable-uploads/192.jpg",
-      "/lovable-uploads/193.jpg"
+      "/file-uploads/192.jpg",
+      "/file-uploads/193.jpg"
     ],
     category: 'Nature',
     visitDuration: '2-3 hours',
@@ -408,8 +408,8 @@ const hotspots: Hotspot[] = [
     details: 'Offering panoramic views and rewarding trekking opportunities. The hill also has religious significance with a temple dedicated to Lord Krishna at the top.',
     image: availableImages[19],
     additionalImages: [
-      "/lovable-uploads/202.jpg",
-      "/lovable-uploads/203.jpg"
+      "/file-uploads/202.jpg",
+      "/file-uploads/203.jpg"
     ],
     category: 'Nature',
     visitDuration: 'Half day',
@@ -425,8 +425,8 @@ const hotspots: Hotspot[] = [
     details: 'A dam with scenic surroundings and recreational activities. This multipurpose dam provides irrigation and drinking water while also serving as a tourist attraction.',
     image: availableImages[20],
     additionalImages: [
-      "/lovable-uploads/212.jpg",
-      "/lovable-uploads/213.jpg"
+      "/file-uploads/212.jpg",
+      "/file-uploads/213.jpg"
     ],
     category: 'Engineering',
     visitDuration: '2-3 hours',
@@ -442,8 +442,8 @@ const hotspots: Hotspot[] = [
     details: 'Offering stunning views and serving as a favored spot among nature lovers. The surrounding forests and hills make this a picturesque location.',
     image: availableImages[21],
     additionalImages: [
-      "/lovable-uploads/222.jpg",
-      "/lovable-uploads/223.jpg"
+      "/file-uploads/222.jpg",
+      "/file-uploads/223.jpg"
     ],
     category: 'Engineering',
     visitDuration: 'Half day',
@@ -459,8 +459,8 @@ const hotspots: Hotspot[] = [
     details: 'A serene lake ideal for relaxation and enjoying peaceful natural surroundings. The pristine waters reflect the surrounding hills creating a tranquil atmosphere.',
     image: availableImages[22],
     additionalImages: [
-      "/lovable-uploads/232.jpg",
-      "/lovable-uploads/233.jpg"
+      "/file-uploads/232.jpg",
+      "/file-uploads/233.jpg"
     ],
     category: 'Nature',
     visitDuration: '2-3 hours',
@@ -476,8 +476,8 @@ const hotspots: Hotspot[] = [
     details: 'Marking the entry point to Manipur from Nagaland, this border area is known for its scenic beauty and cultural significance. Local markets sell fresh produce and handicrafts.',
     image: availableImages[23],
     additionalImages: [
-      "/lovable-uploads/242.jpg",
-      "/lovable-uploads/243.jpg"
+      "/file-uploads/242.jpg",
+      "/file-uploads/243.jpg"
     ],
     category: 'Cultural',
     visitDuration: '1-2 hours',
@@ -493,8 +493,8 @@ const hotspots: Hotspot[] = [
     details: 'A sacred cave temple steeped in historical significance and local legends. The site is revered by different tribes and has mythological connections.',
     image: availableImages[24],
     additionalImages: [
-      "/lovable-uploads/252.jpg",
-      "/lovable-uploads/253.jpg"
+      "/file-uploads/252.jpg",
+      "/file-uploads/253.jpg"
     ],
     category: 'Religious',
     visitDuration: '2-3 hours',
@@ -510,8 +510,8 @@ const hotspots: Hotspot[] = [
     details: 'A revered mountain and popular trekking destination with spiritual significance for local communities. The summit offers spectacular views of the surrounding landscapes.',
     image: availableImages[25],
     additionalImages: [
-      "/lovable-uploads/262.jpg",
-      "/lovable-uploads/263.jpg"
+      "/file-uploads/262.jpg",
+      "/file-uploads/263.jpg"
     ],
     category: 'Adventure',
     visitDuration: 'Full day',
@@ -527,8 +527,8 @@ const hotspots: Hotspot[] = [
     details: 'Known for its breathtaking panoramic views and trekking adventures, this peak is also home to the rare Shirui lily that blooms in May-June. The flower is endemic to this region.',
     image: availableImages[26],
     additionalImages: [
-      "/lovable-uploads/272.jpg",
-      "/lovable-uploads/273.jpg"
+      "/file-uploads/272.jpg",
+      "/file-uploads/273.jpg"
     ],
     category: 'Adventure',
     visitDuration: 'Full day',
@@ -544,8 +544,8 @@ const hotspots: Hotspot[] = [
     details: 'Offering scenic views and a favored destination for trekking enthusiasts. The peak provides outstanding vistas of the surrounding valleys and hills.',
     image: availableImages[27],
     additionalImages: [
-      "/lovable-uploads/282.jpg",
-      "/lovable-uploads/282.jpg"
+      "/file-uploads/282.jpg",
+      "/file-uploads/282.jpg"
     ],
     category: 'Adventure',
     visitDuration: 'Full day',
@@ -561,8 +561,8 @@ const hotspots: Hotspot[] = [
     details: 'A stunning waterfall nestled amidst verdant landscapes, offering a refreshing experience. The cascading waters create a mesmerizing sight and soothing sounds.',
     image: availableImages[28],
     additionalImages: [
-      "/lovable-uploads/292.jpg",
-      "/lovable-uploads/293.jpg"
+      "/file-uploads/292.jpg",
+      "/file-uploads/293.jpg"
     ],
     category: 'Nature',
     visitDuration: 'Half day',
@@ -578,8 +578,8 @@ const hotspots: Hotspot[] = [
     details: 'A serene lake that offers peaceful natural surroundings and is steeped in local folklore. The crystal-clear waters reflect the surrounding hills and forests.',
     image: availableImages[29],
     additionalImages: [
-      "/lovable-uploads/30.jpg",
-      "/lovable-uploads/30.jpg"
+      "/file-uploads/30.jpg",
+      "/file-uploads/30.jpg"
     ],
     category: 'Nature',
     visitDuration: '2-3 hours',
@@ -595,8 +595,8 @@ const hotspots: Hotspot[] = [
     details: 'Known for its natural beauty and unique array of flora, this meadow offers a peaceful retreat into nature. The open grasslands are surrounded by forested hills.',
     image: availableImages[30],
     additionalImages: [
-      "/lovable-uploads/312.jpg",
-      "/lovable-uploads/313.jpg"
+      "/file-uploads/312.jpg",
+      "/file-uploads/313.jpg"
     ],
     category: 'Nature',
     visitDuration: 'Half day',
@@ -612,8 +612,8 @@ const hotspots: Hotspot[] = [
     details: 'Known for its spectacular scenic landscapes and excellent trekking opportunities. The valley is famous for its seasonal wildflowers and rolling hills.',
     image: availableImages[31],
     additionalImages: [
-      "/lovable-uploads/322.jpg",
-      "/lovable-uploads/323.jpg"
+      "/file-uploads/322.jpg",
+      "/file-uploads/323.jpg"
     ],
     category: 'Adventure',
     visitDuration: '1-2 days',
@@ -629,8 +629,8 @@ const hotspots: Hotspot[] = [
     details: 'Providing panoramic views of Loktak Lake and its surroundings. The hill has religious significance with a temple at the summit.',
     image: availableImages[32],
     additionalImages: [
-      "/lovable-uploads/332.jpg",
-      "/lovable-uploads/333.jpg"
+      "/file-uploads/332.jpg",
+      "/file-uploads/333.jpg"
     ],
     category: 'Nature',
     visitDuration: 'Half day',
@@ -646,8 +646,8 @@ const hotspots: Hotspot[] = [
     details: 'Exhibiting the life and achievements of Mutua Bahadur through cultural displays and artifacts. The museum highlights the contributions of this important historical figure.',
     image: availableImages[33],
     additionalImages: [
-      "/lovable-uploads/342.jpg",
-      "/lovable-uploads/343.jpg"
+      "/file-uploads/342.jpg",
+      "/file-uploads/343.jpg"
     ],
     category: 'Cultural',
     visitDuration: '1-2 hours',
@@ -663,8 +663,8 @@ const hotspots: Hotspot[] = [
     details: 'A tranquil lake ideal for bird watching and relaxation. Less visited than Loktak, this lake offers a peaceful alternative with similar floating vegetation.',
     image: availableImages[34],
     additionalImages: [
-      "/lovable-uploads/352.jpg",
-      "/lovable-uploads/353.jpg"
+      "/file-uploads/352.jpg",
+      "/file-uploads/353.jpg"
     ],
     category: 'Nature',
     visitDuration: '2-3 hours',
@@ -680,8 +680,8 @@ const hotspots: Hotspot[] = [
     details: 'Known for its natural beauty and peaceful environment, this smaller lake offers tranquility and opportunities to observe local fishing traditions.',
     image: availableImages[35],
     additionalImages: [
-      "/lovable-uploads/362.jpg",
-      "/lovable-uploads/363.jpg"
+      "/file-uploads/362.jpg",
+      "/file-uploads/363.jpg"
     ],
     category: 'Nature',
     visitDuration: '2 hours',
@@ -783,7 +783,7 @@ const HotspotsPage = () => {
       {/* Hero Section */}
       <div className="relative h-[300px] mb-8">
         <img 
-          src="/lovable-uploads/marjing.png" 
+          src="/file-uploads/marjing.png" 
           alt="Manipur Hotspots" 
           className="absolute inset-0 w-full h-full object-cover"
         />

@@ -81,7 +81,7 @@ const HomestaysPage = () => {
       
       <div className="relative h-[300px] mb-8">
         <img 
-          src="/lovable-uploads/homecar.jpg" 
+          src="/file-uploads/homecar.jpg" 
           alt="Manipur Homestays" 
           className="absolute inset-0 w-full h-full object-cover"
         />

@@ -17,7 +17,7 @@ const tours = [
     name: 'Loktak Lake & Keibul Lamjao Tour',
     location: 'Moirang, Manipur',
     description: 'Explore the iconic Loktak Lake with its floating phumdis and visit Keibul Lamjao National Park to spot the endangered Sangai deer.',
-    image: '/lovable-uploads/loktrek.png',
+    image: '/file-uploads/loktrek.png',
     price: 2500,
     duration: 'Full Day (8 hours)',
     groupSize: '1-8 people',
@@ -31,7 +31,7 @@ const tours = [
     name: 'Imphal Heritage Walk',
     location: 'Imphal, Manipur',
     description: 'Discover the rich history and culture of Imphal through this guided walking tour of historical sites, including Kangla Fort and Ima Market.',
-    image: '/lovable-uploads/walktrek.png',
+    image: '/file-uploads/walktrek.png',
     price: 1500,
     duration: 'Half Day (4 hours)',
     groupSize: '1-10 people',
@@ -45,7 +45,7 @@ const tours = [
     name: 'Dzukou Valley Trek',
     location: 'Manipur-Nagaland Border',
     description: 'Experience the stunning beauty of Dzukou Valley, known for its vibrant flowers and rolling hills. This trek offers breathtaking views and a unique natural landscape.',
-    image: '/lovable-uploads/dztrek.png',
+    image: '/file-uploads/dztrek.png',
     price: 3500,
     duration: '2 Days',
     groupSize: '2-6 people',
@@ -59,7 +59,7 @@ const tours = [
     name: 'Shirui Lily Trek',
     location: 'Ukhrul, Manipur',
     description: 'Trek to the habitat of the rare and beautiful Shirui Lily, which blooms only in the Shirui Hills of Manipur during the early monsoon season.',
-    image: '/lovable-uploads/shiroitrek.png',
+    image: '/file-uploads/shiroitrek.png',
     price: 2800,
     duration: '1 Day',
     groupSize: '2-8 people',
@@ -73,7 +73,7 @@ const tours = [
     name: 'Manipuri Culinary Tour',
     location: 'Imphal, Manipur',
     description: 'Sample the flavors of Manipuri cuisine with visits to local markets, street food stalls, and a cooking demonstration of traditional dishes.',
-    image: '/lovable-uploads/foodCarousel.png',
+    image: '/file-uploads/foodCarousel.png',
     price: 1800,
     duration: 'Half Day (5 hours)',
     groupSize: '2-8 people',
@@ -87,7 +87,7 @@ const tours = [
     name: 'Moreh Border Town Exploration',
     location: 'Moreh, Manipur',
     description: 'Visit the bustling border town of Moreh on the India-Myanmar border, known for its vibrant markets and cultural diversity.',
-    image: '/lovable-uploads/mortrek.png',
+    image: '/file-uploads/mortrek.png',
     price: 3000,
     duration: 'Full Day (10 hours)',
     groupSize: '2-4 people',
@@ -163,7 +163,7 @@ const ToursPage = () => {
       {/* Hero Section */}
       <div className="relative h-[300px] mb-8">
         <img 
-          src="/lovable-uploads/tourWhole.png" 
+          src="/file-uploads/tourWhole.png" 
           alt="Manipur Tours" 
           className="absolute inset-0 w-full h-full object-cover"
         />

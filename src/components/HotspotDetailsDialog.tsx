@@ -46,8 +46,8 @@ interface HotspotDetailsDialogProps {
 //   // Here we're just reusing the main image to simulate multiple photos
 //   return [
 //     mainImage,
-//     '/lovable-uploads/04bb80f1-f5bf-401e-8e65-e67086760165.png',
-//     '/lovable-uploads/c5b36d98-5b95-4333-9508-2b9ba95125d1.png'
+//     '/file-uploads/04bb80f1-f5bf-401e-8e65-e67086760165.png',
+//     '/file-uploads/c5b36d98-5b95-4333-9508-2b9ba95125d1.png'
 //   ];
 // };
 

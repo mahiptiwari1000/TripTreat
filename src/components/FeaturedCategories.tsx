@@ -8,7 +8,7 @@ const categories = [
     id: 'homestays',
     name: 'Homestays',
     description: 'Authentic Manipuri living experiences',
-    image: '/lovable-uploads/hcar2.png',
+    image: '/file-uploads/hcar2.png',
     color: 'from-manipur-green/50',
     link: '/homestays'
   },
@@ -16,7 +16,7 @@ const categories = [
     id: 'eateries',
     name: 'Eateries',
     description: 'Taste traditional Manipuri cuisine',
-    image: '/lovable-uploads/foodCarousel.png',
+    image: '/file-uploads/foodCarousel.png',
     color: 'from-manipur-pink/50',
     link: '/eateries'
   },
@@ -24,7 +24,7 @@ const categories = [
     id: 'tours',
     name: 'Tours',
     description: 'Guided expeditions with local experts',
-    image: '/lovable-uploads/tourcar2.png',
+    image: '/file-uploads/tourcar2.png',
     color: 'from-manipur-blue/50',
     link: '/tours'
   },
@@ -32,7 +32,7 @@ const categories = [
     id: 'hotspots',
     name: 'Hotspots',
     description: 'Must-visit attractions in Manipur',
-    image: '/lovable-uploads/hotcar.png',
+    image: '/file-uploads/hotcar.png',
     color: 'from-manipur-brown/50',
     link: '/hotspots'
   }

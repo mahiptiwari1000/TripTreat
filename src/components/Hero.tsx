@@ -7,32 +7,32 @@ import { toast } from 'sonner';
 
 const heroImages = [
   {
-    url: '/lovable-uploads/loktakComplete.png',
+    url: '/file-uploads/loktakComplete.png',
     alt: 'Beautiful landscape in Manipur',
     title: 'Loktak Lake',
   },
   {
-    url: '/lovable-uploads/sangolKangjei.jpg',
+    url: '/file-uploads/sangolKangjei.jpg',
     alt: 'Origin of Polo',
     title: 'Sagol Kangjei',
   },
   {
-    url: '/lovable-uploads/Hills.jpg',
+    url: '/file-uploads/Hills.jpg',
     alt: 'Beautiful Hill regions',
     title: 'Hill View',
   },
   {
-    url: '/lovable-uploads/pottery.jpg',
+    url: '/file-uploads/pottery.jpg',
     alt: 'Beautiful pottery in Manipur',
     title: 'Pottery',
   },
   {
-    url: '/lovable-uploads/foodcar1.png',
+    url: '/file-uploads/foodcar1.png',
     alt: 'Traditional Manipuri cusinies',
     title: 'Cultural food',
   },
   {
-    url: '/lovable-uploads/marjing.png',
+    url: '/file-uploads/marjing.png',
     alt: 'Marjing statue',
     title: 'Marjing',
   }

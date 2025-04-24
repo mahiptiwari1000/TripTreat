@@ -40,11 +40,11 @@ export const allHomestays: Homestay[] = [
         location: 'Moirang, Manipur',
         description: 'Enjoy panoramic views of the floating phumdis on Loktak Lake in this traditional Manipuri home. This authentic homestay offers a unique opportunity to experience the local culture and cuisine while enjoying breathtaking views of Loktak Lake, the largest freshwater lake in Northeast India. The homestay is owned by a warm, welcoming family who will introduce you to traditional Manipuri hospitality.',
         images: [
-          '/lovable-uploads/loktakView.webp',
-          '/lovable-uploads/loktakComplete.png',
-          '/lovable-uploads/h1.jpg',
-          '/lovable-uploads/loktakView.webp',
-          '/lovable-uploads/lok1.jpg',
+          '/file-uploads/loktakView.webp',
+          '/file-uploads/loktakComplete.png',
+          '/file-uploads/h1.jpg',
+          '/file-uploads/loktakView.webp',
+          '/file-uploads/lok1.jpg',
         ],
         price: 1200,
         rating: 4.9,
@@ -108,11 +108,11 @@ export const allHomestays: Homestay[] = [
         location: 'Imphal East, Manipur',
         description: 'Experience royal Manipuri hospitality in this heritage home with traditional architecture. Located in a serene part of Imphal East, this villa offers traditional architecture with modern amenities. The property boasts beautiful gardens and showcases authentic Manipuri design elements.',
         images: [
-          '/lovable-uploads/h6.avif',
-          '/lovable-uploads/h115.avif',
-          '/lovable-uploads/h4.avif',
-          '/lovable-uploads/h9.avif',
-          '/lovable-uploads/g144.avif',
+          '/file-uploads/h6.avif',
+          '/file-uploads/h115.avif',
+          '/file-uploads/h4.avif',
+          '/file-uploads/h9.avif',
+          '/file-uploads/g144.avif',
         ],
         price: 1500,
         rating: 4.7,
@@ -177,11 +177,11 @@ export const allHomestays: Homestay[] = [
         location: 'Churachandpur, Manipur',
         description: 'Wake up to breathtaking sunrises over the hills with cozy rooms and local breakfast delights. Features a sunrise viewing deck and guided morning nature walks.',
         images: [
-          '/lovable-uploads/s71.avif',
-          '/lovable-uploads/s72.avif',
-          '/lovable-uploads/s73.avif',
-          '/lovable-uploads/s74.avif',
-          '/lovable-uploads/s75.avif'
+          '/file-uploads/s71.avif',
+          '/file-uploads/s72.avif',
+          '/file-uploads/s73.avif',
+          '/file-uploads/s74.avif',
+          '/file-uploads/s75.avif'
         ],
         price: 1050,
         rating: 4.7,
@@ -247,11 +247,11 @@ export const allHomestays: Homestay[] = [
         location: 'Moreh, Manipur',
         description: 'A charming cottage blending modern comfort with traditional Manipuri aesthetics. Features handwoven textiles and daily cultural demonstrations.',
         images: [
-          '/lovable-uploads/m81.avif',
-          '/lovable-uploads/m82.avif',
-          '/lovable-uploads/m83.avif',
-          '/lovable-uploads/m84.avif',
-          '/lovable-uploads/m85.avif'
+          '/file-uploads/m81.avif',
+          '/file-uploads/m82.avif',
+          '/file-uploads/m83.avif',
+          '/file-uploads/m84.avif',
+          '/file-uploads/m85.avif'
         ],
         price: 1150,
         rating: 4.8,
@@ -315,11 +315,11 @@ export const allHomestays: Homestay[] = [
     location: 'Khurai, Manipur',
     description: 'Set amongst verdant pine forests, enjoy nature walks and a peaceful ambiance. Features a central bonfire area and guided forest therapy sessions.',
     images: [
-      '/lovable-uploads/w91.avif',
-      '/lovable-uploads/w92.avif',
-      '/lovable-uploads/w93.avif',
-      '/lovable-uploads/w94.avif',
-      '/lovable-uploads/w95.avif'
+      '/file-uploads/w91.avif',
+      '/file-uploads/w92.avif',
+      '/file-uploads/w93.avif',
+      '/file-uploads/w94.avif',
+      '/file-uploads/w95.avif'
     ],
     price: 980,
     rating: 4.6,
@@ -383,11 +383,11 @@ export const allHomestays: Homestay[] = [
     location: 'Tamei, Manipur',
     description: 'Experience tranquility in open meadows with organic meals and scenic outdoor spaces. Features morning yoga sessions and herbal gardens.',
     images: [
-      '/lovable-uploads/t101.avif',
-      '/lovable-uploads/s74.avif',
-      '/lovable-uploads/t103.avif',
-      '/lovable-uploads/t104.avif',
-      '/lovable-uploads/t105.avif'
+      '/file-uploads/t101.avif',
+      '/file-uploads/s74.avif',
+      '/file-uploads/t103.avif',
+      '/file-uploads/t104.avif',
+      '/file-uploads/t105.avif'
     ],
     price: 1300,
     rating: 4.8,
@@ -451,11 +451,11 @@ export const allHomestays: Homestay[] = [
     location: 'Kangpokpi, Manipur',
     description: 'A blend of heritage charm and modern comforts in a quiet village setting. Features traditional weapon displays and cultural demonstrations.',
     images: [
-      '/lovable-uploads/h111.avif',
-      '/lovable-uploads/h112.avif',
-      '/lovable-uploads/h113.avif',
-      '/lovable-uploads/h114.avif',
-      '/lovable-uploads/h115.avif'
+      '/file-uploads/h111.avif',
+      '/file-uploads/h112.avif',
+      '/file-uploads/h113.avif',
+      '/file-uploads/h114.avif',
+      '/file-uploads/h115.avif'
     ],
     price: 1250,
     rating: 4.5,
@@ -519,11 +519,11 @@ export const allHomestays: Homestay[] = [
     location: 'Wangkhei, Manipur',
     description: 'Relax in this hilltop retreat offering stunning views and a serene environment. Features infinity pool and spa services.',
     images: [
-      '/lovable-uploads/s121.avif',
-      '/lovable-uploads/s122.avif',
-      '/lovable-uploads/s123.avif',
-      '/lovable-uploads/s124.avif',
-      '/lovable-uploads/s125.avif'
+      '/file-uploads/s121.avif',
+      '/file-uploads/s122.avif',
+      '/file-uploads/s123.avif',
+      '/file-uploads/s124.avif',
+      '/file-uploads/s125.avif'
     ],
     price: 1450,
     rating: 4.9,
@@ -587,11 +587,11 @@ export const allHomestays: Homestay[] = [
     location: 'Thoubal, Manipur',
     description: 'Enjoy a rustic escape with wood-fired fireplaces, local arts, and crafts. Features pottery workshops and traditional music nights.',
     images: [
-      '/lovable-uploads/r131.avif',
-      '/lovable-uploads/r132.avif',
-      '/lovable-uploads/r133.avif',
-      '/lovable-uploads/r134.avif',
-      '/lovable-uploads/r135.avif'
+      '/file-uploads/r131.avif',
+      '/file-uploads/r132.avif',
+      '/file-uploads/r133.avif',
+      '/file-uploads/r134.avif',
+      '/file-uploads/r135.avif'
     ],
     price: 990,
     rating: 4.4,
@@ -655,11 +655,11 @@ export const allHomestays: Homestay[] = [
     location: 'Senapati, Manipur',
     description: 'A quaint homestay with expansive gardens and an emphasis on organic living. Features floral arrangement workshops and garden-to-table dining.',
     images: [
-      '/lovable-uploads/g141.avif',
-      '/lovable-uploads/g142.avif',
-      '/lovable-uploads/g143.avif',
-      '/lovable-uploads/g144.avif',
-      '/lovable-uploads/g145.avif'
+      '/file-uploads/g141.avif',
+      '/file-uploads/g142.avif',
+      '/file-uploads/g143.avif',
+      '/file-uploads/g144.avif',
+      '/file-uploads/g145.avif'
     ],
     price: 1120,
     rating: 4.6,
@@ -724,11 +724,11 @@ export const allHomestays: Homestay[] = [
     location: 'Kokrajhar, Manipur',
     description: 'Immerse yourself in local traditions through daily craft workshops and cultural performances. Features a traditional dance stage and artisan market.',
     images: [
-      '/lovable-uploads/c151.jpg',
-      '/lovable-uploads/c152.avif',
-      '/lovable-uploads/c153.avif',
-      '/lovable-uploads/c154.avif',
-      '/lovable-uploads/c155.avif'
+      '/file-uploads/c151.jpg',
+      '/file-uploads/c152.avif',
+      '/file-uploads/c153.avif',
+      '/file-uploads/c154.avif',
+      '/file-uploads/c155.avif'
     ],
     price: 1380,
     rating: 4.7,
@@ -792,11 +792,11 @@ export const allHomestays: Homestay[] = [
     location: 'Ukhrul, Manipur',
     description: 'Nestled in the hills of Ukhrul, this cozy retreat offers stunning mountain views and tranquility. Perfect for nature lovers and those seeking peace away from the city, this mountain homestay provides panoramic views of the surrounding hills and valleys. The architecture incorporates elements of traditional Tangkhul design.',
     images: [
-      '/lovable-uploads/uhk.jpg',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h1.jpg',
-      '/lovable-uploads/h9.avif',
+      '/file-uploads/uhk.jpg',
+      '/file-uploads/h4.avif',
+      '/file-uploads/h7.avif',
+      '/file-uploads/h1.jpg',
+      '/file-uploads/h9.avif',
     ],
     price: 950,
     rating: 4.8,
@@ -860,11 +860,11 @@ export const allHomestays: Homestay[] = [
     location: 'Bishnupur, Manipur',
     description: 'A sustainable eco-friendly cottage surrounded by organic farms and traditional crafts workshops. This environmentally conscious homestay is set on an organic farm where guests can participate in farming activities and learn about sustainable practices. The cottage is built using locally sourced materials and traditional techniques.',
     images: [
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h6.avif',
-      '/lovable-uploads/loktakComplete.png',
+      '/file-uploads/h4.avif',
+      '/file-uploads/h9.avif',
+      '/file-uploads/h7.avif',
+      '/file-uploads/h6.avif',
+      '/file-uploads/loktakComplete.png',
     ],
     price: 1100,
     rating: 4.6,
@@ -927,11 +927,11 @@ export const allHomestays: Homestay[] = [
     location: 'Tamenglong, Manipur',
     description: 'Peaceful riverside homestay offering fishing, bamboo rafting, and bird watching experiences. Set alongside a pristine river in Tamenglong district, this tranquil homestay is perfect for nature lovers and those seeking adventure activities. The property features beautiful gardens and river-facing rooms.',
     images: [
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h6.avif',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/uhk.jpg',
+      '/file-uploads/h7.avif',
+      '/file-uploads/h9.avif',
+      '/file-uploads/h6.avif',
+      '/file-uploads/h4.avif',
+      '/file-uploads/uhk.jpg',
     ],
     price: 1350,
     rating: 4.5,
@@ -995,11 +995,11 @@ export const allHomestays: Homestay[] = [
     location: 'Sendra, Manipur',
     description: 'Traditional lodge near Keibul Lamjao National Park with opportunities to spot the rare Sangai deer. This lodge is ideally situated for wildlife enthusiasts, offering easy access to India\'s only floating national park. The design incorporates traditional Manipuri architecture with modern comforts.',
     images: [
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/loktakView.webp',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h6.avif',
-      '/lovable-uploads/h4.avif',
+      '/file-uploads/h9.avif',
+      '/file-uploads/loktakView.webp',
+      '/file-uploads/h7.avif',
+      '/file-uploads/h6.avif',
+      '/file-uploads/h4.avif',
     ],
     price: 1600,
     rating: 4.9,
@@ -1063,11 +1063,11 @@ export const allHomestays: Homestay[] = [
     location: 'Karong, Manipur',
     description: 'Secluded valley retreat offering mystical sunrise views and guided meditation sessions. Features ancient stone pathways and natural springs.',
     images: [
-      '/lovable-uploads/m161.avif',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/file-uploads/m161.avif',
+      '/file-uploads/h4.avif',
+      '/file-uploads/h7.avif',
+      '/file-uploads/h9.avif',
+      '/file-uploads/h1.jpg'
     ],
     price: 1550,
     rating: 4.8,
@@ -1131,11 +1131,11 @@ export const allHomestays: Homestay[] = [
     location: 'Sadar Hills, Manipur',
     description: 'Authentic riverside experience with fishing excursions and riverside barbecues. Features traditional bamboo cottages and canoeing.',
     images: [
-      '/lovable-uploads/r171.avif',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/file-uploads/r171.avif',
+      '/file-uploads/h4.avif',
+      '/file-uploads/h7.avif',
+      '/file-uploads/h9.avif',
+      '/file-uploads/h1.jpg'
     ],
     price: 1280,
     rating: 4.5,
@@ -1199,11 +1199,11 @@ export const allHomestays: Homestay[] = [
     location: 'Andro, Manipur',
     description: 'Ideal for astronomy enthusiasts with telescope facilities and night photography workshops. Features light pollution-free skies.',
     images: [
-      '/lovable-uploads/s181.avif',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/file-uploads/s181.avif',
+      '/file-uploads/h4.avif',
+      '/file-uploads/h7.avif',
+      '/file-uploads/h9.avif',
+      '/file-uploads/h1.jpg'
     ],
     price: 1180,
     rating: 4.7,
@@ -1267,11 +1267,11 @@ export const allHomestays: Homestay[] = [
     location: 'Singjamei, Manipur',
     description: 'Dense forest surroundings with guided night walks and medicinal plant tours. Features treehouse accommodations and canopy walks.',
     images: [
-      '/lovable-uploads/m191.avif',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/file-uploads/m191.avif',
+      '/file-uploads/h4.avif',
+      '/file-uploads/h7.avif',
+      '/file-uploads/h9.avif',
+      '/file-uploads/h1.jpg'
     ],
     price: 1400,
     rating: 4.8,
@@ -1335,11 +1335,11 @@ export const allHomestays: Homestay[] = [
     location: 'Khongjom, Manipur',
     description: 'Peaceful retreat featuring meditation gardens and traditional healing therapies. Offers yoga sessions with mountain views.',
     images: [
-      '/lovable-uploads/t201.webp',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/file-uploads/t201.webp',
+      '/file-uploads/h4.avif',
+      '/file-uploads/h7.avif',
+      '/file-uploads/h9.avif',
+      '/file-uploads/h1.jpg'
     ],
     price: 1320,
     rating: 4.6,
@@ -1404,11 +1404,11 @@ export const allHomestays: Homestay[] = [
     location: 'Lilong, Manipur',
     description: 'Perched on a hill with terraced gardens, featuring traditional décor and flower cultivation workshops. Offers sunset viewing platforms.',
     images: [
-      '/lovable-uploads/m82.avif',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/file-uploads/m82.avif',
+      '/file-uploads/h4.avif',
+      '/file-uploads/h7.avif',
+      '/file-uploads/h9.avif',
+      '/file-uploads/h1.jpg'
     ],
     price: 1200,
     rating: 4.5,
@@ -1472,11 +1472,11 @@ export const allHomestays: Homestay[] = [
     location: 'Noney, Manipur',
     description: 'Modern-traditional fusion stay with curated art exhibits and bamboo craft workshops. Features a riverside meditation deck.',
     images: [
-      '/lovable-uploads/s73.avif',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/file-uploads/s73.avif',
+      '/file-uploads/h4.avif',
+      '/file-uploads/h7.avif',
+      '/file-uploads/h9.avif',
+      '/file-uploads/h1.jpg'
     ],
     price: 1360,
     rating: 4.7,
@@ -1540,11 +1540,11 @@ export const allHomestays: Homestay[] = [
     location: 'Sugnu, Manipur',
     description: 'Family-friendly cottages with indoor fireplaces and traditional board games. Offers guided village walks and fishing trips.',
     images: [
-      '/lovable-uploads/t102.webp',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/file-uploads/t102.webp',
+      '/file-uploads/h4.avif',
+      '/file-uploads/h7.avif',
+      '/file-uploads/h9.avif',
+      '/file-uploads/h1.jpg'
     ],
     price: 1100,
     rating: 4.6,
@@ -1608,11 +1608,11 @@ export const allHomestays: Homestay[] = [
     location: 'Mayang Imphal, Manipur',
     description: '16th-century heritage property restored with original materials. Features historical reenactments and antique artifact displays.',
     images: [
-      '/lovable-uploads/w93.avif',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/file-uploads/w93.avif',
+      '/file-uploads/h4.avif',
+      '/file-uploads/h7.avif',
+      '/file-uploads/h9.avif',
+      '/file-uploads/h1.jpg'
     ],
     price: 1490,
     rating: 4.8,
@@ -1676,11 +1676,11 @@ export const allHomestays: Homestay[] = [
     location: 'Moreh, Manipur',
     description: 'Panoramic valley views with guided border culture tours. Features a rooftop observatory and traditional dance classes.',
     images: [
-      '/lovable-uploads/t102.webp',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/file-uploads/t102.webp',
+      '/file-uploads/h4.avif',
+      '/file-uploads/h7.avif',
+      '/file-uploads/h9.avif',
+      '/file-uploads/h1.jpg'
     ],
     price: 1270,
     rating: 4.7,
@@ -1744,11 +1744,11 @@ export const allHomestays: Homestay[] = [
     location: 'Khabaibam, Manipur',
     description: 'Secluded farmstay with organic cooking classes and bullock cart rides. Features mud cottages and traditional farming experiences.',
     images: [
-      '/lovable-uploads/r134.avif',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/file-uploads/r134.avif',
+      '/file-uploads/h4.avif',
+      '/file-uploads/h7.avif',
+      '/file-uploads/h9.avif',
+      '/file-uploads/h1.jpg'
     ],
     price: 1180,
     rating: 4.5,
@@ -1812,11 +1812,11 @@ export const allHomestays: Homestay[] = [
     location: 'Heingang, Manipur',
     description: 'Minimalist retreat with daily meditation sessions and Japanese-inspired gardens. Features tea ceremonies and rock gardens.',
     images: [
-      '/lovable-uploads/s75.avif',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/file-uploads/s75.avif',
+      '/file-uploads/h4.avif',
+      '/file-uploads/h7.avif',
+      '/file-uploads/h9.avif',
+      '/file-uploads/h1.jpg'
     ],
     price: 1400,
     rating: 4.8,
@@ -1880,11 +1880,11 @@ export const allHomestays: Homestay[] = [
     location: 'Sugnu, Manipur',
     description: 'Contemporary lakeside cabins with private docks and kayaking. Features floating breakfasts and sunset cruises on Loktak Lake.',
     images: [
-      '/lovable-uploads/s123.avif',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/file-uploads/s123.avif',
+      '/file-uploads/h4.avif',
+      '/file-uploads/h7.avif',
+      '/file-uploads/h9.avif',
+      '/file-uploads/h1.jpg'
     ],
     price: 1320,
     rating: 4.7,
@@ -1949,11 +1949,11 @@ export const allHomestays: Homestay[] = [
     location: 'Imphal West, Manipur',
     description: 'Urban heritage property preserving 19th-century architecture. Features vintage photo exhibitions and traditional puppet shows.',
     images: [
-      '/lovable-uploads/h113.avif',
-      '/lovable-uploads/h4.avif',
-      '/lovable-uploads/h7.avif',
-      '/lovable-uploads/h9.avif',
-      '/lovable-uploads/h1.jpg'
+      '/file-uploads/h113.avif',
+      '/file-uploads/h4.avif',
+      '/file-uploads/h7.avif',
+      '/file-uploads/h9.avif',
+      '/file-uploads/h1.jpg'
     ],
     price: 1550,
     rating: 4.9,
@@ -2019,11 +2019,11 @@ export const allHomestays: Homestay[] = [
         location: 'Moebung, Manipur',
         description: 'A perfect forest retreat featuring eco-friendly architecture and organic farming experiences. Night walks with naturalists available.',
         images: [
-          '/lovable-uploads/g143.avif',
-          '/lovable-uploads/h4.avif',
-          '/lovable-uploads/h7.avif',
-          '/lovable-uploads/h9.avif',
-          '/lovable-uploads/h1.jpg'
+          '/file-uploads/g143.avif',
+          '/file-uploads/h4.avif',
+          '/file-uploads/h7.avif',
+          '/file-uploads/h9.avif',
+          '/file-uploads/h1.jpg'
         ],
         price: 1250,
         rating: 4.6,

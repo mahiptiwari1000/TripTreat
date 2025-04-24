@@ -22,7 +22,7 @@ const BecomeHostPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <img 
-                src="/lovable-uploads/tourWhole.png" 
+                src="/file-uploads/tourWhole.png" 
                 alt="Become a Host" 
                 className="rounded-lg shadow-lg w-full h-auto max-h-[600px] object-cover"
               />

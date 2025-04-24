@@ -65,7 +65,7 @@ const BecomeHost = () => {
           <div className="order-1 lg:order-2">
             <div className="relative">
               <img 
-                src="/lovable-uploads/share.png" 
+                src="/file-uploads/share.png" 
                 alt="Become a host" 
                 className="rounded-lg shadow-2xl w-full h-[400px] object-cover"
               />

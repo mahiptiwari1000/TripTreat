@@ -18,7 +18,7 @@ const eateries = [
     name: 'Manipuri Heritage Kitchen',
     location: 'Imphal, Manipur',
     description: 'Experience authentic Manipuri cuisine prepared with traditional methods and locally sourced ingredients. Our specialty dishes include Eromba and Chamthong.',
-    image: '/lovable-uploads/herkit.jpg',
+    image: '/file-uploads/herkit.jpg',
     priceRange: '₹1200',
     cuisine: 'Traditional Manipuri',
     rating: 4.8,
@@ -34,7 +34,7 @@ const eateries = [
     name: 'Loktak Floating Restaurant',
     location: 'Moirang, Manipur',
     description: 'Dine on a traditional floating hut on Loktak Lake while enjoying freshwater fish dishes and spectacular views of the floating phumdis.',
-    image: '/lovable-uploads/lokres.jpg',
+    image: '/file-uploads/lokres.jpg',
     priceRange: '₹1100',
     cuisine: 'Seafood, Manipuri',
     rating: 4.9,
@@ -50,7 +50,7 @@ const eateries = [
     name: 'Ima Keithel Food Court',
     location: 'Imphal, Manipur',
     description: "Located near the famous women's market, this food court serves quick and delicious local snacks and meals prepared by Manipuri women using traditional recipes.",
-    image: '/lovable-uploads/imafoo.jpg',
+    image: '/file-uploads/imafoo.jpg',
     priceRange: '₹1900',
     cuisine: 'Street Food, Manipuri',
     rating: 4.6,
@@ -66,7 +66,7 @@ const eateries = [
     name: 'Bamboo Hut Garden Cafe',
     location: 'Ukhrul, Manipur',
     description: 'A serene cafe built with bamboo surrounded by a beautiful garden, serving organic teas, coffees and fusion cuisine with Tangkhul tribal influences.',
-    image: '/lovable-uploads/bamfoo.jpg',
+    image: '/file-uploads/bamfoo.jpg',
     priceRange: '₹1000',
     cuisine: 'Tangkhul, Fusion',
     rating: 4.7,
@@ -82,7 +82,7 @@ const eateries = [
     name: 'Royal Kangla Kitchen',
     location: 'Imphal East, Manipur',
     description: 'Fine dining restaurant celebrating the royal culinary heritage of Manipur with elegant presentations and traditional flavors.',
-    image: '/lovable-uploads/royalfoo.jpg',
+    image: '/file-uploads/royalfoo.jpg',
     priceRange: '₹1600',
     cuisine: 'Royal Manipuri',
     rating: 4.9,
@@ -98,7 +98,7 @@ const eateries = [
     name: 'Valley Organic Bistro',
     location: 'Bishnupur, Manipur',
     description: 'A farm-to-table bistro serving wholesome meals made with organic produce grown in their own fields. Perfect for health-conscious diners.',
-    image: '/lovable-uploads/orgfoo.jpg',
+    image: '/file-uploads/orgfoo.jpg',
     priceRange: '₹1300',
     cuisine: 'Organic, Vegan-friendly',
     rating: 4.7,
@@ -172,7 +172,7 @@ const EateriesPage = () => {
       {/* Hero Section */}
       <div className="relative h-[300px] mb-8">
         <img
-          src="/lovable-uploads/foodcarou.jpg"
+          src="/file-uploads/foodcarou.jpg"
           alt="Manipuri Cuisine"
           className="absolute inset-0 w-full h-full object-cover"
         />

@@ -154,7 +154,7 @@ import React, { useState, useEffect } from 'react';
                  <Card key={booking.id} className="overflow-hidden">
                    <div className="relative h-48 bg-muted">
                      <img 
-                       src="/lovable-uploads/h1.jpg"
+                       src="/file-uploads/h1.jpg"
                        alt={booking.listing?.title}
                        className="w-full h-full object-cover"
                      />

@@ -13,14 +13,14 @@ import React, { useState } from 'react';
      title: 'Book a Cab',
      description: 'Request a cab for local or outstation travel in Manipur',
      icon: Car,
-     image: '/lovable-uploads/taxi.jpg'
+     image: '/file-uploads/taxi.jpg'
    },
    {
      id: 'rental',
      title: 'Rent a Vehicle',
      description: 'Self-drive options available for daily or weekly rentals',
      icon: Truck,
-     image: '/lovable-uploads/rental.jpeg'
+     image: '/file-uploads/rental.jpeg'
    }
  ];
  
