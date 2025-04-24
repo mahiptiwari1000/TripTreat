@@ -1,4 +1,5 @@
 import React from 'react';
+import { Instagram } from 'lucide-react';
 
 const VideoSection = () => {
   return (
@@ -32,6 +33,16 @@ const VideoSection = () => {
               />
               Your browser does not support the video tag.
             </video>
+          </div>
+          <div className="absolute right-4 bottom-4 flex items-center space-x-2 bg-black/30 backdrop-blur-sm rounded-full px-3 py-1.5 hover:bg-black/40 transition-colors">
+            <Instagram className="h-4 w-4 text-white" />
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-medium text-white/90 hover:text-white transition-colors"
+            >
+              raj_thwdam
+            </a>
           </div>
           <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
             <h3 className="text-xl font-semibold mb-2">Discover the Unexplored</h3>
