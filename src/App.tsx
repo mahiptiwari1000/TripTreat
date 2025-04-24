@@ -21,6 +21,12 @@ import Loader from "./components/Loader";
 import { preloadImages, staticImages } from './utils/imagePreloader';
 import StorePage from "./pages/StorePage";
 import TransportPage from "./pages/TransportPage";
+import AuthPage from './pages/AuthPage';
+ import ProfilePage from './pages/ProfilePage';
+ import BookingsPage from './pages/BookingsPage';
+ import AdminDashboard from './pages/AdminDashboard';
+ import ProtectedRoute from './components/ProtectedRoute';
+ import { AuthProvider } from './contexts/AuthContext';
 
 
 function ScrollToTop() {
@@ -65,6 +71,7 @@ const App = () => {
         <TooltipProvider>
           <Toaster />
           <Sonner />
+          <AuthProvider>
           <BrowserRouter>
             <ScrollToTop />
             <Routes>
@@ -81,10 +88,28 @@ const App = () => {
               <Route path="/transport" element={<TransportPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/auth" element={<AuthPage />} />
+              {/* Protected routes */}
+           <Route path="/profile" element={
+             <ProtectedRoute>
+               <ProfilePage />
+             </ProtectedRoute>
+           } />
+           <Route path="/bookings" element={
+             <ProtectedRoute>
+               <BookingsPage />
+             </ProtectedRoute>
+           } />
+           <Route path="/admin" element={
+             <ProtectedRoute requireAdmin={true}>
+               <AdminDashboard />
+             </ProtectedRoute>
+           } />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
             <FloatingChatbot />
           </BrowserRouter>
+          </AuthProvider>
         </TooltipProvider>
       </ThemeProvider>
     </QueryClientProvider>
