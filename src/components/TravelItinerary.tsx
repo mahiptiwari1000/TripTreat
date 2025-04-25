@@ -54,7 +54,7 @@ const TravelItinerary: React.FC<TravelItineraryProps> = ({
             <div className="mt-2 text-lg font-semibold text-green-600">
               {trimmed.replace(/₹/, '₹ ')}
             </div>
-            <div className="text-sm text-gray-500 mt-1">Duration: 5 Days</div>
+            
           </div>
         );
       }
