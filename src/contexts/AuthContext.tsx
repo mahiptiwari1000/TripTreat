@@ -3,17 +3,29 @@ import { Session, User } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 
+interface Profile {
+  id: string;
+  email: string;
+  first_name?: string;
+  last_name?: string;
+  phone?: string;
+  avatar_url?: string;
+  role: 'user' | 'host' | 'admin';
+  created_at: string;
+  updated_at: string;
+}
+
 type AuthContextType = {
   session: Session | null;
   user: User | null;
-  profile: any | null; // Profile includes role information
+  profile: Profile | null;
   isLoading: boolean;
-  signIn: (email: string, password: string) => Promise<{ error: any }>;
+  signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
   signUp: (
     email: string,
     password: string,
     userData: object
-  ) => Promise<{ error: any; data: any }>;
+  ) => Promise<{ error: Error | null; data: { user: User | null } | null }>;
   signOut: () => Promise<void>;
   isAdmin: boolean;
   isHost: boolean;
@@ -26,7 +38,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [session, setSession] = useState<Session | null>(null);
   const [user, setUser] = useState<User | null>(null);
-  const [profile, setProfile] = useState<any | null>(null);
+  const [profile, setProfile] = useState<Profile | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isHost, setIsHost] = useState(false);
@@ -97,10 +109,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         setIsAdmin(data.role === 'admin');
         setIsHost(data.role === 'host');
       }
-    } catch (error: any) {
+    } catch (error) {
       // Log error for debugging in development
       if (import.meta.env.DEV) {
-        console.error('Error fetching user profile:', error.message);
+        console.error('Error fetching user profile:', error instanceof Error ? error.message : 'Unknown error');
       }
     }
   };
@@ -144,9 +156,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         'Account created successfully. Check your email for verification'
       );
       return { error: null, data };
-    } catch (error: any) {
+    } catch (error) {
       toast.error('Sign up failed');
-      return { error, data: null };
+      return { error: error instanceof Error ? error : new Error('Unknown error'), data: null };
     }
   };
 
@@ -154,10 +166,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     try {
       await supabase.auth.signOut();
       toast.success('Signed out successfully');
-    } catch (error: any) {
+    } catch (error) {
       // Log error for debugging in development
       if (import.meta.env.DEV) {
-        console.error('Error signing out:', error.message);
+        console.error('Error signing out:', error instanceof Error ? error.message : 'Unknown error');
       }
       toast.error('Sign out failed');
     }

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -19,7 +19,6 @@ import Footer from '@/components/Footer';
 
 const AuthPage = () => {
   const { user, signIn, signUp, isLoading } = useAuth();
-  const navigate = useNavigate();
   const location = useLocation();
   const [activeTab, setActiveTab] = useState('login');
 

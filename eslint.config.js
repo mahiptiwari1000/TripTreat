@@ -29,5 +29,11 @@ export default tseslint.config(
       'prefer-const': 'warn',
       'no-var': 'error',
     },
+  },
+  {
+    files: ['tailwind.config.ts'],
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
+    },
   }
 );

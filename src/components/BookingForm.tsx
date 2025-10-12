@@ -5,13 +5,11 @@ import { Calendar } from '@/components/ui/calendar';
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
 import {
   Popover,
   PopoverContent,
@@ -52,7 +50,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
   const watchCheckIn = form.watch('checkInDate');
   const watchCheckOut = form.watch('checkOutDate');
-  const watchGuests = form.watch('guests');
+  // const watchGuests = form.watch('guests'); // Removed unused variable
 
   // Calculate number of nights and total price
   const calculateNights = () => {
@@ -72,7 +70,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
   // Create an array with numbers from 1 to maxGuests
   const guestOptions = Array.from({ length: maxGuests }, (_, i) => i + 1);
 
-  const handleBooking = async (data: any) => {
+  const handleBooking = async (data: { checkInDate: string; checkOutDate: string; guests: number }) => {
     if (!user) {
       setShowLoginModal(true);
       return;
@@ -85,7 +83,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
       const priceTotal = numberOfNights * pricePerNight;
 
       // Insert booking into database
-      const { data: bookingData, error } = await supabase
+      const { error } = await supabase
         .from('bookings')
         .insert([
           {
@@ -111,18 +109,21 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
       // Redirect to booking confirmation page or user bookings
       navigate('/bookings');
-    } catch (error: any) {
+    } catch (error) {
       // Log error for debugging in development
       if (import.meta.env.DEV) {
         console.error('Error creating booking:', error);
       }
 
-      if (error.code === '23514') {
+      const errorMessage = error instanceof Error ? error.message : 'Failed to create booking';
+      const errorCode = (error as any)?.code;
+
+      if (errorCode === '23514') {
         toast.error('Booking dates conflict with an existing reservation');
-      } else if (error.code === '23503') {
+      } else if (errorCode === '23503') {
         toast.error('Unable to create booking. Please try again later.');
       } else {
-        toast.error(error.message || 'Failed to create booking');
+        toast.error(errorMessage);
       }
     } finally {
       setIsSubmitting(false);
