@@ -25,12 +25,30 @@ async function verifyDatabase() {
   console.log('🔍 Verifying Trip&Treat database setup...\n');
 
   const checks = [
-    { name: 'Profiles table', query: () => supabase.from('profiles').select('count').limit(1) },
-    { name: 'Listings table', query: () => supabase.from('listings').select('count').limit(1) },
-    { name: 'Listing images table', query: () => supabase.from('listing_images').select('count').limit(1) },
-    { name: 'Bookings table', query: () => supabase.from('bookings').select('count').limit(1) },
-    { name: 'Host applications table', query: () => supabase.from('host_applications').select('count').limit(1) },
-    { name: 'Planned tours table', query: () => supabase.from('planned_tours').select('count').limit(1) }
+    {
+      name: 'Profiles table',
+      query: () => supabase.from('profiles').select('count').limit(1),
+    },
+    {
+      name: 'Listings table',
+      query: () => supabase.from('listings').select('count').limit(1),
+    },
+    {
+      name: 'Listing images table',
+      query: () => supabase.from('listing_images').select('count').limit(1),
+    },
+    {
+      name: 'Bookings table',
+      query: () => supabase.from('bookings').select('count').limit(1),
+    },
+    {
+      name: 'Host applications table',
+      query: () => supabase.from('host_applications').select('count').limit(1),
+    },
+    {
+      name: 'Planned tours table',
+      query: () => supabase.from('planned_tours').select('count').limit(1),
+    },
   ];
 
   let allPassed = true;
@@ -38,7 +56,7 @@ async function verifyDatabase() {
   for (const check of checks) {
     try {
       const { data, error } = await check.query();
-      
+
       if (error) {
         console.log(`❌ ${check.name}: ${error.message}`);
         allPassed = false;
@@ -53,20 +71,22 @@ async function verifyDatabase() {
 
   // Check for sample data
   console.log('\n📊 Checking sample data...');
-  
+
   try {
     const { data: profiles } = await supabase.from('profiles').select('count');
     const { data: listings } = await supabase.from('listings').select('count');
     const { data: bookings } = await supabase.from('bookings').select('count');
-    
+
     console.log(`👥 Profiles: ${profiles?.[0]?.count || 0} records`);
     console.log(`🏠 Listings: ${listings?.[0]?.count || 0} records`);
     console.log(`📅 Bookings: ${bookings?.[0]?.count || 0} records`);
-    
+
     if ((profiles?.[0]?.count || 0) > 0) {
       console.log('✅ Sample data found');
     } else {
-      console.log('⚠️  No sample data found - run `npm run db:setup` to add sample data');
+      console.log(
+        '⚠️  No sample data found - run `npm run db:setup` to add sample data'
+      );
     }
   } catch (err) {
     console.log(`❌ Error checking sample data: ${err.message}`);
@@ -74,7 +94,7 @@ async function verifyDatabase() {
   }
 
   console.log('\n' + '='.repeat(50));
-  
+
   if (allPassed) {
     console.log('🎉 Database verification completed successfully!');
     console.log('✅ All tables are accessible');

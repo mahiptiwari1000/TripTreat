@@ -170,16 +170,12 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
           const itinerary = data.itinerary;
           const isMock = data.isMock || false;
           const message = data.message || '';
-          
+
           setCurrentItinerary(itinerary);
-          
+
           // Add a note if it's a mock itinerary
           if (isMock) {
-            addMessage(
-              `🤖 ${message}\n\n${itinerary}`,
-              false,
-              true
-            );
+            addMessage(`🤖 ${message}\n\n${itinerary}`, false, true);
           } else {
             addMessage(itinerary, false, true);
           }

@@ -112,7 +112,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     } catch (error) {
       // Log error for debugging in development
       if (import.meta.env.DEV) {
-        console.error('Error fetching user profile:', error instanceof Error ? error.message : 'Unknown error');
+        console.error(
+          'Error fetching user profile:',
+          error instanceof Error ? error.message : 'Unknown error'
+        );
       }
     }
   };
@@ -158,7 +161,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       return { error: null, data };
     } catch (error) {
       toast.error('Sign up failed');
-      return { error: error instanceof Error ? error : new Error('Unknown error'), data: null };
+      return {
+        error: error instanceof Error ? error : new Error('Unknown error'),
+        data: null,
+      };
     }
   };
 
@@ -169,7 +175,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     } catch (error) {
       // Log error for debugging in development
       if (import.meta.env.DEV) {
-        console.error('Error signing out:', error instanceof Error ? error.message : 'Unknown error');
+        console.error(
+          'Error signing out:',
+          error instanceof Error ? error.message : 'Unknown error'
+        );
       }
       toast.error('Sign out failed');
     }

@@ -117,7 +117,7 @@ const mockItineraries = {
 - Activities: ₹4,000
 - Buffer: ₹5,300
 
-*Note: This is a sample itinerary. AI features are disabled for open source contributors.*`
+*Note: This is a sample itinerary. AI features are disabled for open source contributors.*`,
 };
 
 // Function to generate mock itinerary based on budget
@@ -242,26 +242,33 @@ serve(async req => {
     if (!ENABLE_AI_FEATURES) {
       console.log('AI features disabled, using mock itinerary');
       const mockItinerary = generateMockItinerary(budget);
-      return new Response(JSON.stringify({ 
-        itinerary: mockItinerary,
-        isMock: true,
-        message: 'AI features disabled. Using sample itinerary for open source contributors.'
-      }), {
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
+      return new Response(
+        JSON.stringify({
+          itinerary: mockItinerary,
+          isMock: true,
+          message:
+            'AI features disabled. Using sample itinerary for open source contributors.',
+        }),
+        {
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        }
+      );
     }
 
     // Check if required API keys are available for AI features
     if (!OPENAI_API_KEY || !GOOGLE_API_KEY || !GOOGLE_CSE_ID) {
       console.log('API keys missing, falling back to mock itinerary');
       const mockItinerary = generateMockItinerary(budget);
-      return new Response(JSON.stringify({ 
-        itinerary: mockItinerary,
-        isMock: true,
-        message: 'API keys not configured. Using sample itinerary.'
-      }), {
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
+      return new Response(
+        JSON.stringify({
+          itinerary: mockItinerary,
+          isMock: true,
+          message: 'API keys not configured. Using sample itinerary.',
+        }),
+        {
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        }
+      );
     }
 
     // Perform Google searches for Manipur travel information
@@ -285,35 +292,44 @@ serve(async req => {
     // Generate the itinerary using the search results
     const itinerary = await generateItinerary(budget, searchResults);
 
-    return new Response(JSON.stringify({ 
-      itinerary,
-      isMock: false,
-      message: 'AI-generated itinerary using real-time data'
-    }), {
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-    });
+    return new Response(
+      JSON.stringify({
+        itinerary,
+        isMock: false,
+        message: 'AI-generated itinerary using real-time data',
+      }),
+      {
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      }
+    );
   } catch (error) {
     console.error('Error:', error);
-    
+
     // Fallback to mock data even on error
     try {
       const { budget } = await req.json();
       const mockItinerary = generateMockItinerary(budget || 10000);
-      return new Response(JSON.stringify({ 
-        itinerary: mockItinerary,
-        isMock: true,
-        message: 'Error occurred, using sample itinerary as fallback'
-      }), {
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
+      return new Response(
+        JSON.stringify({
+          itinerary: mockItinerary,
+          isMock: true,
+          message: 'Error occurred, using sample itinerary as fallback',
+        }),
+        {
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        }
+      );
     } catch (fallbackError) {
-      return new Response(JSON.stringify({ 
-        error: 'Unable to process request',
-        message: 'Please try again or contact support'
-      }), {
-        status: 500,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
+      return new Response(
+        JSON.stringify({
+          error: 'Unable to process request',
+          message: 'Please try again or contact support',
+        }),
+        {
+          status: 500,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        }
+      );
     }
   }
 });

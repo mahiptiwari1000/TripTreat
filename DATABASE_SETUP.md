@@ -33,11 +33,13 @@ This guide will help you set up the Trip&Treat database for local development.
 ### 3. **Set Up Environment Variables**
 
 1. Copy the example environment file:
+
    ```bash
    cp .env.example .env.local
    ```
 
 2. Edit `.env.local` and add your Supabase credentials:
+
    ```env
    VITE_SUPABASE_URL=https://your-project-id.supabase.co
    VITE_SUPABASE_ANON_KEY=your-anon-key-here
@@ -45,7 +47,7 @@ This guide will help you set up the Trip&Treat database for local development.
    VITE_APP_VERSION=1.0.0
    VITE_APP_DESCRIPTION=Trip and Treat - Discover homestays, experiences, and local attractions in Northeast India
    VITE_NODE_ENV=development
-   
+
    # AI Features (Optional - Disabled by default for contributors)
    ENABLE_AI_FEATURES=false
    # Only add these if you want to enable AI features:
@@ -57,6 +59,7 @@ This guide will help you set up the Trip&Treat database for local development.
 ### 4. **Run Database Migrations**
 
 #### Option A: Using the Setup Script (Recommended)
+
 ```bash
 # Install dependencies first
 npm install
@@ -66,6 +69,7 @@ node scripts/setup-database.js
 ```
 
 #### Option B: Manual Setup
+
 1. Go to your Supabase dashboard
 2. Navigate to **SQL Editor**
 3. Run the migration files in order:
@@ -77,6 +81,7 @@ node scripts/setup-database.js
 ### 5. **Verify Setup**
 
 1. Start the development server:
+
    ```bash
    npm run dev
    ```
@@ -91,14 +96,14 @@ node scripts/setup-database.js
 
 ### **Tables Overview**
 
-| Table | Description | Key Features |
-|-------|-------------|--------------|
-| `profiles` | User profiles and roles | Admin, Host, User roles |
-| `listings` | Homestay listings | Price, amenities, location |
-| `listing_images` | Images for listings | Primary image support |
-| `bookings` | User bookings | Date validation, status tracking |
-| `host_applications` | Host registration requests | Approval workflow |
-| `planned_tours` | User-created itineraries | Personal tour planning |
+| Table               | Description                | Key Features                     |
+| ------------------- | -------------------------- | -------------------------------- |
+| `profiles`          | User profiles and roles    | Admin, Host, User roles          |
+| `listings`          | Homestay listings          | Price, amenities, location       |
+| `listing_images`    | Images for listings        | Primary image support            |
+| `bookings`          | User bookings              | Date validation, status tracking |
+| `host_applications` | Host registration requests | Approval workflow                |
+| `planned_tours`     | User-created itineraries   | Personal tour planning           |
 
 ### **Sample Data Included**
 
@@ -112,12 +117,14 @@ node scripts/setup-database.js
 ## 🔐 Security Features
 
 ### **Row Level Security (RLS)**
+
 - Users can only see their own data
 - Admins can manage everything
 - Hosts can manage their listings
 - Public can view active listings
 
 ### **User Roles**
+
 - **Admin**: Full access to all data
 - **Host**: Can manage listings and view bookings
 - **User**: Can create bookings and view their data
@@ -127,21 +134,25 @@ node scripts/setup-database.js
 ### **Common Issues**
 
 #### ❌ "Invalid API key" error
+
 - Check your `.env.local` file
 - Verify the Supabase URL and key are correct
 - Ensure there are no extra spaces or quotes
 
 #### ❌ "Table doesn't exist" error
+
 - Run the migration files in the correct order
 - Check the Supabase SQL Editor for any errors
 - Verify all tables were created successfully
 
 #### ❌ "Permission denied" error
+
 - Check if RLS policies are enabled
 - Verify user authentication is working
 - Check if the user has the correct role
 
 #### ❌ "Connection failed" error
+
 - Check your internet connection
 - Verify the Supabase project is active
 - Check if the project URL is correct
@@ -163,6 +174,7 @@ node scripts/setup-database.js
 ## 🎉 You're Ready!
 
 Once you've completed these steps, you should have:
+
 - ✅ A working local development environment
 - ✅ Sample data to test with
 - ✅ All database tables and relationships

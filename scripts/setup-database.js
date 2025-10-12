@@ -17,7 +17,9 @@ const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY;
 
 if (!supabaseUrl || !supabaseKey) {
   console.error('❌ Missing Supabase credentials!');
-  console.error('Please check your .env.local file and ensure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY are set.');
+  console.error(
+    'Please check your .env.local file and ensure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY are set.'
+  );
   process.exit(1);
 }
 
@@ -31,23 +33,23 @@ async function runMigrations() {
     const migrationsDir = path.join(__dirname, '..', 'supabase', 'migrations');
     const migrationFiles = [
       '001_initial_schema.sql',
-      '002_functions.sql', 
+      '002_functions.sql',
       '003_rls_policies.sql',
-      '004_seed_data.sql'
+      '004_seed_data.sql',
     ];
 
     for (const file of migrationFiles) {
       const filePath = path.join(migrationsDir, file);
-      
+
       if (!fs.existsSync(filePath)) {
         console.warn(`⚠️  Migration file not found: ${file}`);
         continue;
       }
 
       console.log(`📄 Running migration: ${file}`);
-      
+
       const sql = fs.readFileSync(filePath, 'utf8');
-      
+
       // Split SQL into individual statements
       const statements = sql
         .split(';')
@@ -62,7 +64,7 @@ async function runMigrations() {
           }
         }
       }
-      
+
       console.log(`✅ Completed: ${file}`);
     }
 
@@ -71,7 +73,6 @@ async function runMigrations() {
     console.log('1. Start the development server: npm run dev');
     console.log('2. Visit http://localhost:8080');
     console.log('3. Try creating an account and exploring the app');
-    
   } catch (error) {
     console.error('❌ Database setup failed:', error.message);
     console.error('\n🔧 Troubleshooting:');

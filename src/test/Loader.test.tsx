@@ -9,10 +9,10 @@ describe('Loader Component', () => {
     // Check if the logo text is rendered using getAllByText for duplicate letters
     const tElements = screen.getAllByText('T');
     expect(tElements).toHaveLength(2); // Two T's in "Trip&Treat"
-    
+
     const rElements = screen.getAllByText('r');
     expect(rElements).toHaveLength(2); // Two r's in "Trip&Treat"
-    
+
     expect(screen.getByText('i')).toBeInTheDocument();
     expect(screen.getByText('p')).toBeInTheDocument();
     expect(screen.getByText('&')).toBeInTheDocument();

@@ -1,4 +1,4 @@
-# Trip&Treat 
+# Trip&Treat
 
 > Discover homestays, experiences, and local attractions in Northeast India
 
@@ -123,6 +123,7 @@ src/
 ## 🤖 AI Features Setup
 
 ### **For Contributors (Recommended)**
+
 AI features are **disabled by default** to ensure contributors can work without API costs:
 
 ```env
@@ -131,12 +132,14 @@ ENABLE_AI_FEATURES=false
 ```
 
 This will use **sample itineraries** instead of AI-generated ones, allowing you to:
+
 - ✅ Work without any API keys
 - ✅ Test all functionality
 - ✅ Contribute without costs
 - ✅ See realistic sample data
 
 ### **For Production (Optional)**
+
 To enable AI-powered itinerary generation:
 
 1. **Get API Keys**:
@@ -144,6 +147,7 @@ To enable AI-powered itinerary generation:
    - [Google Custom Search API](https://developers.google.com/custom-search/v1/introduction) (for real-time data)
 
 2. **Update Environment Variables**:
+
    ```env
    ENABLE_AI_FEATURES=true
    OPENAI_API_KEY=your_openai_api_key_here
@@ -158,6 +162,7 @@ To enable AI-powered itinerary generation:
    ```
 
 ### **Cost Information**
+
 - **OpenAI GPT-4o-mini**: ~$0.15 per 1M input tokens, ~$0.60 per 1M output tokens
 - **Google Custom Search**: $5 per 1,000 queries (first 100 queries/day free)
 - **Estimated cost per itinerary**: $0.01-0.05

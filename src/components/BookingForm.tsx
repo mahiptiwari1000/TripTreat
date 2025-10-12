@@ -70,7 +70,11 @@ const BookingForm: React.FC<BookingFormProps> = ({
   // Create an array with numbers from 1 to maxGuests
   const guestOptions = Array.from({ length: maxGuests }, (_, i) => i + 1);
 
-  const handleBooking = async (data: { checkInDate: string; checkOutDate: string; guests: number }) => {
+  const handleBooking = async (data: {
+    checkInDate: string;
+    checkOutDate: string;
+    guests: number;
+  }) => {
     if (!user) {
       setShowLoginModal(true);
       return;
@@ -115,7 +119,8 @@ const BookingForm: React.FC<BookingFormProps> = ({
         console.error('Error creating booking:', error);
       }
 
-      const errorMessage = error instanceof Error ? error.message : 'Failed to create booking';
+      const errorMessage =
+        error instanceof Error ? error.message : 'Failed to create booking';
       const errorCode = (error as any)?.code;
 
       if (errorCode === '23514') {
