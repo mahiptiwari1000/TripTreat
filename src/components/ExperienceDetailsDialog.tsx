@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
@@ -8,25 +7,25 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { Calendar } from "@/components/ui/calendar";
+} from '@/components/ui/dialog';
+import { Calendar } from '@/components/ui/calendar';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from '@/components/ui/select';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
-import { Badge } from "@/components/ui/badge";
-import { MapPin, Clock, Users, CalendarIcon, Check } from "lucide-react";
-import { format } from "date-fns";
-import { toast } from "sonner";
-import { cn } from "@/lib/utils";
+} from '@/components/ui/popover';
+import { Badge } from '@/components/ui/badge';
+import { MapPin, Clock, Users, CalendarIcon, Check } from 'lucide-react';
+import { format } from 'date-fns';
+import { toast } from 'sonner';
+import { cn } from '@/lib/utils';
 
 interface Experience {
   id: number;
@@ -51,10 +50,14 @@ interface ExperienceDetailsDialogProps {
   onClose: () => void;
 }
 
-const ExperienceDetailsDialog = ({ experience, isOpen, onClose }: ExperienceDetailsDialogProps) => {
+const ExperienceDetailsDialog = ({
+  experience,
+  isOpen,
+  onClose,
+}: ExperienceDetailsDialogProps) => {
   const [date, setDate] = useState<Date | undefined>(new Date());
-  const [time, setTime] = useState("10:00");
-  const [guests, setGuests] = useState("2");
+  const [time, setTime] = useState('10:00');
+  const [guests, setGuests] = useState('2');
   const [showBooking, setShowBooking] = useState(false);
 
   if (!experience) return null;
@@ -72,26 +75,31 @@ const ExperienceDetailsDialog = ({ experience, isOpen, onClose }: ExperienceDeta
         <DialogHeader>
           <DialogTitle className="text-2xl">{experience.name}</DialogTitle>
           <DialogDescription className="flex items-center gap-1">
-            <MapPin size={14} className="text-muted-foreground" /> {experience.location}
+            <MapPin size={14} className="text-muted-foreground" />{' '}
+            {experience.location}
           </DialogDescription>
         </DialogHeader>
-        
+
         <div className="grid gap-6">
           <div className="rounded-md overflow-hidden h-64 w-full glow-border-primary">
-            <img 
-              src={experience.image} 
-              alt={experience.name} 
+            <img
+              src={experience.image}
+              alt={experience.name}
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
             />
           </div>
-          
+
           <div className="grid md:grid-cols-[2fr_1fr] gap-6">
             <div className="space-y-4">
               <div>
-                <h3 className="text-lg font-medium mb-2">About this experience</h3>
-                <p className="text-muted-foreground">{experience.description}</p>
+                <h3 className="text-lg font-medium mb-2">
+                  About this experience
+                </h3>
+                <p className="text-muted-foreground">
+                  {experience.description}
+                </p>
               </div>
-              
+
               <div className="grid grid-cols-2 gap-2 py-2">
                 <div className="flex items-center gap-2">
                   <Clock size={16} className="text-muted-foreground" />
@@ -102,7 +110,7 @@ const ExperienceDetailsDialog = ({ experience, isOpen, onClose }: ExperienceDeta
                   <span>Up to {experience.maxParticipants} people</span>
                 </div>
               </div>
-              
+
               <div>
                 <h3 className="text-lg font-medium mb-2">What's included</h3>
                 <ul className="space-y-2">
@@ -114,30 +122,35 @@ const ExperienceDetailsDialog = ({ experience, isOpen, onClose }: ExperienceDeta
                   ))}
                 </ul>
               </div>
-              
+
               <div>
                 <h3 className="text-lg font-medium mb-2">Your host</h3>
                 <div className="flex items-center gap-3">
-                  <img 
-                    src={experience.hostImage} 
-                    alt={experience.host} 
+                  <img
+                    src={experience.hostImage}
+                    alt={experience.host}
                     className="w-12 h-12 rounded-full object-cover"
                   />
                   <div>
                     <p className="font-medium">{experience.host}</p>
-                    <p className="text-sm text-muted-foreground">Local {experience.category} Expert</p>
+                    <p className="text-sm text-muted-foreground">
+                      Local {experience.category} Expert
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <div className="bg-muted/30 p-4 rounded-md space-y-4 light-sweep">
               <div className="text-lg font-bold text-primary">
-                ₹{experience.price}<span className="text-xs text-muted-foreground font-normal">/person</span>
+                ₹{experience.price}
+                <span className="text-xs text-muted-foreground font-normal">
+                  /person
+                </span>
               </div>
-              
+
               {!showBooking ? (
-                <Button 
+                <Button
                   className="w-full text-xs bg-primary hover:bg-primary/90 glow-on-hover"
                   onClick={() => setShowBooking(true)}
                 >
@@ -154,10 +167,17 @@ const ExperienceDetailsDialog = ({ experience, isOpen, onClose }: ExperienceDeta
                           className="w-full flex items-center gap-2 px-3 py-2 text-sm font-normal"
                         >
                           <CalendarIcon className="h-4 w-4" />
-                          {date ? format(date, "PPP") : <span>Pick a date</span>}
+                          {date ? (
+                            format(date, 'PPP')
+                          ) : (
+                            <span>Pick a date</span>
+                          )}
                         </Button>
                       </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0 z-50 pointer-events-auto" align="start">
+                      <PopoverContent
+                        className="w-auto p-0 z-50 pointer-events-auto"
+                        align="start"
+                      >
                         <Calendar
                           mode="single"
                           selected={date}
@@ -168,7 +188,7 @@ const ExperienceDetailsDialog = ({ experience, isOpen, onClose }: ExperienceDeta
                       </PopoverContent>
                     </Popover>
                   </div>
-                  
+
                   <div className="space-y-2">
                     <label className="text-sm font-medium">Time</label>
                     <Select value={time} onValueChange={setTime}>
@@ -185,15 +205,20 @@ const ExperienceDetailsDialog = ({ experience, isOpen, onClose }: ExperienceDeta
                       </SelectContent>
                     </Select>
                   </div>
-                  
+
                   <div className="space-y-2">
-                    <label className="text-sm font-medium">Number of guests</label>
+                    <label className="text-sm font-medium">
+                      Number of guests
+                    </label>
                     <Select value={guests} onValueChange={setGuests}>
                       <SelectTrigger>
                         <SelectValue placeholder="Select guests" />
                       </SelectTrigger>
                       <SelectContent>
-                        {Array.from({ length: experience.maxParticipants }, (_, i) => i + 1).map((num) => (
+                        {Array.from(
+                          { length: experience.maxParticipants },
+                          (_, i) => i + 1
+                        ).map(num => (
                           <SelectItem key={num} value={num.toString()}>
                             {num} {num === 1 ? 'person' : 'people'}
                           </SelectItem>
@@ -201,10 +226,12 @@ const ExperienceDetailsDialog = ({ experience, isOpen, onClose }: ExperienceDeta
                       </SelectContent>
                     </Select>
                   </div>
-                  
+
                   <div className="pt-2">
                     <div className="flex justify-between text-sm mb-1">
-                      <span>₹{experience.price} × {guests} people</span>
+                      <span>
+                        ₹{experience.price} × {guests} people
+                      </span>
                       <span>₹{experience.price * parseInt(guests)}</span>
                     </div>
                     <div className="flex justify-between font-bold">
@@ -212,8 +239,8 @@ const ExperienceDetailsDialog = ({ experience, isOpen, onClose }: ExperienceDeta
                       <span>₹{experience.price * parseInt(guests)}</span>
                     </div>
                   </div>
-                  
-                  <Button 
+
+                  <Button
                     className="w-full bg-primary hover:bg-primary/90 glow-on-hover"
                     onClick={handleBook}
                   >
@@ -221,7 +248,7 @@ const ExperienceDetailsDialog = ({ experience, isOpen, onClose }: ExperienceDeta
                   </Button>
                 </div>
               )}
-              
+
               <div className="text-center text-xs text-muted-foreground pt-2">
                 You won't be charged yet
               </div>

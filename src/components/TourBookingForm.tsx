@@ -1,12 +1,21 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Calendar } from '@/components/ui/calendar';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { format } from 'date-fns';
 import { CalendarIcon, Users, Clock, Leaf, Info } from 'lucide-react';
@@ -20,7 +29,13 @@ interface TourBookingFormProps {
   onClose?: () => void;
 }
 
-const TourBookingForm = ({ tourId, tourName, defaultDate, pricePerPerson, onClose }: TourBookingFormProps) => {
+const TourBookingForm = ({
+  tourId,
+  tourName,
+  defaultDate,
+  pricePerPerson,
+  onClose,
+}: TourBookingFormProps) => {
   const [date, setDate] = useState<Date | undefined>(defaultDate || new Date());
   const [numberOfPersons, setNumberOfPersons] = useState<number>(2);
   const [name, setName] = useState<string>('');
@@ -31,17 +46,17 @@ const TourBookingForm = ({ tourId, tourName, defaultDate, pricePerPerson, onClos
   const [pickupLocation, setPickupLocation] = useState<string>('');
   const [preferredLanguage, setPreferredLanguage] = useState<string>('English');
   const [dietaryPreferences, setDietaryPreferences] = useState<string[]>([]);
-  
+
   const languageOptions = ['English', 'Hindi', 'Manipuri', 'Bengali'];
   const dietaryOptions = [
     { id: 'vegetarian', label: 'Vegetarian' },
     { id: 'vegan', label: 'Vegan' },
     { id: 'glutenFree', label: 'Gluten-Free' },
-    { id: 'nutFree', label: 'Nut-Free' }
+    { id: 'nutFree', label: 'Nut-Free' },
   ];
-  
+
   const totalPrice = pricePerPerson * numberOfPersons;
-  
+
   const handleDietaryChange = (id: string, checked: boolean) => {
     if (checked) {
       setDietaryPreferences(prev => [...prev, id]);
@@ -49,88 +64,98 @@ const TourBookingForm = ({ tourId, tourName, defaultDate, pricePerPerson, onClos
       setDietaryPreferences(prev => prev.filter(item => item !== id));
     }
   };
-  
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Validation
     if (!name || !email || !phone || !date) {
       toast.error('Please fill in all required fields');
       return;
     }
-    
+
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       toast.error('Please enter a valid email address');
       return;
     }
-    
+
     // Phone validation
     const phoneRegex = /^\d{10}$/;
     if (!phoneRegex.test(phone)) {
       toast.error('Please enter a valid 10-digit phone number');
       return;
     }
-    
+
     // Submit booking
     toast.success('Tour booking successful!', {
       description: `Your booking for ${tourName} on ${format(date, 'PPP')} for ${numberOfPersons} people has been confirmed.`,
     });
-    
+
     // Close modal if provided
     if (onClose) {
       onClose();
     }
   };
-  
+
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="space-y-4">
         <div>
           <h3 className="text-xl font-semibold">{tourName}</h3>
-          <p className="text-muted-foreground">Please fill in the details to complete your booking</p>
+          <p className="text-muted-foreground">
+            Please fill in the details to complete your booking
+          </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <Label htmlFor="name">Full Name <span className="text-destructive">*</span></Label>
+            <Label htmlFor="name">
+              Full Name <span className="text-destructive">*</span>
+            </Label>
             <Input
               id="name"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={e => setName(e.target.value)}
               placeholder="Enter your full name"
               required
             />
           </div>
-          
+
           <div className="space-y-2">
-            <Label htmlFor="email">Email <span className="text-destructive">*</span></Label>
+            <Label htmlFor="email">
+              Email <span className="text-destructive">*</span>
+            </Label>
             <Input
               id="email"
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={e => setEmail(e.target.value)}
               placeholder="you@example.com"
               required
             />
           </div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <Label htmlFor="phone">Phone Number <span className="text-destructive">*</span></Label>
+            <Label htmlFor="phone">
+              Phone Number <span className="text-destructive">*</span>
+            </Label>
             <Input
               id="phone"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={e => setPhone(e.target.value)}
               placeholder="10-digit mobile number"
               required
             />
           </div>
-          
+
           <div className="space-y-2">
-            <Label>Tour Date <span className="text-destructive">*</span></Label>
+            <Label>
+              Tour Date <span className="text-destructive">*</span>
+            </Label>
             <Popover>
               <PopoverTrigger asChild>
                 <Button
@@ -147,7 +172,7 @@ const TourBookingForm = ({ tourId, tourName, defaultDate, pricePerPerson, onClos
                   selected={date}
                   onSelect={setDate}
                   initialFocus
-                  disabled={(date) => {
+                  disabled={date => {
                     // Disable dates in the past
                     return date < new Date(new Date().setHours(0, 0, 0, 0));
                   }}
@@ -156,7 +181,7 @@ const TourBookingForm = ({ tourId, tourName, defaultDate, pricePerPerson, onClos
             </Popover>
           </div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label className="flex items-center">
@@ -169,7 +194,9 @@ const TourBookingForm = ({ tourId, tourName, defaultDate, pricePerPerson, onClos
                 variant="outline"
                 size="icon"
                 className="h-8 w-8"
-                onClick={() => numberOfPersons > 1 && setNumberOfPersons(numberOfPersons - 1)}
+                onClick={() =>
+                  numberOfPersons > 1 && setNumberOfPersons(numberOfPersons - 1)
+                }
                 disabled={numberOfPersons <= 1}
               >
                 -
@@ -177,7 +204,7 @@ const TourBookingForm = ({ tourId, tourName, defaultDate, pricePerPerson, onClos
               <Input
                 className="w-16 text-center"
                 value={numberOfPersons}
-                onChange={(e) => {
+                onChange={e => {
                   const value = parseInt(e.target.value);
                   if (!isNaN(value) && value > 0) {
                     setNumberOfPersons(value);
@@ -196,7 +223,7 @@ const TourBookingForm = ({ tourId, tourName, defaultDate, pricePerPerson, onClos
               </Button>
             </div>
           </div>
-          
+
           <div className="space-y-2">
             <Label className="flex items-center">
               <Clock size={16} className="mr-1" />
@@ -210,7 +237,7 @@ const TourBookingForm = ({ tourId, tourName, defaultDate, pricePerPerson, onClos
                 <SelectValue placeholder="Select language" />
               </SelectTrigger>
               <SelectContent>
-                {languageOptions.map((language) => (
+                {languageOptions.map(language => (
                   <SelectItem key={language} value={language}>
                     {language}
                   </SelectItem>
@@ -219,19 +246,19 @@ const TourBookingForm = ({ tourId, tourName, defaultDate, pricePerPerson, onClos
             </Select>
           </div>
         </div>
-        
+
         <div className="space-y-2">
           <Label className="flex items-center">
             <Leaf size={16} className="mr-1" />
             Dietary Preferences
           </Label>
           <div className="grid grid-cols-2 gap-2">
-            {dietaryOptions.map((option) => (
+            {dietaryOptions.map(option => (
               <div key={option.id} className="flex items-center space-x-2">
                 <Checkbox
                   id={option.id}
                   checked={dietaryPreferences.includes(option.id)}
-                  onCheckedChange={(checked) => 
+                  onCheckedChange={checked =>
                     handleDietaryChange(option.id, checked === true)
                   }
                 />
@@ -245,13 +272,13 @@ const TourBookingForm = ({ tourId, tourName, defaultDate, pricePerPerson, onClos
             ))}
           </div>
         </div>
-        
+
         <div className="space-y-2">
           <div className="flex items-center space-x-2">
             <Checkbox
               id="pickup"
               checked={pickupRequired}
-              onCheckedChange={(checked) => {
+              onCheckedChange={checked => {
                 setPickupRequired(checked === true);
                 if (!checked) setPickupLocation('');
               }}
@@ -260,21 +287,21 @@ const TourBookingForm = ({ tourId, tourName, defaultDate, pricePerPerson, onClos
               I need hotel/accommodation pickup
             </Label>
           </div>
-          
+
           {pickupRequired && (
             <div className="mt-2 pl-6">
               <Label htmlFor="pickupLocation">Pickup Location</Label>
               <Input
                 id="pickupLocation"
                 value={pickupLocation}
-                onChange={(e) => setPickupLocation(e.target.value)}
+                onChange={e => setPickupLocation(e.target.value)}
                 placeholder="Hotel name or address"
                 className="mt-1"
               />
             </div>
           )}
         </div>
-        
+
         <div className="space-y-2">
           <Label htmlFor="specialRequests" className="flex items-center">
             <Info size={16} className="mr-1" />
@@ -283,12 +310,12 @@ const TourBookingForm = ({ tourId, tourName, defaultDate, pricePerPerson, onClos
           <Textarea
             id="specialRequests"
             value={specialRequests}
-            onChange={(e) => setSpecialRequests(e.target.value)}
+            onChange={e => setSpecialRequests(e.target.value)}
             placeholder="Any special requirements or questions?"
             rows={3}
           />
         </div>
-        
+
         <div className="bg-muted/30 p-4 rounded-lg">
           <div className="flex justify-between mb-2">
             <span>Price per person:</span>
@@ -304,10 +331,15 @@ const TourBookingForm = ({ tourId, tourName, defaultDate, pricePerPerson, onClos
           </div>
         </div>
       </div>
-      
+
       <div className="flex gap-4">
         {onClose && (
-          <Button type="button" variant="outline" className="w-full" onClick={onClose}>
+          <Button
+            type="button"
+            variant="outline"
+            className="w-full"
+            onClick={onClose}
+          >
             Cancel
           </Button>
         )}

@@ -1,31 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { useAuth } from "@/contexts/AuthContext";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import { useAuth } from '@/contexts/AuthContext';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CalendarIcon, Clock, User, Upload } from "lucide-react";
-import { format } from "date-fns";
-import { supabase } from "@/integrations/supabase/client";
-import { toast } from "sonner";
-import PlannedTours from "@/components/PlannedTours";
-import ProtectedRoute from "@/components/ProtectedRoute";
-import { UserIcon, PlaneTakeoff, SettingsIcon } from "lucide-react";
+} from '@/components/ui/card';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { CalendarIcon, Clock, User, Upload } from 'lucide-react';
+import { format } from 'date-fns';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
+import PlannedTours from '@/components/PlannedTours';
+import ProtectedRoute from '@/components/ProtectedRoute';
+import { UserIcon, PlaneTakeoff, SettingsIcon } from 'lucide-react';
 
 const ProfilePage = () => {
   const { user, profile, signOut } = useAuth();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState("profile");
+  const [activeTab, setActiveTab] = useState('profile');
   const [bookings, setBookings] = useState<any[]>([]);
   const [hostApplications, setHostApplications] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -41,7 +41,7 @@ const ProfilePage = () => {
     try {
       // Fetch user's bookings
       const { data: bookingData, error: bookingError } = await supabase
-        .from("bookings")
+        .from('bookings')
         .select(
           `
            *,
@@ -53,24 +53,27 @@ const ProfilePage = () => {
            )
          `
         )
-        .eq("user_id", user!.id)
-        .order("created_at", { ascending: false });
+        .eq('user_id', user!.id)
+        .order('created_at', { ascending: false });
 
       if (bookingError) throw bookingError;
       setBookings(bookingData || []);
 
       // Fetch host applications
       const { data: hostData, error: hostError } = await supabase
-        .from("host_applications")
-        .select("*")
-        .eq("user_id", user!.id)
-        .order("created_at", { ascending: false });
+        .from('host_applications')
+        .select('*')
+        .eq('user_id', user!.id)
+        .order('created_at', { ascending: false });
 
       if (hostError) throw hostError;
       setHostApplications(hostData || []);
     } catch (error: any) {
-      console.error("Error fetching user data:", error);
-      toast.error("Failed to load your data. Please try again.");
+      // Log error for debugging in development
+      if (import.meta.env.DEV) {
+        console.error('Error fetching user data:', error);
+      }
+      toast.error('Failed to load your data. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -78,30 +81,30 @@ const ProfilePage = () => {
 
   const handleEditProfile = () => {
     // Navigate to edit profile page
-    toast.info("Edit profile feature coming soon.");
+    toast.info('Edit profile feature coming soon.');
   };
 
   const handleSignOut = async () => {
     await signOut();
-    navigate("/");
+    navigate('/');
   };
 
   const getStatusBadgeColor = (status: string) => {
     switch (status) {
-      case "confirmed":
-        return "bg-green-500 hover:bg-green-500/90";
-      case "pending":
-        return "bg-yellow-500 hover:bg-yellow-500/90";
-      case "cancelled":
-        return "bg-red-500 hover:bg-red-500/90";
-      case "completed":
-        return "bg-blue-500 hover:bg-blue-500/90";
-      case "rejected":
-        return "bg-destructive";
-      case "approved":
-        return "bg-green-500";
+      case 'confirmed':
+        return 'bg-green-500 hover:bg-green-500/90';
+      case 'pending':
+        return 'bg-yellow-500 hover:bg-yellow-500/90';
+      case 'cancelled':
+        return 'bg-red-500 hover:bg-red-500/90';
+      case 'completed':
+        return 'bg-blue-500 hover:bg-blue-500/90';
+      case 'rejected':
+        return 'bg-destructive';
+      case 'approved':
+        return 'bg-green-500';
       default:
-        return "bg-secondary";
+        return 'bg-secondary';
     }
   };
 
@@ -135,7 +138,7 @@ const ProfilePage = () => {
                       <Button
                         variant="outline"
                         className="w-full justify-start"
-                        onClick={() => setActiveTab("profile")}
+                        onClick={() => setActiveTab('profile')}
                       >
                         <UserIcon className="mr-2 h-4 w-4" />
                         <span>Profile</span>
@@ -143,7 +146,7 @@ const ProfilePage = () => {
                       <Button
                         variant="outline"
                         className="w-full justify-start mt-2"
-                        onClick={() => setActiveTab("bookings")}
+                        onClick={() => setActiveTab('bookings')}
                       >
                         <CalendarIcon className="mr-2 h-4 w-4" />
                         <span>My Bookings</span>
@@ -151,7 +154,7 @@ const ProfilePage = () => {
                       <Button
                         variant="outline"
                         className="w-full justify-start mt-2"
-                        onClick={() => setActiveTab("plans")}
+                        onClick={() => setActiveTab('plans')}
                       >
                         <PlaneTakeoff className="mr-2 h-4 w-4" />
                         <span>My Planned Tours</span>
@@ -159,7 +162,7 @@ const ProfilePage = () => {
                       <Button
                         variant="outline"
                         className="w-full justify-start mt-2"
-                        onClick={() => setActiveTab("settings")}
+                        onClick={() => setActiveTab('settings')}
                       >
                         <SettingsIcon className="mr-2 h-4 w-4" />
                         <span>Settings</span>
@@ -172,7 +175,7 @@ const ProfilePage = () => {
 
             {/* Bookings tab */}
             <div className="w-full md:w-3/4">
-              {activeTab === "profile" && (
+              {activeTab === 'profile' && (
                 <Card>
                   <CardHeader>
                     <CardTitle>Personal Information</CardTitle>
@@ -187,7 +190,7 @@ const ProfilePage = () => {
                           First Name
                         </h3>
                         <p className="text-foreground">
-                          {profile?.first_name || "Not set"}
+                          {profile?.first_name || 'Not set'}
                         </p>
                       </div>
                       <div>
@@ -195,7 +198,7 @@ const ProfilePage = () => {
                           Last Name
                         </h3>
                         <p className="text-foreground">
-                          {profile?.last_name || "Not set"}
+                          {profile?.last_name || 'Not set'}
                         </p>
                       </div>
                       <div>
@@ -209,7 +212,7 @@ const ProfilePage = () => {
                           Phone
                         </h3>
                         <p className="text-foreground">
-                          {profile?.phone || "Not set"}
+                          {profile?.phone || 'Not set'}
                         </p>
                       </div>
                       <div>
@@ -218,7 +221,7 @@ const ProfilePage = () => {
                         </h3>
                         <p className="text-foreground">
                           <Badge variant="outline" className="capitalize">
-                            {profile?.role || "User"}
+                            {profile?.role || 'User'}
                           </Badge>
                         </p>
                       </div>
@@ -228,8 +231,8 @@ const ProfilePage = () => {
                         </h3>
                         <p className="text-foreground">
                           {profile?.created_at
-                            ? format(new Date(profile.created_at), "PPP")
-                            : "Unknown"}
+                            ? format(new Date(profile.created_at), 'PPP')
+                            : 'Unknown'}
                         </p>
                       </div>
                     </div>
@@ -252,7 +255,7 @@ const ProfilePage = () => {
                 </Card>
               )}
 
-              {activeTab === "bookings" && (
+              {activeTab === 'bookings' && (
                 <Card>
                   <CardHeader>
                     <CardTitle>My Bookings</CardTitle>
@@ -270,13 +273,13 @@ const ProfilePage = () => {
                         <p className="text-muted-foreground mb-4">
                           You don't have any bookings yet.
                         </p>
-                        <Button onClick={() => navigate("/homestays")}>
+                        <Button onClick={() => navigate('/homestays')}>
                           Browse Homestays
                         </Button>
                       </div>
                     ) : (
                       <div className="space-y-4">
-                        {bookings.map((booking) => (
+                        {bookings.map(booking => (
                           <div
                             key={booking.id}
                             className="border rounded-lg p-4"
@@ -307,7 +310,7 @@ const ProfilePage = () => {
                                   <p className="font-medium">
                                     {format(
                                       new Date(booking.check_in_date),
-                                      "PP"
+                                      'PP'
                                     )}
                                   </p>
                                 </div>
@@ -321,7 +324,7 @@ const ProfilePage = () => {
                                   <p className="font-medium">
                                     {format(
                                       new Date(booking.check_out_date),
-                                      "PP"
+                                      'PP'
                                     )}
                                   </p>
                                 </div>
@@ -350,7 +353,7 @@ const ProfilePage = () => {
                               </div>
 
                               <div className="flex gap-2">
-                                {booking.status === "pending" && (
+                                {booking.status === 'pending' && (
                                   <Button
                                     variant="outline"
                                     size="sm"
@@ -380,9 +383,9 @@ const ProfilePage = () => {
                 </Card>
               )}
 
-              {activeTab === "plans" && <PlannedTours />}
+              {activeTab === 'plans' && <PlannedTours />}
 
-              {activeTab === "settings" && (
+              {activeTab === 'settings' && (
                 <Card>
                   <CardHeader>
                     <CardTitle>Settings</CardTitle>
@@ -403,7 +406,7 @@ const ProfilePage = () => {
                           Phone
                         </h3>
                         <p className="text-foreground">
-                          {profile?.phone || "Not set"}
+                          {profile?.phone || 'Not set'}
                         </p>
                       </div>
                       <div>
@@ -412,7 +415,7 @@ const ProfilePage = () => {
                         </h3>
                         <p className="text-foreground">
                           <Badge variant="outline" className="capitalize">
-                            {profile?.role || "User"}
+                            {profile?.role || 'User'}
                           </Badge>
                         </p>
                       </div>
@@ -422,8 +425,8 @@ const ProfilePage = () => {
                         </h3>
                         <p className="text-foreground">
                           {profile?.created_at
-                            ? format(new Date(profile.created_at), "PPP")
-                            : "Unknown"}
+                            ? format(new Date(profile.created_at), 'PPP')
+                            : 'Unknown'}
                         </p>
                       </div>
                     </div>

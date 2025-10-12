@@ -1,0 +1,10 @@
+# Supabase Configuration Template
+# Copy this file to config.toml and update with your project details
+
+project_id = "your-project-id-here"
+
+[functions.generate-itinerary]
+verify_jwt = true
+
+[db]
+major_version = 15

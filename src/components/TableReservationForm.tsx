@@ -1,21 +1,51 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Calendar } from '@/components/ui/calendar';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { format, addDays } from 'date-fns';
 import { toast } from 'sonner';
-import { 
-  CalendarIcon, Clock, Users, UtensilsCrossed, MapPin, Info, 
-  Calendar as CalendarIcon2, User, Mail, Phone, Home, Lightbulb 
+import {
+  CalendarIcon,
+  Clock,
+  Users,
+  UtensilsCrossed,
+  MapPin,
+  Info,
+  Calendar as CalendarIcon2,
+  User,
+  Mail,
+  Phone,
+  Home,
+  Lightbulb,
 } from 'lucide-react';
-import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription } from '@/components/ui/alert-dialog';
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog';
+import {
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogDescription,
+} from '@/components/ui/alert-dialog';
 
 interface TableReservationFormProps {
   eateryName: string;
@@ -24,11 +54,11 @@ interface TableReservationFormProps {
   onClose?: () => void;
 }
 
-const TableReservationForm = ({ 
-  eateryName, 
-  eateryLocation, 
+const TableReservationForm = ({
+  eateryName,
+  eateryLocation,
   isOpen = true,
-  onClose
+  onClose,
 }: TableReservationFormProps) => {
   const [date, setDate] = useState<Date>(addDays(new Date(), 1));
   const [time, setTime] = useState<string>('19:00');
@@ -40,34 +70,60 @@ const TableReservationForm = ({
   const [source, setSource] = useState<string>('');
   const [occasion, setOccasion] = useState<string>('');
   const [specialRequests, setSpecialRequests] = useState<string>('');
-  const [seatingPreference, setSeatingPreference] = useState<string>('No Preference');
+  const [seatingPreference, setSeatingPreference] =
+    useState<string>('No Preference');
   const [dietaryNeeds, setDietaryNeeds] = useState<string[]>([]);
   const [isGuestDialogOpen, setIsGuestDialogOpen] = useState<boolean>(false);
-  const [isDateTimeDialogOpen, setIsDateTimeDialogOpen] = useState<boolean>(false);
+  const [isDateTimeDialogOpen, setIsDateTimeDialogOpen] =
+    useState<boolean>(false);
   const [showSuccessDialog, setShowSuccessDialog] = useState<boolean>(false);
 
-  const occasions = ['None', 'Birthday', 'Anniversary', 'Business Meal', 'Date Night', 'Family Gathering'];
-  const seatingOptions = ['No Preference', 'Indoor', 'Outdoor', 'Window', 'Private Area'];
+  const occasions = [
+    'None',
+    'Birthday',
+    'Anniversary',
+    'Business Meal',
+    'Date Night',
+    'Family Gathering',
+  ];
+  const seatingOptions = [
+    'No Preference',
+    'Indoor',
+    'Outdoor',
+    'Window',
+    'Private Area',
+  ];
   const dietaryOptions = [
     { id: 'vegetarian', label: 'Vegetarian' },
     { id: 'vegan', label: 'Vegan' },
     { id: 'glutenFree', label: 'Gluten-Free' },
-    { id: 'nutFree', label: 'Nut-Free' }
+    { id: 'nutFree', label: 'Nut-Free' },
   ];
-  
+
   const sourcesOptions = [
-    'Search Engine', 
-    'Social Media', 
-    'Friend Recommendation', 
-    'Travel Website', 
-    'Local Guide', 
+    'Search Engine',
+    'Social Media',
+    'Friend Recommendation',
+    'Travel Website',
+    'Local Guide',
     'Hotel Recommendation',
-    'Other'
+    'Other',
   ];
-  
+
   const timeSlots = [
-    '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', 
-    '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00'
+    '12:00',
+    '12:30',
+    '13:00',
+    '13:30',
+    '14:00',
+    '14:30',
+    '18:00',
+    '18:30',
+    '19:00',
+    '19:30',
+    '20:00',
+    '20:30',
+    '21:00',
   ];
 
   const handleDietaryChange = (id: string, checked: boolean) => {
@@ -80,30 +136,30 @@ const TableReservationForm = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Validation
     if (!name || !email || !phone || !date || !time) {
       toast.error('Please fill in all required fields');
       return;
     }
-    
+
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       toast.error('Please enter a valid email address');
       return;
     }
-    
+
     // Phone validation
     const phoneRegex = /^\d{10}$/;
     if (!phoneRegex.test(phone)) {
       toast.error('Please enter a valid 10-digit phone number');
       return;
     }
-    
+
     // Submit reservation
     setShowSuccessDialog(true);
-    
+
     // Reset form fields
     setName('');
     setEmail('');
@@ -147,9 +203,9 @@ const TableReservationForm = ({
             </div>
           )}
         </div>
-        
+
         {/* Date Time Selection - Now triggers dialog */}
-        <div 
+        <div
           onClick={() => setIsDateTimeDialogOpen(true)}
           className="rounded-md border p-4 flex justify-between items-center hover:bg-accent/50 cursor-pointer transition-colors"
         >
@@ -157,7 +213,9 @@ const TableReservationForm = ({
             <CalendarIcon2 className="h-5 w-5 text-muted-foreground" />
             <div>
               <p className="text-sm font-medium">Date & Time</p>
-              <p className="text-sm text-muted-foreground">{formatDateTimeLabel()}</p>
+              <p className="text-sm text-muted-foreground">
+                {formatDateTimeLabel()}
+              </p>
             </div>
           </div>
           <Button type="button" variant="ghost" size="icon">
@@ -165,9 +223,9 @@ const TableReservationForm = ({
             <span className="sr-only">Open</span>
           </Button>
         </div>
-        
+
         {/* Party Size Selection - Now triggers dialog */}
-        <div 
+        <div
           onClick={() => setIsGuestDialogOpen(true)}
           className="rounded-md border p-4 flex justify-between items-center hover:bg-accent/50 cursor-pointer transition-colors"
         >
@@ -175,7 +233,9 @@ const TableReservationForm = ({
             <User className="h-5 w-5 text-muted-foreground" />
             <div>
               <p className="text-sm font-medium">Party Size</p>
-              <p className="text-sm text-muted-foreground">{formatGuestsLabel()}</p>
+              <p className="text-sm text-muted-foreground">
+                {formatGuestsLabel()}
+              </p>
             </div>
           </div>
           <Button type="button" variant="ghost" size="icon">
@@ -183,7 +243,7 @@ const TableReservationForm = ({
             <span className="sr-only">Open</span>
           </Button>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="name" className="flex items-center">
@@ -193,13 +253,13 @@ const TableReservationForm = ({
             <Input
               id="name"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={e => setName(e.target.value)}
               placeholder="Enter your full name"
               required
               className="transition-all duration-300 focus:ring-2 focus:ring-primary/20"
             />
           </div>
-          
+
           <div className="space-y-2">
             <Label htmlFor="email" className="flex items-center">
               <Mail size={16} className="mr-1 text-muted-foreground" />
@@ -209,14 +269,14 @@ const TableReservationForm = ({
               id="email"
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={e => setEmail(e.target.value)}
               placeholder="you@example.com"
               required
               className="transition-all duration-300 focus:ring-2 focus:ring-primary/20"
             />
           </div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="phone" className="flex items-center">
@@ -226,13 +286,13 @@ const TableReservationForm = ({
             <Input
               id="phone"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={e => setPhone(e.target.value)}
               placeholder="10-digit mobile number"
               required
               className="transition-all duration-300 focus:ring-2 focus:ring-primary/20"
             />
           </div>
-          
+
           <div className="space-y-2">
             <Label htmlFor="city" className="flex items-center">
               <Home size={16} className="mr-1 text-muted-foreground" />
@@ -241,25 +301,26 @@ const TableReservationForm = ({
             <Input
               id="city"
               value={city}
-              onChange={(e) => setCity(e.target.value)}
+              onChange={e => setCity(e.target.value)}
               placeholder="Your city"
               required
               className="transition-all duration-300 focus:ring-2 focus:ring-primary/20"
             />
           </div>
         </div>
-        
+
         <div className="space-y-2">
           <Label htmlFor="source" className="flex items-center">
             <Lightbulb size={16} className="mr-1 text-muted-foreground" />
-            How did you hear about us? <span className="text-destructive">*</span>
+            How did you hear about us?{' '}
+            <span className="text-destructive">*</span>
           </Label>
           <Select value={source} onValueChange={setSource} required>
             <SelectTrigger className="transition-all duration-300 focus:ring-2 focus:ring-primary/20">
               <SelectValue placeholder="Select source" />
             </SelectTrigger>
             <SelectContent>
-              {sourcesOptions.map((sourceOption) => (
+              {sourcesOptions.map(sourceOption => (
                 <SelectItem key={sourceOption} value={sourceOption}>
                   {sourceOption}
                 </SelectItem>
@@ -267,7 +328,7 @@ const TableReservationForm = ({
             </SelectContent>
           </Select>
         </div>
-        
+
         <div className="space-y-2">
           <Label htmlFor="occasion">Occasion</Label>
           <Select value={occasion} onValueChange={setOccasion}>
@@ -275,7 +336,7 @@ const TableReservationForm = ({
               <SelectValue placeholder="Select occasion" />
             </SelectTrigger>
             <SelectContent>
-              {occasions.map((type) => (
+              {occasions.map(type => (
                 <SelectItem key={type} value={type}>
                   {type}
                 </SelectItem>
@@ -283,15 +344,18 @@ const TableReservationForm = ({
             </SelectContent>
           </Select>
         </div>
-        
+
         <div className="space-y-2">
           <Label htmlFor="seatingPreference">Seating Preference</Label>
-          <Select value={seatingPreference} onValueChange={setSeatingPreference}>
+          <Select
+            value={seatingPreference}
+            onValueChange={setSeatingPreference}
+          >
             <SelectTrigger className="transition-all duration-300 focus:ring-2 focus:ring-primary/20">
               <SelectValue placeholder="Select seating preference" />
             </SelectTrigger>
             <SelectContent>
-              {seatingOptions.map((option) => (
+              {seatingOptions.map(option => (
                 <SelectItem key={option} value={option}>
                   {option}
                 </SelectItem>
@@ -299,19 +363,19 @@ const TableReservationForm = ({
             </SelectContent>
           </Select>
         </div>
-        
+
         <div className="space-y-2">
           <Label className="flex items-center">
             <UtensilsCrossed size={16} className="mr-1" />
             Dietary Requirements
           </Label>
           <div className="grid grid-cols-2 gap-2">
-            {dietaryOptions.map((option) => (
+            {dietaryOptions.map(option => (
               <div key={option.id} className="flex items-center space-x-2">
                 <Checkbox
                   id={option.id}
                   checked={dietaryNeeds.includes(option.id)}
-                  onCheckedChange={(checked) => 
+                  onCheckedChange={checked =>
                     handleDietaryChange(option.id, checked === true)
                   }
                   className="data-[state=checked]:animate-pulse"
@@ -326,7 +390,7 @@ const TableReservationForm = ({
             ))}
           </div>
         </div>
-        
+
         <div className="space-y-2">
           <Label htmlFor="specialRequests" className="flex items-center">
             <Info size={16} className="mr-1" />
@@ -335,32 +399,35 @@ const TableReservationForm = ({
           <Textarea
             id="specialRequests"
             value={specialRequests}
-            onChange={(e) => setSpecialRequests(e.target.value)}
+            onChange={e => setSpecialRequests(e.target.value)}
             placeholder="Any special arrangements, requirements, or notes for the restaurant"
             rows={3}
             className="transition-all duration-300 focus:ring-2 focus:ring-primary/20"
           />
         </div>
       </div>
-      
+
       <div className="text-xs text-muted-foreground mb-4">
-        <p>* Reservation is subject to confirmation by the restaurant. You'll receive a confirmation via email or phone.</p>
+        <p>
+          * Reservation is subject to confirmation by the restaurant. You'll
+          receive a confirmation via email or phone.
+        </p>
         <p>* For large groups (8+), the restaurant may require a deposit.</p>
       </div>
-      
+
       <div className="flex gap-4">
         {onClose && (
-          <Button 
-            type="button" 
-            variant="outline" 
-            className="w-full transition-all hover:scale-105" 
+          <Button
+            type="button"
+            variant="outline"
+            className="w-full transition-all hover:scale-105"
             onClick={onClose}
           >
             Cancel
           </Button>
         )}
-        <Button 
-          type="submit" 
+        <Button
+          type="submit"
           className="w-full bg-primary hover:bg-primary/90 transition-all hover:scale-105"
         >
           Request Reservation
@@ -374,20 +441,22 @@ const TableReservationForm = ({
     <Dialog open={isDateTimeDialogOpen} onOpenChange={setIsDateTimeDialogOpen}>
       <DialogContent className="sm:max-w-[425px] animate-enter">
         <DialogTitle>Select Date & Time</DialogTitle>
-        <DialogDescription>Choose your preferred reservation date and time</DialogDescription>
-        
+        <DialogDescription>
+          Choose your preferred reservation date and time
+        </DialogDescription>
+
         <div className="space-y-4 py-4">
           <div className="space-y-2">
             <Label>Date</Label>
             <Calendar
               mode="single"
               selected={date}
-              onSelect={(newDate) => newDate && setDate(newDate)}
+              onSelect={newDate => newDate && setDate(newDate)}
               className="rounded-md border mx-auto"
-              disabled={(date) => date < new Date()}
+              disabled={date => date < new Date()}
             />
           </div>
-          
+
           <div className="space-y-2">
             <Label className="flex items-center">
               <Clock size={16} className="mr-1" /> Time
@@ -397,8 +466,12 @@ const TableReservationForm = ({
                 <SelectValue placeholder="Select time" />
               </SelectTrigger>
               <SelectContent>
-                {timeSlots.map((slot) => (
-                  <SelectItem key={slot} value={slot} className="cursor-pointer">
+                {timeSlots.map(slot => (
+                  <SelectItem
+                    key={slot}
+                    value={slot}
+                    className="cursor-pointer"
+                  >
                     {slot}
                   </SelectItem>
                 ))}
@@ -406,7 +479,7 @@ const TableReservationForm = ({
             </Select>
           </div>
         </div>
-        
+
         <div className="flex justify-end">
           <Button
             onClick={() => setIsDateTimeDialogOpen(false)}
@@ -424,8 +497,10 @@ const TableReservationForm = ({
     <Dialog open={isGuestDialogOpen} onOpenChange={setIsGuestDialogOpen}>
       <DialogContent className="sm:max-w-[425px] animate-enter">
         <DialogTitle>Select Number of Guests</DialogTitle>
-        <DialogDescription>Choose how many people will be dining</DialogDescription>
-        
+        <DialogDescription>
+          Choose how many people will be dining
+        </DialogDescription>
+
         <div className="flex items-center justify-center space-x-4 py-8">
           <Button
             type="button"
@@ -437,9 +512,11 @@ const TableReservationForm = ({
           >
             -
           </Button>
-          
-          <span className="text-4xl font-semibold w-16 text-center">{partySize}</span>
-          
+
+          <span className="text-4xl font-semibold w-16 text-center">
+            {partySize}
+          </span>
+
           <Button
             type="button"
             variant="outline"
@@ -451,14 +528,13 @@ const TableReservationForm = ({
             +
           </Button>
         </div>
-        
+
         <p className="text-center text-sm text-muted-foreground">
-          {partySize >= 8 ? 
-            "Large groups may require a special arrangement. The restaurant will contact you to confirm availability." :
-            "Standard reservation for small groups."
-          }
+          {partySize >= 8
+            ? 'Large groups may require a special arrangement. The restaurant will contact you to confirm availability.'
+            : 'Standard reservation for small groups.'}
         </p>
-        
+
         <div className="flex justify-end">
           <Button
             onClick={() => setIsGuestDialogOpen(false)}
@@ -476,7 +552,9 @@ const TableReservationForm = ({
     <AlertDialog open={showSuccessDialog} onOpenChange={setShowSuccessDialog}>
       <AlertDialogContent className="animate-enter">
         <AlertDialogHeader>
-          <AlertDialogTitle className="text-center text-xl">Reservation Requested!</AlertDialogTitle>
+          <AlertDialogTitle className="text-center text-xl">
+            Reservation Requested!
+          </AlertDialogTitle>
           <div className="mx-auto my-4 flex h-20 w-20 items-center justify-center rounded-full bg-green-100">
             <svg
               className="h-10 w-10 text-green-600"
@@ -494,8 +572,12 @@ const TableReservationForm = ({
             </svg>
           </div>
           <AlertDialogDescription className="text-center text-base">
-            Your reservation request at <span className="font-semibold">{eateryName}</span> for {partySize} {partySize === 1 ? 'person' : 'people'} on {format(date, 'MMMM d, yyyy')} at {time} has been received. 
-            <br /><br />
+            Your reservation request at{' '}
+            <span className="font-semibold">{eateryName}</span> for {partySize}{' '}
+            {partySize === 1 ? 'person' : 'people'} on{' '}
+            {format(date, 'MMMM d, yyyy')} at {time} has been received.
+            <br />
+            <br />
             The restaurant will contact you shortly to confirm your reservation.
           </AlertDialogDescription>
         </AlertDialogHeader>

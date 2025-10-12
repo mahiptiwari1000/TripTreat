@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
@@ -8,8 +7,8 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { Phone, Globe, MapPin } from "lucide-react";
+} from '@/components/ui/dialog';
+import { Phone, Globe, MapPin } from 'lucide-react';
 
 interface ContactDialogProps {
   isOpen: boolean;
@@ -20,17 +19,22 @@ interface ContactDialogProps {
   location: string;
 }
 
-const ContactDialog = ({ isOpen, onClose, eateryName, phone, website, location }: ContactDialogProps) => {
+const ContactDialog = ({
+  isOpen,
+  onClose,
+  eateryName,
+  phone,
+  website,
+  location,
+}: ContactDialogProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-md animate-scale-in">
         <DialogHeader>
           <DialogTitle className="text-2xl">Contact Information</DialogTitle>
-          <DialogDescription>
-            {eateryName}
-          </DialogDescription>
+          <DialogDescription>{eateryName}</DialogDescription>
         </DialogHeader>
-        
+
         <div className="grid gap-6 py-4">
           <div className="flex items-center gap-3 p-3 bg-muted/30 rounded-lg animate-fade-in hover-scale light-sweep">
             <div className="bg-primary/10 p-3 rounded-full">
@@ -41,7 +45,7 @@ const ContactDialog = ({ isOpen, onClose, eateryName, phone, website, location }
               <p className="text-lg">{phone}</p>
             </div>
           </div>
-          
+
           {website && (
             <div className="flex items-center gap-3 p-3 bg-muted/30 rounded-lg animate-fade-in delay-100 hover-scale light-sweep">
               <div className="bg-primary/10 p-3 rounded-full">
@@ -49,9 +53,11 @@ const ContactDialog = ({ isOpen, onClose, eateryName, phone, website, location }
               </div>
               <div>
                 <p className="text-sm font-medium mb-1">Website</p>
-                <a 
-                  href={website.startsWith('http') ? website : `https://${website}`} 
-                  target="_blank" 
+                <a
+                  href={
+                    website.startsWith('http') ? website : `https://${website}`
+                  }
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-lg text-primary hover:underline"
                 >
@@ -60,7 +66,7 @@ const ContactDialog = ({ isOpen, onClose, eateryName, phone, website, location }
               </div>
             </div>
           )}
-          
+
           <div className="flex items-center gap-3 p-3 bg-muted/30 rounded-lg animate-fade-in delay-200 hover-scale light-sweep">
             <div className="bg-primary/10 p-3 rounded-full">
               <MapPin className="h-6 w-6 text-primary" />
@@ -71,9 +77,11 @@ const ContactDialog = ({ isOpen, onClose, eateryName, phone, website, location }
             </div>
           </div>
         </div>
-        
+
         <DialogFooter>
-          <Button className="w-full glow-on-hover" onClick={onClose}>Close</Button>
+          <Button className="w-full glow-on-hover" onClick={onClose}>
+            Close
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

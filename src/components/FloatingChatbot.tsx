@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState, FormEvent } from "react";
-import { Button } from "@/components/ui/button";
+import React, { useEffect, useRef, useState, FormEvent } from 'react';
+import { Button } from '@/components/ui/button';
 import {
   MessageCircle,
   X,
@@ -14,12 +14,12 @@ import {
   Save,
   ChevronRight,
   Send,
-} from "lucide-react";
-import { toast } from "sonner";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { useAuth } from "@/contexts/AuthContext";
-import { supabase } from "@/integrations/supabase/client";
-import { useNavigate } from "react-router-dom";
+} from 'lucide-react';
+import { toast } from 'sonner';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { useAuth } from '@/contexts/AuthContext';
+import { supabase } from '@/integrations/supabase/client';
+import { useNavigate } from 'react-router-dom';
 
 type ChatbotProps = {
   className?: string;
@@ -38,23 +38,23 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
     {
       text: "👋 Hi there! I'm your Trip & Treat assistant. How can I help you today?",
       isUser: false,
-      id: "initial",
+      id: 'initial',
     },
   ]);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [navigationHistory, setNavigationHistory] = useState<string[]>([]);
   const [showHotspotDialog, setShowHotspotDialog] = useState(false);
   const [showHostDialog, setShowHostDialog] = useState(false);
-  const [inputText, setInputText] = useState("");
+  const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [currentItinerary, setCurrentItinerary] = useState<string | null>(null);
-  const [budgetInput, setBudgetInput] = useState("");
+  const [budgetInput, setBudgetInput] = useState('');
   const { user } = useAuth();
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
   const toggleChatbot = () => {
@@ -64,7 +64,7 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
         {
           text: "👋 Hi there! I'm your Trip & Treat assistant. How can I help you today?",
           isUser: false,
-          id: "initial-reset",
+          id: 'initial-reset',
         },
       ]);
       setSelectedOption(null);
@@ -80,7 +80,7 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
       id: Date.now().toString(),
       isItinerary,
     };
-    setMessages((prev) => [...prev, newMessage]);
+    setMessages(prev => [...prev, newMessage]);
   };
 
   const goBack = () => {
@@ -96,34 +96,34 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
 
   const handleOptionSelect = (option: string) => {
     addMessage(option, true);
-    setNavigationHistory((prev) => [...prev, option]);
+    setNavigationHistory(prev => [...prev, option]);
 
     setTimeout(() => {
-      let response = "";
+      let response = '';
       switch (option) {
-        case "Plan my tour":
+        case 'Plan my tour':
           response =
-            "Great! I can help you plan a tour of Manipur based on your budget. Please enter your travel budget in Indian Rupees (₹):";
-          setSelectedOption("tour-planning");
+            'Great! I can help you plan a tour of Manipur based on your budget. Please enter your travel budget in Indian Rupees (₹):';
+          setSelectedOption('tour-planning');
           break;
         case "I'm looking for places to visit":
-          response = "Great! What kind of places are you interested in?";
-          setSelectedOption("places");
+          response = 'Great! What kind of places are you interested in?';
+          setSelectedOption('places');
           break;
-        case "Where can I eat?":
+        case 'Where can I eat?':
           response =
-            "Manipur offers many delicious dining options! What are you in the mood for?";
-          setSelectedOption("eateries");
+            'Manipur offers many delicious dining options! What are you in the mood for?';
+          setSelectedOption('eateries');
           break;
-        case "I need contact details":
+        case 'I need contact details':
           response =
             "I'd be happy to help with contact information. What are you looking for?";
-          setSelectedOption("contact");
+          setSelectedOption('contact');
           break;
-        case "Homestay information":
+        case 'Homestay information':
           response =
-            "Excellent choice! Our homestays offer authentic Manipuri experiences. What would you like to know?";
-          setSelectedOption("homestay");
+            'Excellent choice! Our homestays offer authentic Manipuri experiences. What would you like to know?';
+          setSelectedOption('homestay');
           break;
         default:
           response =
@@ -134,16 +134,16 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
   };
 
   const handleSubOptionSelect = async (category: string) => {
-    if (selectedOption !== "tour-planning") {
+    if (selectedOption !== 'tour-planning') {
       addMessage(category, true);
     }
-    setNavigationHistory((prev) => [...prev, category]);
+    setNavigationHistory(prev => [...prev, category]);
 
     setTimeout(async () => {
-      if (selectedOption === "tour-planning") {
+      if (selectedOption === 'tour-planning') {
         if (!budgetInput.trim() || isNaN(Number(budgetInput))) {
           addMessage(
-            "Please enter a valid budget amount in Indian Rupees (₹).",
+            'Please enter a valid budget amount in Indian Rupees (₹).',
             false
           );
           return;
@@ -151,25 +151,38 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
 
         const budget = parseInt(budgetInput);
         addMessage(`₹${budget}`, true);
-        setBudgetInput("");
+        setBudgetInput('');
         setIsLoading(true);
 
         try {
           addMessage(
-            "Crafting your bespoke Manipur journey... Please hold on",
+            'Crafting your bespoke Manipur journey... Please hold on',
             false
           );
 
           const { data, error } = await supabase.functions.invoke(
-            "generate-itinerary",
+            'generate-itinerary',
             { body: { budget } }
           );
 
           if (error) throw error;
 
           const itinerary = data.itinerary;
+          const isMock = data.isMock || false;
+          const message = data.message || '';
+          
           setCurrentItinerary(itinerary);
-          addMessage(itinerary, false, true);
+          
+          // Add a note if it's a mock itinerary
+          if (isMock) {
+            addMessage(
+              `🤖 ${message}\n\n${itinerary}`,
+              false,
+              true
+            );
+          } else {
+            addMessage(itinerary, false, true);
+          }
 
           setTimeout(() => {
             addMessage(
@@ -178,26 +191,29 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
             );
           }, 1000);
         } catch (error: any) {
-          console.error("Error generating itinerary:", error);
+          // Log error for debugging in development
+          if (import.meta.env.DEV) {
+            console.error('Error generating itinerary:', error);
+          }
           addMessage(
             `Sorry, I couldn't generate an itinerary. ${
-              error.message || "Please try again later."
+              error.message || 'Please try again later.'
             }`,
             false
           );
         } finally {
           setIsLoading(false);
         }
-      } else if (selectedOption === "places") {
+      } else if (selectedOption === 'places') {
         setShowHotspotDialog(true);
-        addMessage("Opening the hotspots for " + category + "...", false);
-      } else if (selectedOption === "eateries") {
+        addMessage('Opening the hotspots for ' + category + '...', false);
+      } else if (selectedOption === 'eateries') {
         addMessage(
           `Here are some ${category} recommendations in Manipur. For more options, visit our Eateries page.`,
           false
         );
-      } else if (selectedOption === "contact") {
-        if (category === "Host contact details") {
+      } else if (selectedOption === 'contact') {
+        if (category === 'Host contact details') {
           setShowHostDialog(true);
           addMessage(
             "Please provide the name of the host or location you're inquiring about.",
@@ -209,7 +225,7 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
             false
           );
         }
-      } else if (selectedOption === "homestay") {
+      } else if (selectedOption === 'homestay') {
         addMessage(
           `For information about ${category}, please visit our Homestays page. Would you like me to direct you there?`,
           false
@@ -220,24 +236,24 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
 
   const handleSaveItinerary = async () => {
     if (!user) {
-      toast.error("Please log in to save your itinerary", {
+      toast.error('Please log in to save your itinerary', {
         description:
-          "You need to be logged in to save itineraries to your profile.",
+          'You need to be logged in to save itineraries to your profile.',
         duration: 5000,
       });
       return;
     }
 
     if (!currentItinerary) {
-      toast.error("No itinerary to save", {
-        description: "There is no itinerary to save at the moment.",
+      toast.error('No itinerary to save', {
+        description: 'There is no itinerary to save at the moment.',
         duration: 3000,
       });
       return;
     }
 
     try {
-      const { error } = await supabase.from("planned_tours").insert({
+      const { error } = await supabase.from('planned_tours').insert({
         user_id: user.id,
         itinerary: currentItinerary,
         created_at: new Date().toISOString(),
@@ -245,9 +261,9 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
 
       if (error) throw error;
 
-      toast.success("Itinerary saved!", {
+      toast.success('Itinerary saved!', {
         description:
-          "Your Manipur travel itinerary has been saved to your profile.",
+          'Your Manipur travel itinerary has been saved to your profile.',
         duration: 5000,
       });
 
@@ -256,18 +272,21 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
         false
       );
     } catch (error: any) {
-      console.error("Error saving itinerary:", error);
-      toast.error("Failed to save itinerary", {
-        description: error.message || "Please try again later.",
+      // Log error for debugging in development
+      if (import.meta.env.DEV) {
+        console.error('Error saving itinerary:', error);
+      }
+      toast.error('Failed to save itinerary', {
+        description: error.message || 'Please try again later.',
         duration: 5000,
       });
     }
   };
 
   const renderOptions = () => {
-    const optionStyle = "text-[11px] px-2 py-0.5 h-7 rounded-full";
+    const optionStyle = 'text-[11px] px-2 py-0.5 h-7 rounded-full';
     const subOptionStyle =
-      "text-[11px] px-2 py-0.5 h-7 rounded-full whitespace-nowrap";
+      'text-[11px] px-2 py-0.5 h-7 rounded-full whitespace-nowrap';
 
     if (!selectedOption) {
       return (
@@ -276,7 +295,7 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
             variant="outline"
             size="sm"
             className="text-sm justify-start py-3 hover:bg-primary/10"
-            onClick={() => handleOptionSelect("Plan my tour")}
+            onClick={() => handleOptionSelect('Plan my tour')}
           >
             <PlaneTakeoff size={16} className="mr-2" />
             Plan My Tour
@@ -296,7 +315,7 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
           <Button
             variant="outline"
             className={`${optionStyle} border-orange-200 text-orange-600 hover:bg-orange-50`}
-            onClick={() => handleOptionSelect("Where can I eat?")}
+            onClick={() => handleOptionSelect('Where can I eat?')}
           >
             <UtensilsCrossed size={14} className="mr-1" />
             Eateries
@@ -304,7 +323,7 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
           <Button
             variant="outline"
             className={`${optionStyle} border-green-200 text-green-600 hover:bg-green-50`}
-            onClick={() => handleOptionSelect("I need contact details")}
+            onClick={() => handleOptionSelect('I need contact details')}
           >
             <Phone size={14} className="mr-1" />
             Contacts
@@ -312,7 +331,7 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
           <Button
             variant="outline"
             className={`${optionStyle} border-purple-200 text-purple-600 hover:bg-purple-50`}
-            onClick={() => handleOptionSelect("Homestay information")}
+            onClick={() => handleOptionSelect('Homestay information')}
           >
             <Home size={14} className="mr-1" />
             Homestays
@@ -334,129 +353,129 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
             </Button>
           </div>
         )}
-        {selectedOption === "places" && (
+        {selectedOption === 'places' && (
           <>
             <Button
               variant="outline"
               className={subOptionStyle}
-              onClick={() => handleSubOptionSelect("Historical Sites")}
+              onClick={() => handleSubOptionSelect('Historical Sites')}
             >
               🏛️ Historical
             </Button>
             <Button
               variant="outline"
               className={subOptionStyle}
-              onClick={() => handleSubOptionSelect("Natural Attractions")}
+              onClick={() => handleSubOptionSelect('Natural Attractions')}
             >
               🌿 Nature
             </Button>
             <Button
               variant="outline"
               className={subOptionStyle}
-              onClick={() => handleSubOptionSelect("Cultural Places")}
+              onClick={() => handleSubOptionSelect('Cultural Places')}
             >
               🎭 Cultural
             </Button>
             <Button
               variant="outline"
               className={subOptionStyle}
-              onClick={() => handleSubOptionSelect("Adventure Locations")}
+              onClick={() => handleSubOptionSelect('Adventure Locations')}
             >
               ⛰️ Adventure
             </Button>
           </>
         )}
-        {selectedOption === "eateries" && (
+        {selectedOption === 'eateries' && (
           <>
             <Button
               variant="outline"
               className={subOptionStyle}
-              onClick={() => handleSubOptionSelect("Traditional Manipuri")}
+              onClick={() => handleSubOptionSelect('Traditional Manipuri')}
             >
               🍲 Traditional
             </Button>
             <Button
               variant="outline"
               className={subOptionStyle}
-              onClick={() => handleSubOptionSelect("Vegetarian")}
+              onClick={() => handleSubOptionSelect('Vegetarian')}
             >
               🌱 Vegetarian
             </Button>
             <Button
               variant="outline"
               className={subOptionStyle}
-              onClick={() => handleSubOptionSelect("Street Food")}
+              onClick={() => handleSubOptionSelect('Street Food')}
             >
               🥡 Street Food
             </Button>
             <Button
               variant="outline"
               className={subOptionStyle}
-              onClick={() => handleSubOptionSelect("Fine Dining")}
+              onClick={() => handleSubOptionSelect('Fine Dining')}
             >
               🍽️ Fine Dining
             </Button>
           </>
         )}
-        {selectedOption === "contact" && (
+        {selectedOption === 'contact' && (
           <>
             <Button
               variant="outline"
               className={subOptionStyle}
-              onClick={() => handleSubOptionSelect("Support Team")}
+              onClick={() => handleSubOptionSelect('Support Team')}
             >
               🛟 Support
             </Button>
             <Button
               variant="outline"
               className={subOptionStyle}
-              onClick={() => handleSubOptionSelect("Host contact details")}
+              onClick={() => handleSubOptionSelect('Host contact details')}
             >
               👤 Host Contact
             </Button>
             <Button
               variant="outline"
               className={subOptionStyle}
-              onClick={() => handleSubOptionSelect("Tour Guides")}
+              onClick={() => handleSubOptionSelect('Tour Guides')}
             >
               🧭 Tour Guides
             </Button>
             <Button
               variant="outline"
               className={subOptionStyle}
-              onClick={() => handleSubOptionSelect("Emergency")}
+              onClick={() => handleSubOptionSelect('Emergency')}
             >
               🆘 Emergency
             </Button>
           </>
         )}
-        {selectedOption === "homestay" && (
+        {selectedOption === 'homestay' && (
           <>
             <Button
               variant="outline"
               className={subOptionStyle}
-              onClick={() => handleSubOptionSelect("Availability")}
+              onClick={() => handleSubOptionSelect('Availability')}
             >
               📅 Availability
             </Button>
             <Button
               variant="outline"
               className={subOptionStyle}
-              onClick={() => handleSubOptionSelect("Pricing")}
+              onClick={() => handleSubOptionSelect('Pricing')}
             >
               💰 Pricing
             </Button>
             <Button
               variant="outline"
               className={subOptionStyle}
-              onClick={() => handleSubOptionSelect("Amenities")}
+              onClick={() => handleSubOptionSelect('Amenities')}
             >
               🛁 Amenities
             </Button>
             <Button
               variant="outline"
               className={subOptionStyle}
-              onClick={() => handleSubOptionSelect("Booking Process")}
+              onClick={() => handleSubOptionSelect('Booking Process')}
             >
               📖 Booking
             </Button>
@@ -467,7 +486,7 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
   };
 
   const handleHostLookup = () => {
-    toast.info("Host information", {
+    toast.info('Host information', {
       description:
         "We've sent the host's contact details to your registered email address.",
       duration: 5000,
@@ -482,13 +501,13 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
   const handleSendMessage = (e: FormEvent) => {
     e.preventDefault();
 
-    if (selectedOption === "tour-planning") {
+    if (selectedOption === 'tour-planning') {
       if (!budgetInput) return;
       handleSubOptionSelect(budgetInput);
     } else {
       if (!inputText.trim()) return;
       addMessage(inputText, true);
-      setInputText("");
+      setInputText('');
     }
   };
 
@@ -498,7 +517,7 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
         <button
           onClick={toggleChatbot}
           className={`relative p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 ${
-            isOpen ? "bg-red-500" : "bg-primary"
+            isOpen ? 'bg-red-500' : 'bg-primary'
           }`}
         >
           {isOpen ? (
@@ -525,18 +544,18 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
             </div>
 
             <div className="h-[calc(100%-180px)] overflow-y-auto p-3 space-y-3">
-              {messages.map((msg) => (
+              {messages.map(msg => (
                 <div
                   key={msg.id}
                   className={`flex ${
-                    msg.isUser ? "justify-end" : "justify-start"
+                    msg.isUser ? 'justify-end' : 'justify-start'
                   }`}
                 >
                   <div
                     className={`p-2.5 rounded-xl max-w-[85%] text-sm ${
                       msg.isUser
-                        ? "bg-primary text-white ml-8 rounded-br-none"
-                        : "bg-gray-100 mr-8 rounded-bl-none"
+                        ? 'bg-primary text-white ml-8 rounded-br-none'
+                        : 'bg-gray-100 mr-8 rounded-bl-none'
                     }`}
                   >
                     {msg.isItinerary ? (
@@ -545,17 +564,17 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
                           ✈️ Your Manipur Itinerary
                         </div>
                         <div className="space-y-2 text-gray-700">
-                          {msg.text.split("\n").map((line, index) => {
-                            if (line.startsWith("**"))
+                          {msg.text.split('\n').map((line, index) => {
+                            if (line.startsWith('**'))
                               return (
                                 <div
                                   key={index}
                                   className="font-semibold text-gray-900 mt-2"
                                 >
-                                  {line.replace(/\*\*/g, "")}
+                                  {line.replace(/\*\*/g, '')}
                                 </div>
                               );
-                            if (line.startsWith("- "))
+                            if (line.startsWith('- '))
                               return (
                                 <div
                                   key={index}
@@ -581,7 +600,7 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
                     ) : (
                       <div
                         className={`leading-relaxed ${
-                          !msg.isUser ? "text-gray-700" : ""
+                          !msg.isUser ? 'text-gray-700' : ''
                         }`}
                       >
                         {msg.text}
@@ -619,12 +638,12 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
                 onSubmit={handleSendMessage}
                 className="flex items-center gap-2 mt-2"
               >
-                {selectedOption === "tour-planning" && !currentItinerary ? (
+                {selectedOption === 'tour-planning' && !currentItinerary ? (
                   <>
                     <input
                       type="number"
                       value={budgetInput}
-                      onChange={(e) => setBudgetInput(e.target.value)}
+                      onChange={e => setBudgetInput(e.target.value)}
                       placeholder="Enter budget in ₹"
                       className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary text-sm"
                       min="1000"
@@ -664,7 +683,7 @@ const FloatingChatbot: React.FC<ChatbotProps> = ({ className }) => {
               <Button
                 onClick={() => {
                   setShowHotspotDialog(false); // ⬅️ hide the dialog
-                  navigate("/hotspots"); // then go to the page
+                  navigate('/hotspots'); // then go to the page
                 }}
               >
                 View All Hotspots

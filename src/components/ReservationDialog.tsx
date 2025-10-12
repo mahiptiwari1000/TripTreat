@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
@@ -8,26 +7,26 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { CalendarIcon, Clock, Users } from "lucide-react";
-import { toast } from "sonner";
-import { Calendar } from "@/components/ui/calendar";
+} from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { CalendarIcon, Clock, Users } from 'lucide-react';
+import { toast } from 'sonner';
+import { Calendar } from '@/components/ui/calendar';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from '@/components/ui/select';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
-import { cn } from "@/lib/utils";
-import { format } from "date-fns";
+} from '@/components/ui/popover';
+import { cn } from '@/lib/utils';
+import { format } from 'date-fns';
 
 interface ReservationDialogProps {
   isOpen: boolean;
@@ -35,11 +34,15 @@ interface ReservationDialogProps {
   eateryName: string;
 }
 
-const ReservationDialog = ({ isOpen, onClose, eateryName }: ReservationDialogProps) => {
+const ReservationDialog = ({
+  isOpen,
+  onClose,
+  eateryName,
+}: ReservationDialogProps) => {
   const [date, setDate] = useState<Date | undefined>(new Date());
-  const [time, setTime] = useState<string>("19:00");
-  const [guests, setGuests] = useState<string>("2");
-  
+  const [time, setTime] = useState<string>('19:00');
+  const [guests, setGuests] = useState<string>('2');
+
   const handleReserve = () => {
     toast.success(`Reservation confirmed!`, {
       description: `Your reservation for ${eateryName} on ${format(date!, 'PPP')} at ${time} for ${guests} guests has been confirmed.`,
@@ -52,11 +55,9 @@ const ReservationDialog = ({ isOpen, onClose, eateryName }: ReservationDialogPro
       <DialogContent className="sm:max-w-md animate-scale-in">
         <DialogHeader className="space-y-3">
           <DialogTitle className="text-2xl">Reserve a Table</DialogTitle>
-          <DialogDescription>
-            {eateryName}
-          </DialogDescription>
+          <DialogDescription>{eateryName}</DialogDescription>
         </DialogHeader>
-        
+
         <div className="grid gap-6 py-4">
           <div className="grid gap-2">
             <Label htmlFor="date" className="flex items-center gap-2">
@@ -68,7 +69,7 @@ const ReservationDialog = ({ isOpen, onClose, eateryName }: ReservationDialogPro
                   variant="outline"
                   className="w-full justify-start text-left font-normal"
                 >
-                  {date ? format(date, "PPP") : <span>Pick a date</span>}
+                  {date ? format(date, 'PPP') : <span>Pick a date</span>}
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0" align="start">
@@ -81,7 +82,7 @@ const ReservationDialog = ({ isOpen, onClose, eateryName }: ReservationDialogPro
               </PopoverContent>
             </Popover>
           </div>
-          
+
           <div className="grid gap-2">
             <Label htmlFor="time" className="flex items-center gap-2">
               <Clock className="h-4 w-4" /> Time
@@ -102,7 +103,7 @@ const ReservationDialog = ({ isOpen, onClose, eateryName }: ReservationDialogPro
               </SelectContent>
             </Select>
           </div>
-          
+
           <div className="grid gap-2">
             <Label htmlFor="guests" className="flex items-center gap-2">
               <Users className="h-4 w-4" /> Number of Guests
@@ -123,16 +124,24 @@ const ReservationDialog = ({ isOpen, onClose, eateryName }: ReservationDialogPro
               </SelectContent>
             </Select>
           </div>
-          
+
           <div className="grid gap-2">
             <Label htmlFor="notes">Special Requests</Label>
-            <Input id="notes" placeholder="Any special requests or dietary preferences?" />
+            <Input
+              id="notes"
+              placeholder="Any special requests or dietary preferences?"
+            />
           </div>
         </div>
-        
+
         <DialogFooter className="sm:justify-between">
-          <Button variant="outline" onClick={onClose}>Cancel</Button>
-          <Button className="bg-primary hover:bg-primary/80" onClick={handleReserve}>
+          <Button variant="outline" onClick={onClose}>
+            Cancel
+          </Button>
+          <Button
+            className="bg-primary hover:bg-primary/80"
+            onClick={handleReserve}
+          >
             Confirm Reservation
           </Button>
         </DialogFooter>

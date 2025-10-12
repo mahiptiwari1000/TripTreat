@@ -2,3 +2,6 @@ project_id = "ejkjcqtqblfdqmqmxaca"
  
  [functions.generate-itinerary]
  verify_jwt = true
+ 
+[db]
+major_version = 15
