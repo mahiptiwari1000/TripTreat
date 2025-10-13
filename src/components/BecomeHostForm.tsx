@@ -18,12 +18,14 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import LoginPromptModal from './LoginPromptModal';
 import { supabase } from '@/integrations/supabase/client';
+import { Upload, X } from 'lucide-react';
 
 const BecomeHostForm = () => {
   const { user } = useAuth();
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
   // Simple form without zod for now
   const form = useForm({
@@ -46,6 +48,27 @@ const BecomeHostForm = () => {
     try {
       setIsSubmitting(true);
 
+      let uploadedUrls: string[] = [];
+      if (selectedFiles.length > 0) {
+        const results = await Promise.all(
+          selectedFiles.map(async (file, index) => {
+            const fileExt = file.name.split('.').pop();
+            const filePath = `${user.id}/${Date.now()}_${index}.${fileExt}`;
+            const { data: storageData, error: storageError } = await supabase
+              .storage
+              .from('host_images')
+              .upload(filePath, file, { upsert: false, cacheControl: '3600' });
+            if (storageError) throw storageError;
+            const { data: publicData } = supabase
+              .storage
+              .from('host_images')
+              .getPublicUrl(storageData.path);
+            return publicData.publicUrl;
+          })
+        );
+        uploadedUrls = results.filter(Boolean) as string[];
+      }
+
       // Save host application to database
       const { error } = await supabase.from('host_applications').insert([
         {
@@ -53,6 +76,7 @@ const BecomeHostForm = () => {
           host_type: data.hostType,
           property_address: data.address,
           description: data.description,
+          image_urls: uploadedUrls,
         },
       ]);
 
@@ -64,6 +88,7 @@ const BecomeHostForm = () => {
 
       // Reset form
       form.reset();
+      setSelectedFiles([]);
 
       // Redirect to profile page where they can see application status
       navigate('/profile');
@@ -98,7 +123,7 @@ const BecomeHostForm = () => {
                 </FormItem>
               )}
             />
-
+           
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <FormField
                 control={form.control}
@@ -204,6 +229,59 @@ const BecomeHostForm = () => {
                 </FormItem>
               )}
             />
+{/* Images Upload */}
+<div>
+              <FormLabel>Upload Images (optional)</FormLabel>
+              <div className="mt-2">
+                <label className="flex items-center gap-2 cursor-pointer w-full justify-center rounded-md border border-dashed border-muted-foreground/30 p-4 hover:bg-muted/30">
+                  <Upload className="h-4 w-4" />
+                  <span className="text-sm">Click to select images</span>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    className="hidden"
+                    onChange={e => {
+                      const newFiles = Array.from(e.target.files || []);
+                      const combined = [...selectedFiles, ...newFiles].slice(0, 5);
+                      if (selectedFiles.length + newFiles.length > 5) {
+                        toast.info('You can upload up to 5 images. Extra files were ignored.');
+                      }
+                      setSelectedFiles(combined as File[]);
+                    }}
+                  />
+                </label>
+                {selectedFiles.length > 0 && (
+                  <>
+                    <div className="mt-4 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
+                      {selectedFiles.map((file, index) => (
+                        <div
+                          key={index}
+                          className="relative rounded-lg overflow-hidden border border-muted-foreground/20 shadow-sm"
+                        >
+                          <img
+                            src={URL.createObjectURL(file)}
+                            alt={`preview-${index}`}
+                            className="w-full h-24 object-cover"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => setSelectedFiles(prev => prev.filter((_, i) => i !== index))}
+                            className="absolute top-1 right-1 bg-black/60 text-white rounded-full p-1 hover:bg-black/80"
+                            aria-label="Remove image"
+                          >
+                            <X className="w-3 h-3" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-2">
+                      {selectedFiles.length} image(s) selected (max 5)
+                    </p>
+                  </>
+                )}
+              </div>
+            </div>
 
             <FormField
               control={form.control}

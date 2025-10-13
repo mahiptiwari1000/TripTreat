@@ -5,12 +5,14 @@
  * This script helps contributors set up their local database
  */
 
-const { createClient } = require('@supabase/supabase-js');
-const fs = require('fs');
-const path = require('path');
+import { createClient } from '@supabase/supabase-js';
+import fs from 'node:fs';
+import path from 'node:path';
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'node:url';
 
 // Load environment variables
-require('dotenv').config({ path: '.env.local' });
+dotenv.config({ path: '.env.local' });
 
 const supabaseUrl = process.env.VITE_SUPABASE_URL;
 const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY;
@@ -30,12 +32,15 @@ async function runMigrations() {
 
   try {
     // Read migration files
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
     const migrationsDir = path.join(__dirname, '..', 'supabase', 'migrations');
     const migrationFiles = [
       '001_initial_schema.sql',
       '002_functions.sql',
       '003_rls_policies.sql',
       '004_seed_data.sql',
+      '005_host_images_and_app_images.sql',
     ];
 
     for (const file of migrationFiles) {
@@ -83,9 +88,10 @@ async function runMigrations() {
   }
 }
 
-// Check if we're running this script directly
-if (require.main === module) {
+// Check if we're running this script directly (ESM equivalent)
+const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+if (isDirectRun) {
   runMigrations();
 }
 
-module.exports = { runMigrations };
+export { runMigrations };
