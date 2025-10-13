@@ -34,14 +34,17 @@ interface Booking {
   id: string;
   user_id: string;
   listing_id: string;
-  listing: Listing;
   check_in_date: string;
   check_out_date: string;
   guests: number;
   price_total: number;
-  status: BookingStatus
+  status: BookingStatus;
   created_at: string;
   updated_at: string;
+}
+
+interface BookingWithListing extends Booking {
+  listing?: Partial<Listing>;
 }
 
 interface ChatbotProps {
@@ -83,7 +86,7 @@ interface HostApplication {
   property_address: string;
   description: string;
   status: HostApplicationStatus;
-  admin_notes?: string;
+  admin_notes: string | null;
   created_at: string;
   updated_at: string;
 }

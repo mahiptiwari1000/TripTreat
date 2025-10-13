@@ -26,8 +26,8 @@ const ProfilePage = () => {
   const { user, profile, signOut } = useAuth();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('profile');
-  const [bookings, setBookings] = useState<any[]>([]);
-  const [hostApplications, setHostApplications] = useState<any[]>([]);
+  const [bookings, setBookings] = useState<BookingWithListing[]>([]);
+  const [hostApplications, setHostApplications] = useState<HostApplication[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -57,7 +57,11 @@ const ProfilePage = () => {
         .order('created_at', { ascending: false });
 
       if (bookingError) throw bookingError;
-      setBookings(bookingData || []);
+
+      setBookings(bookingData.map(booking => ({
+        ...booking,
+        status: booking.status as BookingStatus,
+      })) || []);
 
       // Fetch host applications
       const { data: hostData, error: hostError } = await supabase
@@ -67,7 +71,11 @@ const ProfilePage = () => {
         .order('created_at', { ascending: false });
 
       if (hostError) throw hostError;
-      setHostApplications(hostData || []);
+      setHostApplications(hostData.map(host => ({
+        ...host,
+        host_type: host.host_type as HostType,
+        status: host.status as HostApplicationStatus,
+      })) || []);
     } catch (error: unknown) {
       // Log error for debugging in development
       if (import.meta.env.DEV) {
