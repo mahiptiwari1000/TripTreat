@@ -30,6 +30,8 @@ import { format } from 'date-fns';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import ProtectedRoute from '@/components/ProtectedRoute';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { ChevronLeft, ChevronRight, Image as ImageIcon, X } from 'lucide-react';
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('applications');
@@ -44,6 +46,9 @@ const AdminDashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
+  const [isImagesOpen, setIsImagesOpen] = useState(false);
+  const [activeImages, setActiveImages] = useState<string[]>([]);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     fetchDashboardData();
@@ -436,6 +441,23 @@ const AdminDashboard = () => {
                             <p>{application.description}</p>
                           </div>
 
+                          {Array.isArray(application.image_urls) && application.image_urls.length > 0 && (
+                            <div className="flex justify-end mb-4">
+                              <Button
+                                variant="outline"
+                                onClick={() => {
+                                  setActiveImages(application.image_urls);
+                                  setActiveIndex(0);
+                                  setIsImagesOpen(true);
+                                }}
+                                className="flex items-center gap-2"
+                              >
+                                <ImageIcon className="h-4 w-4" />
+                                View Images
+                              </Button>
+                            </div>
+                          )}
+
                           {application.status === 'pending' && (
                             <div className="flex justify-end gap-2 mt-4 pt-4 border-t">
                               <Button
@@ -604,6 +626,43 @@ const AdminDashboard = () => {
                 )}
               </TabsContent>
             </Tabs>
+            <Dialog open={isImagesOpen} onOpenChange={setIsImagesOpen}>
+              <DialogContent className="max-w-3xl">
+                <DialogHeader>
+                  <DialogTitle>Host Application Images</DialogTitle>
+                </DialogHeader>
+                {activeImages.length > 0 && (
+                  <div className="relative">
+                    <img
+                      src={activeImages[activeIndex]}
+                      alt={`Image ${activeIndex + 1}`}
+                      className="w-full h-[420px] object-contain bg-black/5 rounded-md"
+                    />
+                    <button
+                      type="button"
+                      className="absolute left-2 top-1/2 -translate-y-1/2 bg-background/80 border rounded-full p-2"
+                      onClick={() =>
+                        setActiveIndex((prev) => (prev - 1 + activeImages.length) % activeImages.length)
+                      }
+                    >
+                      <ChevronLeft className="h-5 w-5" />
+                    </button>
+                    <button
+                      type="button"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 bg-background/80 border rounded-full p-2"
+                      onClick={() =>
+                        setActiveIndex((prev) => (prev + 1) % activeImages.length)
+                      }
+                    >
+                      <ChevronRight className="h-5 w-5" />
+                    </button>
+                    <div className="mt-3 text-center text-sm text-muted-foreground">
+                      {activeIndex + 1} / {activeImages.length}
+                    </div>
+                  </div>
+                )}
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
 
