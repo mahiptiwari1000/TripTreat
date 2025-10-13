@@ -68,7 +68,7 @@ const ProfilePage = () => {
 
       if (hostError) throw hostError;
       setHostApplications(hostData || []);
-    } catch (error: any) {
+    } catch (error: unknown) {
       // Log error for debugging in development
       if (import.meta.env.DEV) {
         console.error('Error fetching user data:', error);

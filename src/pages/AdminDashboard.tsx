@@ -33,8 +33,8 @@ import ProtectedRoute from '@/components/ProtectedRoute';
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('applications');
-  const [applications, setApplications] = useState<any[]>([]);
-  const [bookings, setBookings] = useState<any[]>([]);
+  const [applications, setApplications] = useState<Application[]>([]);
+  const [bookings, setBookings] = useState<Booking[]>([]);
   const [stats, setStats] = useState({
     totalBookings: 0,
     totalRevenue: 0,
@@ -105,7 +105,7 @@ const AdminDashboard = () => {
         activeHosts: activeHosts.count || 0,
         pendingApplications: pendingApps,
       });
-    } catch (error: any) {
+    } catch (error: unknown) {
       // Log error for debugging in development
       if (import.meta.env.DEV) {
         console.error('Error fetching admin data:', error);
@@ -159,7 +159,7 @@ const AdminDashboard = () => {
 
       // Refresh data
       await fetchDashboardData();
-    } catch (error: any) {
+    } catch (error: unknown) {
       // Log error for debugging in development
       if (import.meta.env.DEV) {
         console.error('Error updating application status:', error);
@@ -185,7 +185,7 @@ const AdminDashboard = () => {
 
       // Refresh data
       await fetchDashboardData();
-    } catch (error: any) {
+    } catch (error: unknown) {
       // Log error for debugging in development
       if (import.meta.env.DEV) {
         console.error('Error updating booking status:', error);
