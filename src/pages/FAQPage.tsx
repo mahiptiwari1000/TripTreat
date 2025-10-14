@@ -22,7 +22,7 @@ const setMeta = (title: string, description: string) => {
 const FAQPage = () => {
   useEffect(() => {
     setMeta(
-      'Trip&Treat – FAQs',
+      'Frequently Asked Questions',
       'Answers to common questions about Trip&Treat: accounts, bookings, hosts, AI features, privacy, and future plans.'
     );
   }, []);
@@ -98,11 +98,10 @@ const FAQPage = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <header className="bg-foreground text-white py-10">
-        <div className="container mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold">Trip&Treat – Frequently Asked Questions</h1>
-          <p className="mt-2 text-white/80">Last Updated: 13 October 2025</p>
-          <p className="text-white/80">Owner: Khumanthem Lanthoiba Meitei · Contact: support@triptreat.com</p>
+      <header className="bg-white py-10">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-3xl md:text-4xl font-bold text-black">Frequently Asked Questions</h1>
+          <p className="mt-2 text-black/60">Last Updated: 13 October 2025</p>
         </div>
       </header>
       <main className="container mx-auto px-4 py-10 max-w-3xl">
