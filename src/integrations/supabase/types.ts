@@ -68,6 +68,7 @@ export type Database = {
           admin_notes: string | null;
           created_at: string;
           description: string;
+          image_urls: string[] | null;
           host_type: string;
           id: string;
           property_address: string;
@@ -79,6 +80,7 @@ export type Database = {
           admin_notes?: string | null;
           created_at?: string;
           description: string;
+          image_urls?: string[] | null;
           host_type: string;
           id?: string;
           property_address: string;
@@ -90,6 +92,7 @@ export type Database = {
           admin_notes?: string | null;
           created_at?: string;
           description?: string;
+          image_urls?: string[] | null;
           host_type?: string;
           id?: string;
           property_address?: string;
