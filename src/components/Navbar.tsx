@@ -66,13 +66,13 @@ const Navbar = () => {
             <span className="text-2xl font-bold text-primary group-hover:scale-105 transition-all duration-300">
               Trip<span className="text-secondary">&</span>Treat
             </span>
-            <span className="hidden md:inline-block text-xs text-muted-foreground ml-2 mt-2 mr-4">
+            <span className="hidden md:inline-block text-xs text-muted-foreground ml-2 mt-2">
               Manipur Delights
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8 mr-6 lg:mr-10">
+<div className="hidden md:flex items-center space-x-8 mr-6 lg:mr-10">
             <Link
               to="/homestays"
               className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200"
