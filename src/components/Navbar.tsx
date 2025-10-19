@@ -7,19 +7,16 @@ import {
   User,
   Map,
   Home,
-  Coffee,
   Landmark,
   Utensils,
   Info,
   PhoneCall,
-  ChevronDown,
   MapPin,
   CalendarRange,
   Award,
   ShoppingBag,
   LogOut,
   UserCircle,
-  Settings,
   LayoutDashboard,
   BookOpen,
   Train,
@@ -52,6 +49,16 @@ const Navbar = () => {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [isUserMenuOpen]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1536) {
+        setIsMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const handleSignOut = async () => {
     await signOut();
     navigate('/');
@@ -66,102 +73,68 @@ const Navbar = () => {
             <span className="text-2xl font-bold text-primary group-hover:scale-105 transition-all duration-300">
               Trip<span className="text-secondary">&</span>Treat
             </span>
-            <span className="hidden md:inline-block text-xs text-muted-foreground ml-2 mt-2 mr-4">
+            <span className="hidden 2xl:inline-block text-xs text-muted-foreground ml-2 mt-2">
               Manipur Delights
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8 mr-6 lg:mr-8">
-            <Link
-              to="/homestays"
-              className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200"
-            >
-              <Home
-                size={16}
-                className="transition-transform group-hover:rotate-12"
-              />
+          <div className="hidden 2xl:flex items-center space-x-6 xl:space-x-8">
+            <Link to="/homestays" className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105">
+              <Home size={16} />
               Homestays
             </Link>
-            <Link
-              to="/hotspots"
-              className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200"
-            >
+            <Link to="/hotspots" className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105">
               <MapPin size={16} />
               Hotspots
             </Link>
-            <Link
-              to="/eateries"
-              className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200"
-            >
+            <Link to="/eateries" className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105">
               <Utensils size={16} />
               Eateries
             </Link>
-            <Link
-              to="/experiences"
-              className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200"
-            >
+            <Link to="/experiences" className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105">
               <Award size={16} />
               Experiences
             </Link>
-            <Link
-              to="/tours"
-              className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200"
-            >
+            <Link to="/tours" className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105">
               <CalendarRange size={16} />
               Tours
             </Link>
-            <Link
-              to="/itinerary"
-              className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200"
-            >
+            <Link to="/itinerary" className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105">
               <Map size={16} />
               Itinerary
             </Link>
-            <Link
-              to="/store"
-              className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200"
-            >
+            <Link to="/store" className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105">
               <ShoppingBag size={16} />
               Store
             </Link>
-            <Link
-              to="/transport"
-              className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105 transition-all duration-200"
-            >
+            <Link to="/transport" className="text-foreground hover:text-primary transition-colors flex items-center gap-1 hover:scale-105">
               <Train size={16} />
               Transport
             </Link>
           </div>
 
-          {/* Right side buttons */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden 2xl:flex items-center space-x-4">
             <Button
               variant="outline"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 group"
               asChild
             >
               <Link to="/become-host" className="flex items-center gap-2">
-                <Landmark
-                  size={16}
-                  className="transition-transform group-hover:rotate-12"
-                />
+                <Landmark size={16} className="transition-transform group-hover:rotate-12" />
                 Become a Host
               </Link>
             </Button>
 
-            {/* User profile dropdown */}
-            <div className="relative" onClick={e => e.stopPropagation()}>
+            <div className="relative">
               {user ? (
-                // Authenticated user
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="rounded-full hover:bg-primary/10 transition-all duration-300"
+                  className="rounded-full hover:bg-primary/10"
                   onClick={toggleUserMenu}
                 >
                   <Avatar className="h-8 w-8">
-                    <AvatarImage src={profile?.avatar_url} />
+                    <AvatarImage src={profile?.avatar_url} alt="User avatar" />
                     <AvatarFallback className="bg-primary text-primary-foreground text-xs">
                       {profile?.first_name?.[0]}
                       {profile?.last_name?.[0]}
@@ -169,30 +142,27 @@ const Navbar = () => {
                   </Avatar>
                 </Button>
               ) : (
-                // Unauthenticated user
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="text-foreground rounded-full hover:bg-primary/10 transition-all duration-300"
+                  className="text-foreground rounded-full hover:bg-primary/10"
                   onClick={toggleUserMenu}
                 >
-                  <User
-                    size={20}
-                    className="transition-transform hover:scale-110"
-                  />
+                  <User size={20} className="transition-transform hover:scale-110" />
                 </Button>
               )}
 
-              {/* User dropdown menu */}
               {isUserMenuOpen && (
-                <div className="absolute right-0 mt-2 w-64 bg-background rounded-lg shadow-lg overflow-hidden border border-border animate-fade-in">
-                  {user ? (
-                    // Authenticated user menu
+                <div
+                  className="absolute right-0 mt-2 w-64 bg-background rounded-lg shadow-lg overflow-hidden border border-border animate-fade-in"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                   {user ? (
                     <>
                       <div className="p-4 border-b border-border">
                         <div className="flex items-center space-x-3">
                           <Avatar className="h-10 w-10">
-                            <AvatarImage src={profile?.avatar_url} />
+                            <AvatarImage src={profile?.avatar_url} alt="User avatar" />
                             <AvatarFallback className="bg-primary text-primary-foreground">
                               {profile?.first_name?.[0]}
                               {profile?.last_name?.[0]}
@@ -223,56 +193,31 @@ const Navbar = () => {
                         )}
                       </div>
                       <div className="py-1">
-                        <Link
-                          to="/profile"
-                          className="flex items-center px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground"
-                          onClick={() => setIsUserMenuOpen(false)}
-                        >
+                        <Link to="/profile" className="flex items-center px-4 py-2 text-sm text-foreground hover:bg-accent" onClick={() => setIsUserMenuOpen(false)}>
                           <UserCircle className="h-4 w-4 mr-3" />
                           My Profile
                         </Link>
-                        <Link
-                          to="/bookings"
-                          className="flex items-center px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground"
-                          onClick={() => setIsUserMenuOpen(false)}
-                        >
+                        <Link to="/bookings" className="flex items-center px-4 py-2 text-sm text-foreground hover:bg-accent" onClick={() => setIsUserMenuOpen(false)}>
                           <BookOpen className="h-4 w-4 mr-3" />
                           My Bookings
                         </Link>
-                        <Link
-                          to="/itinerary"
-                          className="flex items-center px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground"
-                          onClick={() => setIsUserMenuOpen(false)}
-                        >
+                        <Link to="/itinerary" className="flex items-center px-4 py-2 text-sm text-foreground hover:bg-accent" onClick={() => setIsUserMenuOpen(false)}>
                           <Map className="h-4 w-4 mr-3" />
                           My Itinerary
                         </Link>
-                        <Link
-                          to="/about"
-                          className="flex items-center px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground"
-                          onClick={() => setIsUserMenuOpen(false)}
-                        >
+                         <Link to="/about" className="flex items-center px-4 py-2 text-sm text-foreground hover:bg-accent" onClick={() => setIsUserMenuOpen(false)}>
                           <Book className="h-4 w-4 mr-3" />
                           Our Story
                         </Link>
-                        <Link
-                          to="/contact"
-                          className="flex items-center px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground"
-                          onClick={() => setIsUserMenuOpen(false)}
-                        >
+                        <Link to="/contact" className="flex items-center px-4 py-2 text-sm text-foreground hover:bg-accent" onClick={() => setIsUserMenuOpen(false)}>
                           <Mail className="h-4 w-4 mr-3" />
                           Contact
                         </Link>
                       </div>
 
-                      {/* Admin section */}
                       {isAdmin && (
                         <div className="py-1 border-t border-border">
-                          <Link
-                            to="/admin"
-                            className="flex items-center px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground"
-                            onClick={() => setIsUserMenuOpen(false)}
-                          >
+                          <Link to="/admin" className="flex items-center px-4 py-2 text-sm text-foreground hover:bg-accent" onClick={() => setIsUserMenuOpen(false)}>
                             <LayoutDashboard className="h-4 w-4 mr-3" />
                             Admin Dashboard
                           </Link>
@@ -280,41 +225,23 @@ const Navbar = () => {
                       )}
 
                       <div className="py-1 border-t border-border">
-                        <button
-                          onClick={() => {
-                            setIsUserMenuOpen(false);
-                            handleSignOut();
-                          }}
-                          className="flex w-full items-center px-4 py-2 text-sm text-red-500 hover:bg-accent hover:text-red-600"
-                        >
+                        <button onClick={handleSignOut} className="flex w-full items-center px-4 py-2 text-sm text-red-500 hover:bg-accent hover:text-red-600">
                           <LogOut className="h-4 w-4 mr-3" />
                           Sign out
                         </button>
                       </div>
                     </>
                   ) : (
-                    // Unauthenticated user menu
                     <>
                       <div className="p-3 border-b border-border">
                         <p className="font-medium">Welcome</p>
-                        <p className="text-sm text-muted-foreground">
-                          Sign in to your account
-                        </p>
+                        <p className="text-sm text-muted-foreground">Sign in to your account</p>
                       </div>
                       <div className="py-1">
-                        <Link
-                          to="/auth"
-                          className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground"
-                          onClick={() => setIsUserMenuOpen(false)}
-                        >
+                        <Link to="/auth" className="block px-4 py-2 text-sm text-foreground hover:bg-accent" onClick={() => setIsUserMenuOpen(false)}>
                           Sign in
                         </Link>
-                        <Link
-                          to="/auth"
-                          state={{ tab: 'signup' }}
-                          className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground"
-                          onClick={() => setIsUserMenuOpen(false)}
-                        >
+                        <Link to="/auth" state={{ tab: 'signup' }} className="block px-4 py-2 text-sm text-foreground hover:bg-accent" onClick={() => setIsUserMenuOpen(false)}>
                           Create account
                         </Link>
                       </div>
@@ -325,8 +252,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-2">
+          <div className="2xl:hidden flex items-center space-x-2">
             {user && (
               <Button
                 variant="ghost"
@@ -335,7 +261,7 @@ const Navbar = () => {
                 onClick={() => navigate('/profile')}
               >
                 <Avatar className="h-8 w-8">
-                  <AvatarImage src={profile?.avatar_url} />
+                  <AvatarImage src={profile?.avatar_url} alt="User avatar" />
                   <AvatarFallback className="bg-primary text-primary-foreground text-xs">
                     {profile?.first_name?.[0]}
                     {profile?.last_name?.[0]}
@@ -345,7 +271,7 @@ const Navbar = () => {
             )}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-foreground focus:outline-none p-2 rounded-full hover:bg-accent/50 transition-colors"
+              className="text-foreground focus:outline-none p-2 rounded-full hover:bg-accent/50"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -353,131 +279,60 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         <div
           className={cn(
-            'md:hidden mt-2 py-4 bg-background rounded-lg shadow-lg transform transition-all duration-300',
+            '2xl:hidden mt-2 py-4 bg-background rounded-lg shadow-xl transform transition-all duration-300 absolute w-[calc(100%-2rem)] left-1/2 -translate-x-1/2 border border-border',
             isMenuOpen
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 -translate-y-4 pointer-events-none hidden'
+              ? 'opacity-100 translate-y-0 visible'
+              : 'opacity-0 -translate-y-4 invisible'
           )}
         >
           <div className="flex flex-col space-y-3 px-4">
-            <Link
-              to="/homestays"
-              className="py-2 text-foreground hover:text-primary flex items-center gap-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <Home size={16} />
-              Homestays
+            <Link to="/homestays" className="py-2 text-foreground hover:text-primary flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
+              <Home size={16} /> Homestays
             </Link>
-            <Link
-              to="/tours"
-              className="py-2 text-foreground hover:text-primary flex items-center gap-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <CalendarRange size={16} />
-              Tours
+            <Link to="/tours" className="py-2 text-foreground hover:text-primary flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
+              <CalendarRange size={16} /> Tours
             </Link>
-            <Link
-              to="/experiences"
-              className="py-2 text-foreground hover:text-primary flex items-center gap-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <Award size={16} />
-              Experiences
+            <Link to="/experiences" className="py-2 text-foreground hover:text-primary flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
+              <Award size={16} /> Experiences
             </Link>
-            <Link
-              to="/eateries"
-              className="py-2 text-foreground hover:text-primary flex items-center gap-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <Utensils size={16} />
-              Eateries
+            <Link to="/eateries" className="py-2 text-foreground hover:text-primary flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
+              <Utensils size={16} /> Eateries
             </Link>
-            <Link
-              to="/hotspots"
-              className="py-2 text-foreground hover:text-primary flex items-center gap-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <MapPin size={16} />
-              Hotspots
+            <Link to="/hotspots" className="py-2 text-foreground hover:text-primary flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
+              <MapPin size={16} /> Hotspots
             </Link>
-            <Link
-              to="/itinerary"
-              className="py-2 text-foreground hover:text-primary flex items-center gap-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <Map size={16} />
-              Itinerary
+            <Link to="/itinerary" className="py-2 text-foreground hover:text-primary flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
+              <Map size={16} /> Itinerary
             </Link>
-            <Link
-              to="/store"
-              className="py-2 text-foreground hover:text-primary flex items-center gap-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <ShoppingBag size={16} />
-              Store
+            <Link to="/store" className="py-2 text-foreground hover:text-primary flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
+              <ShoppingBag size={16} /> Store
             </Link>
-            <Link
-              to="/transport"
-              className="py-2 text-foreground hover:text-primary flex items-center gap-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <Train size={16} />
-              Transport
+            <Link to="/transport" className="py-2 text-foreground hover:text-primary flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
+              <Train size={16} /> Transport
             </Link>
-            <Link
-              to="/about"
-              className="py-2 text-foreground hover:text-primary flex items-center gap-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <Info size={16} />
-              Our Story
+            <Link to="/about" className="py-2 text-foreground hover:text-primary flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
+              <Info size={16} /> Our Story
             </Link>
-            <Link
-              to="/contact"
-              className="py-2 text-foreground hover:text-primary flex items-center gap-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <PhoneCall size={16} />
-              Contact
+            <Link to="/contact" className="py-2 text-foreground hover:text-primary flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
+              <PhoneCall size={16} /> Contact
             </Link>
             <hr className="border-t border-border" />
-            <Link
-              to="/become-host"
-              className="py-2 text-primary font-semibold flex items-center gap-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <Landmark size={16} />
-              Become a Host
+            <Link to="/become-host" className="py-2 text-primary font-semibold flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
+              <Landmark size={16} /> Become a Host
             </Link>
             {user ? (
               <>
-                <Link
-                  to="/profile"
-                  className="py-2 text-foreground hover:text-primary flex items-center gap-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <User size={16} />
-                  My Profile
+                <Link to="/profile" className="py-2 text-foreground hover:text-primary flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
+                  <User size={16} /> My Profile
                 </Link>
-                <Link
-                  to="/bookings"
-                  className="py-2 text-foreground hover:text-primary flex items-center gap-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <BookOpen size={16} />
-                  My Bookings
+                <Link to="/bookings" className="py-2 text-foreground hover:text-primary flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
+                  <BookOpen size={16} /> My Bookings
                 </Link>
                 {isAdmin && (
-                  <Link
-                    to="/admin"
-                    className="py-2 text-foreground hover:text-primary flex items-center gap-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <LayoutDashboard size={16} />
-                    Admin Dashboard
+                  <Link to="/admin" className="py-2 text-foreground hover:text-primary flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
+                    <LayoutDashboard size={16} /> Admin Dashboard
                   </Link>
                 )}
                 <button
@@ -487,18 +342,12 @@ const Navbar = () => {
                     handleSignOut();
                   }}
                 >
-                  <LogOut size={16} />
-                  Sign Out
+                  <LogOut size={16} /> Sign Out
                 </button>
               </>
             ) : (
-              <Link
-                to="/auth"
-                className="py-2 text-foreground flex items-center gap-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <User size={16} />
-                Sign In / Register
+              <Link to="/auth" className="py-2 text-foreground flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
+                <User size={16} /> Sign In / Register
               </Link>
             )}
           </div>
